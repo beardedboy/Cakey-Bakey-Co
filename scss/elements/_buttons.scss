@@ -1,0 +1,59 @@
+.btn, .btn_flat{
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	background-color: $pink;
+	color: white;
+	border-radius: 0.2777777777777778em; //5px;
+	font-size: $base;
+	font-size: $h4;
+	font-weight: 700;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding:  0.2777777777777778em 0.8333333333333333em; //5px 15px;
+	margin: 0.5555555555555556em; //10px;
+}
+
+.btn{
+	border-bottom: 0.2777777777777778em solid $darkpink;
+	text-decoration: none;
+	&:hover{
+		border-bottom: none;
+	    -ms-transform: translateY(0.2777777777777778em);
+		-webkit-transform: translateY(0.2777777777777778em);
+		transform: translateY(0.2777777777777778em);
+		margin-bottom: 0.2777777777777778em;
+		text-decoration: none;
+	}
+}
+
+.btn-sm{
+	font-size: $h5;
+}
+
+
+.btn-lg{
+	font-size: $h3;
+	&:hover{
+	}
+}
+
+.btn_basket{
+	position: relative;
+	top: -3px;
+}
+
+
+
+.btn_flat{
+    margin: 0;
+    border: 1px solid $darkpink;
+    &:hover{
+        background-color: $darkpink;
+    }
+}
+
+.btn_flat-full{
+	width: 100%;
+}
