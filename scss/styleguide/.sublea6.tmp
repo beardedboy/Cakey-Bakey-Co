@@ -1,0 +1,17 @@
+//******* Header *********
+
+.sg_header{
+	width: 100%;
+	border-bottom: 1px solid #999;
+}
+
+
+//******* Typography *****
+
+.sg_h1{
+	float: left;
+}
+
+.sg_h1{
+	float: right;
+}
