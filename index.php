@@ -5,6 +5,4 @@
 		<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 		<?php endif; ?>
 
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-
 <?php get_footer(); ?>

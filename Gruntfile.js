@@ -40,10 +40,11 @@ module.exports = function(grunt) {
         sass: {
             dist: {                            // Target
                 options: {                       // Target options
-                    style: 'compressed'
+                    style: 'expanded'
                 },
                 files: {                         // Dictionary of files
-                    'css/build/main.css': 'scss/main.scss',       // 'destination': 'source'
+                    'css/seperate/main.css': 'scss/main.scss',   
+                    'css/styleguide/sg.css': 'scss/sg.scss'     // 'destination': 'source'
                 }
 
             }
@@ -52,12 +53,12 @@ module.exports = function(grunt) {
         cssmin: {
             combine: {
                 files: {
-                    'css/deploy/production.css': ['css/build/*.css']
+                    'css/combined/main.css': ['css/seperate/*.css']
                 }
             },
             minify: {
-                src: 'css/deploy/production.css',
-                dest: 'css/deploy/production.min.css'
+                src: 'css/combined/main.css',
+                dest: 'style.css'
             }
         },
 
@@ -73,7 +74,7 @@ module.exports = function(grunt) {
                 }
             },
             css: {
-                files: 'scss/*.scss',
+                files: 'scss/**/*.scss',
                 tasks: ['sass', 'cssmin'],
                 options: {
                     spawn: false,
