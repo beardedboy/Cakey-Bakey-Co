@@ -81,12 +81,26 @@
                 display: block;
                 z-index: 99999;
             }
+            .basket_link_title{
+                color: $white;
+            }
         }
     }
 
     .basket_link_title{
         display: inline;
         visibility: inherit;
+        font-size: 1em;
+        line-height: 1.5;
+        display: inline-block;
+        padding: 0;
+        line-height: 1;
+        color: $black; 
+        font-weight: bold;
+        text-decoration: none;
+        &:hover{
+            color: $white;
+        }
     }
 
     .basket_link_icon-mobile{

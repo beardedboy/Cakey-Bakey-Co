@@ -25,21 +25,6 @@
                 <nav class = "nav nav_main" role = "navigation">
                     <a href = "#" class = "nav_main_btn nav_main_btn-menu">MENU</a>
                     <?php wp_nav_menu( mainNav() ); ?>
-                    <section class = "basket_wrapper">
-                        <div class="basket_link">
-                            <!--<span class = "badge basket_badge">10</span>-->
-                            <a class = "icon-basket basket_link_icon-mobile icon-basket-empty"></a>
-                            <span class = "basket_link_title">Basket</span>
-                            
-                            <div class = "basket">
-                                <ul class = "basket_list">
-                                </ul>
-                                <footer class = "basket_footer">
-                                    <div class = "btn_flat btn_flat-full" href="">View basket</div>
-                                </footer>
-                            </div>
-                        </div>
-                    </section>
                 </nav><!-- end nav nav_main -->
                 <hr class = "hr hr-double" />
             </div><!-- end col-12-12 -->

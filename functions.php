@@ -1,6 +1,5 @@
 <?php
 
-
  
 /**************************************************************************************
 ***************************************************************************************
@@ -22,42 +21,89 @@ class mainnav_walker extends Walker_Nav_Menu{
 	 * @return void
 	 */
 
+
 	function start_el( &$output, $item, $depth, $args )
 	{	
+		/* The menu handle from the register_nav_menu statement in functions.php
+		$theme_location = 'main-nav';
 
-		if ($depth > 0) {
-			$output .= '<li class = "nav_main_list_item_sublist_item">';
+		$theme_locations = get_nav_menu_locations();
+
+		$menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );
+
+		// Echo count of items in menu
+		echo $menu_obj->count;*/
+
+		if ($item->title == 'Basket'){
+			//echo "basket";
+
+			$output .= '<li class = "basket_wrapper">';
+
+			$attributes  = '';
+	 
+			! empty ( $item->attr_title )
+				// Avoid redundant titles
+				and $item->attr_title !== $item->title
+				and $attributes .= ' title="' . esc_attr( $item->attr_title ) .'"';
+	 
+			! empty ( $item->url )
+				and $attributes .= ' href="' . esc_attr( $item->url ) .'"';
+
+			$attributes .= 'class= "basket_link_title" ';
+	 
+			$attributes  = trim( $attributes );
+			$title       = apply_filters( 'the_title', $item->title, $item->ID );
+
+			$item_output = '<div class="basket_link">'.
+                            '<a href="'.$item->url.'" class = "icon-basket basket_link_icon-mobile icon-basket-empty"></a>'
+                            ."$args->before<a $attributes>$args->link_before$title</a>"
+							."$args->link_after$args->after"
+							.'<div class = "basket">
+							<ul class = "basket_list">
+							<footer class = "basket_footer">
+							<div class = "btn_flat btn_flat-full" href="">View basket</div>
+                            </footer><!-- end basket_footer -->
+                            </div><!-- end basket -->
+                            </div><!-- end basket_link -->';
+
 		}
+
 		else{
-				$output .= '<li class = "nav_main_list_item">';
-		}
+			if ($depth > 0) {
+				$output .= '<li class = "nav_main_list_item_sublist_item">';
+			}
+			else{
+					$output .= '<li class = "nav_main_list_item">';
+			}
 
-		$attributes  = '';
- 
-		! empty ( $item->attr_title )
-			// Avoid redundant titles
-			and $item->attr_title !== $item->title
-			and $attributes .= ' title="' . esc_attr( $item->attr_title ) .'"';
- 
-		! empty ( $item->url )
-			and $attributes .= ' href="' . esc_attr( $item->url ) .'"';
- 
-		$attributes  = trim( $attributes );
-		$title       = apply_filters( 'the_title', $item->title, $item->ID );
+			$attributes  = '';
+	 
+			! empty ( $item->attr_title )
+				// Avoid redundant titles
+				and $item->attr_title !== $item->title
+				and $attributes .= ' title="' . esc_attr( $item->attr_title ) .'"';
+	 
+			! empty ( $item->url )
+				and $attributes .= ' href="' . esc_attr( $item->url ) .'"';
+	 
+			$attributes  = trim( $attributes );
+			$title       = apply_filters( 'the_title', $item->title, $item->ID );
 
-		$dropdown = ($args->walker->has_children) ? '<span class = "icon-dropdown"></span>' : '';
+			$dropdown = ($args->walker->has_children) ? '<span class = "icon-dropdown"></span>' : '';
 
-		$item_output = "$args->before<a $attributes>$args->link_before$title</a>"
-						. "$args->link_after$args->after". $dropdown;
- 
-		// Since $output is called by reference we don't need to return anything.
-		$output .= apply_filters(
-			'walker_nav_menu_start_el'
-			,   $item_output
-			,   $item
-			,   $depth
-			,   $args
-		);
+			$item_output = "$args->before<a $attributes>$args->link_before$title</a>"
+							. "$args->link_after$args->after". $dropdown;
+
+		};
+	 
+			// Since $output is called by reference we don't need to return anything.
+			$output .= apply_filters(
+				'walker_nav_menu_start_el'
+				,   $item_output
+				,   $item
+				,   $depth
+				,   $args
+			);
 	}
  
 	/**
@@ -189,7 +235,6 @@ function cakeybakeyco_setup(){
 		    'walker'          => new mainnav_walker()
 		);
 }
-
 
 	add_action( 'init', 'register_main_nav' );
 
