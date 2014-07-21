@@ -1,5 +1,16 @@
 <?php
 
+
+ 
+/**************************************************************************************
+***************************************************************************************
+
+Main Navigation Walker Class
+
+***************************************************************************************
+***************************************************************************************/
+
+
 class mainnav_walker extends Walker_Nav_Menu{
 		/**
 	 * Start the element output.
@@ -10,17 +21,15 @@ class mainnav_walker extends Walker_Nav_Menu{
 	 * @param  array $args    Additional strings.
 	 * @return void
 	 */
-	public function start_el( &$output, $item, $depth, $args )
+
+	function start_el( &$output, $item, $depth, $args )
 	{	
-
-			//print_r($item);
-
 
 		if ($depth > 0) {
 			$output .= '<li class = "nav_main_list_item_sublist_item">';
 		}
 		else{
-			$output .= '<li class = "nav_main_list_item">';
+				$output .= '<li class = "nav_main_list_item">';
 		}
 
 		$attributes  = '';
@@ -35,8 +44,11 @@ class mainnav_walker extends Walker_Nav_Menu{
  
 		$attributes  = trim( $attributes );
 		$title       = apply_filters( 'the_title', $item->title, $item->ID );
+
+		$dropdown = ($args->walker->has_children) ? '<span class = "icon-dropdown"></span>' : '';
+
 		$item_output = "$args->before<a $attributes>$args->link_before$title</a>"
-						. "$args->link_after$args->after";
+						. "$args->link_after$args->after". $dropdown;
  
 		// Since $output is called by reference we don't need to return anything.
 		$output .= apply_filters(
@@ -54,7 +66,7 @@ class mainnav_walker extends Walker_Nav_Menu{
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @return void
 	 */
-	public function start_lvl( &$output )
+	function start_lvl( &$output )
 	{
 		$output .= '<ul class="nav_main_list_item_sublist">';
 	}
@@ -65,9 +77,10 @@ class mainnav_walker extends Walker_Nav_Menu{
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @return void
 	 */
-	public function end_lvl( &$output )
+	function end_lvl( &$output )
 	{
-		$output .= '</ul>';
+		$indent = str_repeat("\t");
+	    $output .= "$indent</ul>\n";
 	}
  
 	/**
@@ -80,10 +93,68 @@ class mainnav_walker extends Walker_Nav_Menu{
 	{
 		$output .= '</li>';
 	}
+
+	function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+
+	                if ( !$element )
+                        return;
+
+	                $id_field = $this->db_fields['id'];
+	                $id       = $element->$id_field;
+	
+	                //display this element
+	                $this->has_children = ! empty( $children_elements[ $id ] );
+	                if ( isset( $args[0] ) && is_array( $args[0] ) ) {
+	                        $args[0]['has_children'] = $this->has_children; // Backwards compatibility.
+	                }
+
+	                $cb_args = array_merge( array(&$output, $element, $depth), $args);
+
+
+	                call_user_func_array(array($this, 'start_el'), $cb_args);
+
+	
+	                // descend only when the depth is right and there are childrens for this element
+	                if ( ($max_depth == 0 || $max_depth > $depth+1 ) && isset( $children_elements[$id]) ) {
+	
+	                        foreach( $children_elements[ $id ] as $child ){
+									//print_r($children_elements[$id]);
+	                                if ( !isset($newlevel) ) {
+	                                        $newlevel = true;
+	                                        //start the child delimiter
+	                                        $cb_args = array_merge( array(&$output, $depth), $args);
+	                                        call_user_func_array(array($this, 'start_lvl'), $cb_args);
+	                                }
+	                                $this->display_element( $child, $children_elements, $max_depth, $depth + 1, $args, $output );
+	                        }
+	                        unset( $children_elements[ $id ] );
+	                }
+	
+	                if ( isset($newlevel) && $newlevel ){
+	                        //end the child delimiter
+	                        $cb_args = array_merge( array(&$output, $depth), $args);
+	                        call_user_func_array(array($this, 'end_lvl'), $cb_args);
+	                }
+	
+	                //end this element
+	                $cb_args = array_merge( array(&$output, $element, $depth), $args);
+	                call_user_func_array(array($this, 'end_el'), $cb_args);
+	        }
+
 }
 
 
+
+/****************************************************************************************
+
+Function to set everything up for the theme
+
+****************************************************************************************/
+
 function cakeybakeyco_setup(){
+
+
+	//Register theme menus
 
 	function register_main_nav(){
 		register_nav_menus(
@@ -95,6 +166,8 @@ function cakeybakeyco_setup(){
 			)
 		);
 	}
+
+	
 
 	function mainNav(){
 		return array(

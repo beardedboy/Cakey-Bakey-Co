@@ -39,7 +39,7 @@ module.exports = function(grunt) {
 
         sass: {
             dist: {                            // Target
-                options: {                       // Target options
+                options: {                      // Target options
                     style: 'expanded'
                 },
                 files: {                         // Dictionary of files
