@@ -197,6 +197,11 @@ Function to set everything up for the theme
 
 function cakeybakeyco_setup(){
 
+	// Theme Cleanup
+
+	remove_action('wp_head', 'wlwmanifest_link');
+	remove_action('wp_head', 'rsd_link');
+
 
 	//Register theme menus
 
@@ -251,12 +256,9 @@ function cakeybakeyco_setup(){
 
 	}
 
-	function cbc_load_styles() {
-
-	}
-
 	// Hook into the 'wp_enqueue_scripts' action
 	add_action( 'wp_enqueue_scripts', 'cbc_load_js' );
+
 	add_action( 'init', 'register_main_nav' );
 }
 

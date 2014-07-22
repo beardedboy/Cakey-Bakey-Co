@@ -1,16 +1,15 @@
 @charset "UTF-8";
 
-@font-face {
+/*@font-face {
   font-family: "cakeybakeyco";
-  src:url("../../fonts/cakeybakeyco.eot");
-  src:url("../../fonts/cakeybakeyco.eot?#iefix") format("embedded-opentype"),
-    url("../../fonts/cakeybakeyco.woff") format("woff"),
-    url("../../fonts/cakeybakeyco.ttf") format("truetype"),
-    url("../../fonts/cakeybakeyco.svg#cakeybakeyco") format("svg");
+  src:url("/fonts/cakeybakeyco.eot");
+  src:url("/fonts/cakeybakeyco.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/cakeybakeyco.woff") format("woff"),
+    url("/fonts/cakeybakeyco.ttf") format("truetype"),
+    url("/fonts/cakeybakeyco.svg#cakeybakeyco") format("svg");
   font-weight: normal;
   font-style: normal;
-
-}
+}*/ 
 
 [data-icon]:before {
   font-family: "cakeybakeyco" !important;

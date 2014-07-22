@@ -11,6 +11,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+        <style>
+            @font-face {
+                    font-family: "cakeybakeyco";
+                    src:url("<?php bloginfo('template_directory'); ?>/fonts/cakeybakeyco.eot");
+                    src:url("<?php bloginfo('template_directory'); ?>/fonts/cakeybakeyco.eot?#iefix") format("embedded-opentype"),
+                    url("<?php bloginfo('template_directory'); ?>/fonts/cakeybakeyco.woff") format("woff"),
+                    url("<?php bloginfo('template_directory'); ?>/fonts/cakeybakeyco.ttf") format("truetype"),
+                    url("<?php bloginfo('template_directory'); ?>/fonts/cakeybakeyco.svg#cakeybakeyco") format("svg");
+                    font-weight: normal;
+                    font-style: normal;
+            }
+        </style>
         <?php wp_head(); ?>
     </head>
     <body>
