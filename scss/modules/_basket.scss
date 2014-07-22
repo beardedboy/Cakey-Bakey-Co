@@ -72,6 +72,7 @@
         color: $black;
         text-decoration: none;
         letter-spacing: 1px;
+        border-left: 1px solid black;
         &:hover, &:active{
             color: white;
             border-top-left-radius: 0.2777777777777778em;

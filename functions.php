@@ -35,7 +35,6 @@ class mainnav_walker extends Walker_Nav_Menu{
 		echo $menu_obj->count;*/
 
 		if ($item->title == 'Basket'){
-			//echo "basket";
 
 			$output .= '<li class = "basket_wrapper">';
 
@@ -125,8 +124,7 @@ class mainnav_walker extends Walker_Nav_Menu{
 	 */
 	function end_lvl( &$output )
 	{
-		$indent = str_repeat("\t");
-	    $output .= "$indent</ul>\n";
+	    $output .= "</ul>";
 	}
  
 	/**
@@ -230,14 +228,36 @@ function cakeybakeyco_setup(){
 		    'after'           => '',
 		    'link_before'     => '',
 		    'link_after'      => '',
-		    'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
+		    'items_wrap'      => '<ul class="%2$s"><a href = "#" class = "nav_main_btn nav_main_btn-close"><span class = "icon-close"></span>Close</a>%3$s</ul>',
 		    'depth'           => 0,
 		    'walker'          => new mainnav_walker()
 		);
-}
+	}
 
+
+	// Register Script
+	function cbc_load_js() {
+
+		wp_deregister_script('jquery');
+
+		wp_register_script( 'jquery', get_template_directory_uri().'js/vendor/jquery.js', false, '1.11.1', true );
+		wp_enqueue_script( 'jquery' );
+
+		wp_register_script( 'modernizr', get_template_directory_uri().'/js/vendor/modernizr.js', false, '2.8.3', false );
+		wp_enqueue_script( 'modernizr' );
+
+		wp_register_script( 'jsmain', get_template_directory_uri().'/js/deploy/production.min.js', array( 'jquery' ), '1.0.0', true );
+		wp_enqueue_script( 'jsmain' );
+
+	}
+
+	function cbc_load_styles() {
+
+	}
+
+	// Hook into the 'wp_enqueue_scripts' action
+	add_action( 'wp_enqueue_scripts', 'cbc_load_js' );
 	add_action( 'init', 'register_main_nav' );
-
 }
 
 add_action( 'after_setup_theme', 'cakeybakeyco_setup' );

@@ -97,7 +97,7 @@ var Carousel = (function ($) {
 	function animation(){
 		var nextSlide = settings.currentSlide + 1;
 		if(!settings.medmq.matches){
-			console.log("big");
+			//console.log("big");
 			if(settings.currentSlide < settings.slides.length - 1){	
 				settings.slides.eq(nextSlide).addClass(settings.activeClass);
 				settings.slides.eq(settings.currentSlide).removeClass(settings.activeClass);
@@ -111,7 +111,7 @@ var Carousel = (function ($) {
 			//console.log(settings.currentSlide);
 		}
 		else{
-			console.log("small");
+			//console.log("small");
 		}
 	};
 

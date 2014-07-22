@@ -1,11 +1,10 @@
 
         </div><!-- end container -->
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="../js/plugins.js"></script>
-        <script src="../js/deploy/production.min.js"></script>
-        <!-- <script src="js/main.js"></script> -->
+        <?php wp_footer(); ?>
+
+        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>-->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -17,5 +16,4 @@
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
     </body>
-    <?php wp_footer(); ?>
 </html>
