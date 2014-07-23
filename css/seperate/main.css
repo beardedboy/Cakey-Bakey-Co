@@ -644,10 +644,12 @@ textarea {
 .row {
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
 [class*='col-'] {
   margin: 1%;
+  width: 100%;
 }
 @media only screen and (min-width: 30em) {
   [class*='col-'] {
@@ -1211,6 +1213,7 @@ textarea {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
+  text-decoration: none;
   padding: 0.2777777777777778em 0.8333333333333333em;
   margin: 0.5555555555555556em;
 }
@@ -1430,7 +1433,9 @@ img {
 }
 
 .nav_main_btn {
-  display: block;
+  display: inline-block;
+  float: left;
+  width: 70%;
   font: bold 1.28571em/1.5 "Open Sans", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   color: black;
@@ -1766,7 +1771,7 @@ img {
   display: none;
 }
 
-.basket_link {
+.basket_link, .basket_link_icon-mobile {
   display: inline-block;
   width: 100%;
   text-decoration: none;
@@ -1774,18 +1779,25 @@ img {
   line-height: 1.5;
   padding: .5em 0;
 }
-.basket_link:hover, .basket_link:active {
+.basket_link:hover, .basket_link:active, .basket_link_icon-mobile:hover, .basket_link_icon-mobile:active {
   color: white;
   background-color: #e68a9e;
 }
-.basket_link:hover .basket_link_icon-mobile, .basket_link:active .basket_link_icon-mobile {
+.basket_link:hover .basket_link_icon-mobile, .basket_link:active .basket_link_icon-mobile, .basket_link_icon-mobile:hover .basket_link_icon-mobile, .basket_link_icon-mobile:active .basket_link_icon-mobile {
   color: white;
 }
 
 .basket_link_icon-mobile {
-  display: block;
+  display: inline-block;
+  width: 30%;
+  float: left;
   color: black;
   text-align: center;
+}
+
+.basket_link_icon-desktop {
+  display: none;
+  visibility: hidden;
 }
 
 .basket_link_title, .basket_badge {
@@ -1863,6 +1875,11 @@ img {
   .basket_link_icon-mobile {
     display: none;
     visibility: hidden;
+  }
+
+  .basket_link_icon-desktop {
+    display: inline-block;
+    visibility: inherit;
   }
 
   .basket_list {

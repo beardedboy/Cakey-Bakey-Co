@@ -14,10 +14,12 @@
 	@extend %clearfix;
 	padding: 0;
 	margin: 0;
+	width: 100%;
 }
 
 [class*='col-']{
 	margin: $col-margin;
+	width: 100%;
 	//background-color: #ccc;
 	@include min-screen($sm-bp){
 		float: left;

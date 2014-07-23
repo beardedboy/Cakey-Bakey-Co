@@ -36,7 +36,20 @@ class mainnav_walker extends Walker_Nav_Menu{
 
 		if ($item->title == 'Basket'){
 
-			$output .= '<li class = "basket_wrapper">';
+			global $woocommerce;
+			$cart_url = $woocommerce->cart->get_cart_url();
+			$shop_page_url = get_permalink( woocommerce_get_page_id( 'shop' ) );
+			$cart_contents_count = $woocommerce->cart->cart_contents_count;
+			$cart_contents = sprintf(_n('%d', '%d', $cart_contents_count, 'cakeybakeyco'), $cart_contents_count);
+			$cart_total = $woocommerce->cart->get_cart_total();
+
+			if($cart_contents_count > 0 ){
+				$counter = '<span class = "badge basket_badge">'.$cart_contents_count.'</span>';
+			}
+			else{
+				$counter = '';
+			}
+			$output .= '<li class = "basket_wrapper basket_link_icon-desktop">';
 
 			$attributes  = '';
 	 
@@ -45,22 +58,20 @@ class mainnav_walker extends Walker_Nav_Menu{
 				and $item->attr_title !== $item->title
 				and $attributes .= ' title="' . esc_attr( $item->attr_title ) .'"';
 	 
-			! empty ( $item->url )
-				and $attributes .= ' href="' . esc_attr( $item->url ) .'"';
+	 		$attributes .= ' href="' . $cart_url .'"';
 
 			$attributes .= 'class= "basket_link_title" ';
 	 
 			$attributes  = trim( $attributes );
 			$title       = apply_filters( 'the_title', $item->title, $item->ID );
 
-			$item_output = '<div class="basket_link">'.
-                            '<a href="'.$item->url.'" class = "icon-basket basket_link_icon-mobile icon-basket-empty"></a>'
+			$item_output = '<div class="basket_link">'.$counter
                             ."$args->before<a $attributes>$args->link_before$title</a>"
 							."$args->link_after$args->after"
 							.'<div class = "basket">
 							<ul class = "basket_list">
 							<footer class = "basket_footer">
-							<div class = "btn_flat btn_flat-full" href="">View basket</div>
+							<a class = "btn_flat btn_flat-full" href="'.$cart_url.'">View basket</a>
                             </footer><!-- end basket_footer -->
                             </div><!-- end basket -->
                             </div><!-- end basket_link -->';
@@ -186,6 +197,48 @@ class mainnav_walker extends Walker_Nav_Menu{
 	        }
 
 }
+ 
+/**
+ * Place a cart icon with number of items and total cost in the menu bar.
+ *
+ * Source: http://wordpress.org/plugins/woocommerce-menu-bar-cart/
+ */
+//add_filter('wp_nav_menu_items','sk_wcmenucart', 10, 2);
+
+function sk_wcmenucart($menu, $args) {
+ 
+	// Check if WooCommerce is active and add a new item to a menu assigned to Primary Navigation Menu location
+	if ( !in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) || 'primary' !== $args->theme_location )
+		return $menu;
+ 
+	ob_start();
+		global $woocommerce;
+		$viewing_cart = __('View your shopping cart', 'cakeybakeyco');
+		$start_shopping = __('Start shopping', 'cakeybakeyco');
+		$cart_url = $woocommerce->cart->get_cart_url();
+		$shop_page_url = get_permalink( woocommerce_get_page_id( 'shop' ) );
+		$cart_contents_count = $woocommerce->cart->cart_contents_count;
+		$cart_contents = sprintf(_n('%d item', '%d items', $cart_contents_count, 'cakeybakeyco'), $cart_contents_count);
+		$cart_total = $woocommerce->cart->get_cart_total();
+		// Uncomment the line below to hide nav menu cart item when there are no items in the cart
+		// if ( $cart_contents_count > 0 ) {
+			if ($cart_contents_count == 0) {
+				$menu_item = '<li class="right"><a class="wcmenucart-contents" href="'. $shop_page_url .'" title="'. $start_shopping .'">';
+			} else {
+				$menu_item = '<li class="right"><a class="wcmenucart-contents" href="'. $cart_url .'" title="'. $viewing_cart .'">';
+			}
+ 
+			$menu_item .= '<i class="fa fa-shopping-cart"></i> ';
+ 
+			$menu_item .= $cart_contents.' - '. $cart_total;
+			$menu_item .= '</a></li>';
+		// Uncomment the line below to hide nav menu cart item when there are no items in the cart
+		// }
+		echo $menu_item;
+	$social = ob_get_clean();
+	return $menu . $social;
+ 
+}
 
 
 
@@ -201,6 +254,14 @@ function cakeybakeyco_setup(){
 
 	remove_action('wp_head', 'wlwmanifest_link');
 	remove_action('wp_head', 'rsd_link');
+	remove_action('wp_head', 'wp_generator');
+
+	add_action( 'init', 'register_main_nav' );
+
+	add_action( 'wp_enqueue_scripts', 'cbc_load_js' );	
+	add_action( 'wp_enqueue_scripts', 'child_manage_woocommerce_styles', 99 );
+
+	add_action( 'after_setup_theme', 'woocommerce_support' );
 
 
 	//Register theme menus
@@ -216,7 +277,6 @@ function cakeybakeyco_setup(){
 		);
 	}
 
-	
 
 	function mainNav(){
 		return array(
@@ -233,10 +293,32 @@ function cakeybakeyco_setup(){
 		    'after'           => '',
 		    'link_before'     => '',
 		    'link_after'      => '',
-		    'items_wrap'      => '<ul class="%2$s"><a href = "#" class = "nav_main_btn nav_main_btn-close"><span class = "icon-close"></span>Close</a>%3$s</ul>',
+		    'items_wrap'      => '<ul class="%2$s"><a href = "#" class = "nav_main_btn nav_main_btn-close"><span class = "icon-close"></span>Close</a>%3$s</ul><a href="#" class = "icon-basket basket_link_icon-mobile icon-basket-empty"></a>',
 		    'depth'           => 0,
 		    'walker'          => new mainnav_walker()
 		);
+	}
+
+	function woocommerce_support() {
+	    add_theme_support( 'woocommerce' );
+	}
+
+ 
+	function child_manage_woocommerce_styles() {
+	    //first check that woo exists to prevent fatal errors
+	    if ( function_exists( 'is_woocommerce' ) ) {
+	        //dequeue scripts and styles
+	        if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() ) {
+	        	wp_dequeue_style( 'woocommerce-layout' );
+				wp_dequeue_style( 'woocommerce-smallscreen' );
+				wp_dequeue_style( 'woocommerce-general' );
+				wp_dequeue_script( 'wc-add-to-cart' );
+				wp_dequeue_script( 'wc-cart-fragments' );
+				wp_dequeue_script( 'woocommerce' );
+				wp_dequeue_script( 'jquery-blockui' );
+				wp_dequeue_script( 'jquery-placeholder' );
+	        }
+	    }	 
 	}
 
 
@@ -256,10 +338,6 @@ function cakeybakeyco_setup(){
 
 	}
 
-	// Hook into the 'wp_enqueue_scripts' action
-	add_action( 'wp_enqueue_scripts', 'cbc_load_js' );
-
-	add_action( 'init', 'register_main_nav' );
 }
 
 add_action( 'after_setup_theme', 'cakeybakeyco_setup' );

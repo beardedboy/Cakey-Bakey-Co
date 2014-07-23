@@ -25,9 +25,10 @@
     margin: 1em 0;
  }
 
-
 .nav_main_btn{
-    display: block;
+    display: inline-block;
+    float: left;
+    width: 70%;
     font: bold 1.285714285714286em/1.5 $font-family; //18px;
     text-transform: uppercase;
     color: $black;
