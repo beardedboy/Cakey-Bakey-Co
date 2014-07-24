@@ -2,7 +2,7 @@
         display: none;
     }
 
-    .basket_link, .basket_link_icon-mobile{
+    .basket_link{
         display: inline-block;
         width: 100%;
         text-decoration: none;
@@ -18,24 +18,38 @@
         }
     }
 
-    .basket_link_icon-mobile{
+    .basket_link-mobile{
         display: inline-block;
         width: 30%;
+        font-size: 1.285714285714286em; //18px;
+        line-height: 1.5;
         float: left;
         color: $black;
         text-align: center;
-        &:before{
+        &:hover, &:active{
+            color: white;
+            background-color: $pink;
+            .basket_link_icon-mobile{
+                color: $white;
+            }
         }
     }
 
-    .basket_link_icon-desktop{
+    .basket_link_icon-mobile{
+        text-decoration: none;
+        padding: 0;
+        color: black;
+    }
+
+    .basket_link_icon-desktop, .basket_link_title, .basket_badge{
         display: none;
         visibility: hidden;
     }
 
-    .basket_link_title, .basket_badge{
-        display: none;
-        visibility: hidden;
+    .basket_badge-mobile{
+        font-size: .8em;
+        display: inline;
+        visibility: inherit;
     }
 
     .basket_list_item{
@@ -45,17 +59,21 @@
 
 @include min-screen($med-bp) {
 
-
     .basket_wrapper{
         display: inline;
         position: relative;
-        margin-left: 1em;
+        padding-left: 1em;
     }
 
     .basket_badge{
         font-size: 1em;
         display: inline;
         visibility: inherit;
+    }
+
+    .basket_badge-mobile{
+        display: none;
+        visibility: hidden;
     }
 
     .basket{
@@ -80,7 +98,6 @@
         color: $black;
         text-decoration: none;
         letter-spacing: 1px;
-        border-left: 1px solid black;
         &:hover, &:active{
             color: white;
             border-top-left-radius: 0.2777777777777778em;
@@ -112,6 +129,11 @@
         }
     }
 
+    .basket_link-mobile{
+        display: none;
+        visibility: hidden;
+    }
+
     .basket_link_icon-mobile{
         display: none;
         visibility: hidden;
@@ -120,6 +142,7 @@
     .basket_link_icon-desktop{
         display: inline-block;
         visibility: inherit;
+        border-left: 1px solid black;
     }
 
     .basket_list{

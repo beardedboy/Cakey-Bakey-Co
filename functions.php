@@ -9,6 +9,18 @@ Main Navigation Walker Class
 ***************************************************************************************
 ***************************************************************************************/
 
+function cbc_GetStoreData(){
+	global $woocommerce;
+
+	return array(
+		"cart_url" => $woocommerce->cart->get_cart_url(),
+		"shop_page_url" => get_permalink( woocommerce_get_page_id( 'shop' ) ),
+		"cart_contents_count" => $woocommerce->cart->cart_contents_count,
+		"cart_contents" => sprintf(_n('%d', '%d', $cart_contents_count, 'cakeybakeyco'), $cart_contents_count),
+		"cart_total" => $woocommerce->cart->get_cart_total(),
+	);
+}
+
 
 class mainnav_walker extends Walker_Nav_Menu{
 		/**
@@ -36,12 +48,15 @@ class mainnav_walker extends Walker_Nav_Menu{
 
 		if ($item->title == 'Basket'){
 
+			$data = cbc_GetStoreData();
+
 			global $woocommerce;
-			$cart_url = $woocommerce->cart->get_cart_url();
-			$shop_page_url = get_permalink( woocommerce_get_page_id( 'shop' ) );
-			$cart_contents_count = $woocommerce->cart->cart_contents_count;
-			$cart_contents = sprintf(_n('%d', '%d', $cart_contents_count, 'cakeybakeyco'), $cart_contents_count);
-			$cart_total = $woocommerce->cart->get_cart_total();
+			$cart_url = $data["cart_url"];
+			$shop_page_url = $data["shop_page_url"];
+			$cart_contents_count = $data["cart_contents_count"];
+			$cart_contents = $data["cart_contents"];
+			$cart_total = $data["cart_total"];
+
 
 			if($cart_contents_count > 0 ){
 				$counter = '<span class = "badge basket_badge">'.$cart_contents_count.'</span>';
@@ -79,11 +94,16 @@ class mainnav_walker extends Walker_Nav_Menu{
 		}
 
 		else{
+
+			$dropdown = $args->walker->has_children;
+			$styledropdown = $dropdown ? ' nav_main_list_item-dropdown' : '';
+			$icondropdown = $dropdown ? '<span class = "icon-dropdown"></span>' : '';
+
 			if ($depth > 0) {
 				$output .= '<li class = "nav_main_list_item_sublist_item">';
 			}
 			else{
-					$output .= '<li class = "nav_main_list_item">';
+					$output .= '<li class = "nav_main_list_item '.$styledropdown.'">';
 			}
 
 			$attributes  = '';
@@ -99,10 +119,9 @@ class mainnav_walker extends Walker_Nav_Menu{
 			$attributes  = trim( $attributes );
 			$title       = apply_filters( 'the_title', $item->title, $item->ID );
 
-			$dropdown = ($args->walker->has_children) ? '<span class = "icon-dropdown"></span>' : '';
 
 			$item_output = "$args->before<a $attributes>$args->link_before$title</a>"
-							. "$args->link_after$args->after". $dropdown;
+							. "$args->link_after$args->after". $icondropdown;
 
 		};
 	 
@@ -197,48 +216,6 @@ class mainnav_walker extends Walker_Nav_Menu{
 	        }
 
 }
- 
-/**
- * Place a cart icon with number of items and total cost in the menu bar.
- *
- * Source: http://wordpress.org/plugins/woocommerce-menu-bar-cart/
- */
-//add_filter('wp_nav_menu_items','sk_wcmenucart', 10, 2);
-
-function sk_wcmenucart($menu, $args) {
- 
-	// Check if WooCommerce is active and add a new item to a menu assigned to Primary Navigation Menu location
-	if ( !in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) || 'primary' !== $args->theme_location )
-		return $menu;
- 
-	ob_start();
-		global $woocommerce;
-		$viewing_cart = __('View your shopping cart', 'cakeybakeyco');
-		$start_shopping = __('Start shopping', 'cakeybakeyco');
-		$cart_url = $woocommerce->cart->get_cart_url();
-		$shop_page_url = get_permalink( woocommerce_get_page_id( 'shop' ) );
-		$cart_contents_count = $woocommerce->cart->cart_contents_count;
-		$cart_contents = sprintf(_n('%d item', '%d items', $cart_contents_count, 'cakeybakeyco'), $cart_contents_count);
-		$cart_total = $woocommerce->cart->get_cart_total();
-		// Uncomment the line below to hide nav menu cart item when there are no items in the cart
-		// if ( $cart_contents_count > 0 ) {
-			if ($cart_contents_count == 0) {
-				$menu_item = '<li class="right"><a class="wcmenucart-contents" href="'. $shop_page_url .'" title="'. $start_shopping .'">';
-			} else {
-				$menu_item = '<li class="right"><a class="wcmenucart-contents" href="'. $cart_url .'" title="'. $viewing_cart .'">';
-			}
- 
-			$menu_item .= '<i class="fa fa-shopping-cart"></i> ';
- 
-			$menu_item .= $cart_contents.' - '. $cart_total;
-			$menu_item .= '</a></li>';
-		// Uncomment the line below to hide nav menu cart item when there are no items in the cart
-		// }
-		echo $menu_item;
-	$social = ob_get_clean();
-	return $menu . $social;
- 
-}
 
 
 
@@ -256,6 +233,7 @@ function cakeybakeyco_setup(){
 	remove_action('wp_head', 'rsd_link');
 	remove_action('wp_head', 'wp_generator');
 
+	//Register Main Navigation
 	add_action( 'init', 'register_main_nav' );
 
 	add_action( 'wp_enqueue_scripts', 'cbc_load_js' );	
@@ -263,6 +241,27 @@ function cakeybakeyco_setup(){
 
 	add_action( 'after_setup_theme', 'woocommerce_support' );
 
+	add_filter('wp_title', 'cbc_main_title', 10, 2);
+
+
+	//Function to add Site title before each individual page title.  Eg. > 'Cupcakes' becomes 'Cakey Bakey Co. - Cupcakes'
+	function cbc_main_title($title, $sep){
+		//Get site title 
+		$sep = " - ";
+		$bloginfo = get_bloginfo();
+		$pagetitle = $title;
+
+		if( is_home() || is_front_page() ){
+
+			$title = $bloginfo;
+			return $title;
+
+		}
+
+		$title = $bloginfo.$sep.$pagetitle;
+
+		return $title;
+	}
 
 	//Register theme menus
 
@@ -277,6 +276,24 @@ function cakeybakeyco_setup(){
 		);
 	}
 
+	function mobileBasket(){
+		$data = cbc_GetStoreData();
+		$basket = '<div class = "basket_link basket_link-mobile">';
+
+		if($data['cart_contents_count'] > 0 ){
+				$basket .= '<span class = "badge basket_badge basket_badge-mobile">'.$data['cart_contents_count'].'</span>';
+			}
+			else{
+				$basket .= '';
+		}
+
+		$basket .= '<a href="'.$data['cart_url'].'" class = "icon-basket basket_link_icon-mobile icon-basket-empty"></a>';
+
+		$basket .= '</div>';
+
+		return $basket;
+
+	}
 
 	function mainNav(){
 		return array(
@@ -293,7 +310,7 @@ function cakeybakeyco_setup(){
 		    'after'           => '',
 		    'link_before'     => '',
 		    'link_after'      => '',
-		    'items_wrap'      => '<ul class="%2$s"><a href = "#" class = "nav_main_btn nav_main_btn-close"><span class = "icon-close"></span>Close</a>%3$s</ul><a href="#" class = "icon-basket basket_link_icon-mobile icon-basket-empty"></a>',
+		    'items_wrap'      => '<ul class="%2$s"><a href = "#" class = "nav_main_btn nav_main_btn-close"><span class = "icon-close"></span>Close</a>%3$s</ul>'.mobileBasket(),
 		    'depth'           => 0,
 		    'walker'          => new mainnav_walker()
 		);

@@ -1441,6 +1441,7 @@ img {
   color: black;
   padding: .5em 0;
   text-decoration: none;
+  border-right: 1px solid black;
 }
 .nav_main_btn:active, .nav_main_btn:hover {
   background-color: #e68a9e;
@@ -1454,6 +1455,8 @@ img {
 }
 
 .nav_main_btn-close {
+  float: none;
+  width: 100%;
   color: white;
   border-bottom: 1px solid #404040;
   padding-right: 3em;
@@ -1605,7 +1608,13 @@ img {
   }
   .nav_main_list_item-dropdown:hover {
     color: white;
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-bottom-right-radius: 0;
+    -ms-border-bottom-right-radius: 0;
     border-bottom-right-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-bottom-left-radius: 0;
+    -ms-border-bottom-left-radius: 0;
     border-bottom-left-radius: 0;
   }
 
@@ -1771,7 +1780,7 @@ img {
   display: none;
 }
 
-.basket_link, .basket_link_icon-mobile {
+.basket_link {
   display: inline-block;
   width: 100%;
   text-decoration: none;
@@ -1779,43 +1788,64 @@ img {
   line-height: 1.5;
   padding: .5em 0;
 }
-.basket_link:hover, .basket_link:active, .basket_link_icon-mobile:hover, .basket_link_icon-mobile:active {
+.basket_link:hover, .basket_link:active {
   color: white;
   background-color: #e68a9e;
 }
-.basket_link:hover .basket_link_icon-mobile, .basket_link:active .basket_link_icon-mobile, .basket_link_icon-mobile:hover .basket_link_icon-mobile, .basket_link_icon-mobile:active .basket_link_icon-mobile {
+.basket_link:hover .basket_link_icon-mobile, .basket_link:active .basket_link_icon-mobile {
   color: white;
 }
 
-.basket_link_icon-mobile {
+.basket_link-mobile {
   display: inline-block;
   width: 30%;
+  font-size: 1.285714285714286em;
+  line-height: 1.5;
   float: left;
   color: black;
   text-align: center;
 }
+.basket_link-mobile:hover, .basket_link-mobile:active {
+  color: white;
+  background-color: #e68a9e;
+}
+.basket_link-mobile:hover .basket_link_icon-mobile, .basket_link-mobile:active .basket_link_icon-mobile {
+  color: white;
+}
 
-.basket_link_icon-desktop {
+.basket_link_icon-mobile {
+  text-decoration: none;
+  padding: 0;
+  color: black;
+}
+
+.basket_link_icon-desktop, .basket_link_title, .basket_badge {
   display: none;
   visibility: hidden;
 }
 
-.basket_link_title, .basket_badge {
-  display: none;
-  visibility: hidden;
+.basket_badge-mobile {
+  font-size: .8em;
+  display: inline;
+  visibility: inherit;
 }
 
 @media only screen and (min-width: 47.5em) {
   .basket_wrapper {
     display: inline;
     position: relative;
-    margin-left: 1em;
+    padding-left: 1em;
   }
 
   .basket_badge {
     font-size: 1em;
     display: inline;
     visibility: inherit;
+  }
+
+  .basket_badge-mobile {
+    display: none;
+    visibility: hidden;
   }
 
   .basket {
@@ -1840,7 +1870,6 @@ img {
     color: black;
     text-decoration: none;
     letter-spacing: 1px;
-    border-left: 1px solid black;
   }
   .basket_link:hover, .basket_link:active {
     color: white;
@@ -1872,6 +1901,11 @@ img {
     color: white;
   }
 
+  .basket_link-mobile {
+    display: none;
+    visibility: hidden;
+  }
+
   .basket_link_icon-mobile {
     display: none;
     visibility: hidden;
@@ -1880,6 +1914,7 @@ img {
   .basket_link_icon-desktop {
     display: inline-block;
     visibility: inherit;
+    border-left: 1px solid black;
   }
 
   .basket_list {
