@@ -56,7 +56,6 @@
     text-align: right;
  }
 
-
 .nav_main_list{
     position: fixed;
     z-index: 99999;
@@ -64,10 +63,12 @@
     bottom: 0;
     right: 100%;
     width: 100%;
+    min-height: 800px;
     margin: 0;
     padding: 0;
     background-color: $grey;
     box-shadow:rgba(0,0,0,0.2) 10px 0 20px inset;
+    -webkit-backface-visibility: hidden; //Stops flickering in webkit mobile browsers. credit: http://www.pixeldock.com/blog/how-to-avoid-the-ugly-flickering-effect-when-using-css-transitions-in-ios/
     -webkit-transition: transform 1s;
     transition: transform 1s;
 }

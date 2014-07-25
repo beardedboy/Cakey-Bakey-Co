@@ -8,6 +8,7 @@
 	@extend %clearfix;
 	max-width: $container-width;
 	margin: 0 auto;
+	min-height: 1500px;
 }
 
 .row{

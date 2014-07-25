@@ -63,24 +63,28 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            options: {
-                livereload: true,
-            },
             scripts: {
                 files: ['js/build/*.js'],
                 tasks: ['concat', 'jshint','uglify'],
                 options: {
+                    livereload: true,
                     spawn: false,
                 }
             },
-            css: {
+            sass: {
                 files: 'scss/**/*.scss',
                 tasks: ['sass', 'cssmin'],
                 options: {
                     spawn: false,
                 }
-            }
-        }
+            },
+            livereload: {
+                // Here we watch the files the sass task will compile to
+                // These files are sent to the live reload server after sass compiles to them
+                options: { livereload: true },
+                files: ['**/**/*'],
+            },
+        },
 
     });
 
