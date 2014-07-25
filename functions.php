@@ -310,7 +310,7 @@ function cakeybakeyco_setup(){
 		    'after'           => '',
 		    'link_before'     => '',
 		    'link_after'      => '',
-		    'items_wrap'      => '<ul class="%2$s"><a href = "#" class = "nav_main_btn nav_main_btn-close"><span class = "icon-close"></span>Close</a>%3$s</ul>'.mobileBasket(),
+		    'items_wrap'      => '<div class = "nav_main_container"> <ul class="%2$s"> <a href = "#" class = "nav_main_btn nav_main_btn-close"> <span class = "icon-close"></span> Close</a>%3$s</ul> </div>'.mobileBasket(),
 		    'depth'           => 0,
 		    'walker'          => new mainnav_walker()
 		);

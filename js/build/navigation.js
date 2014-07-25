@@ -3,13 +3,14 @@ var Navigation = ( function() {
   var settings = {
     nav_open: document.querySelector('.nav_main_btn-menu'),
     nav_close: document.querySelector('.nav_main_btn-close'),
-    nav_list: document.querySelector('.nav_main_list'),
+    nav_list: document.querySelector('.nav_main_container'),
     openClass: "nav_main-open"
   }
 
-  /*var nav_open = document.querySelector('.nav_main_btn-menu'),
-      nav_close = document.querySelector('.nav_main_btn-close'),
-      nav_list = document.querySelector('.nav_main_list');*/
+  window.onscroll = alertScroll;
+
+  function alertScroll(){
+  }
 
   //****** PUBLIC METHODS ********************************************** //
 

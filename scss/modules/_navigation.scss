@@ -22,7 +22,12 @@
     font: bold 0.7777777777777778rem/1.5 $font-family; //14px;
     text-decoration: none;
     text-align: left;
-    margin: 1em 0;
+    margin: 0 0 1em 0;
+ }
+
+ .nav_main{
+    margin: 0;
+    @extend %clearfix;
  }
 
 .nav_main_btn{
@@ -54,16 +59,16 @@
     border-bottom: 1px solid $darkgrey;
     padding-right: 3em;
     text-align: right;
- }
+ } 
 
-.nav_main_list{
-    position: fixed;
+.nav_main_container{
+    position: absolute;
+    overflow-y: scroll;
     z-index: 99999;
     top: 0;
     bottom: 0;
     right: 100%;
     width: 100%;
-    min-height: 800px;
     margin: 0;
     padding: 0;
     background-color: $grey;
@@ -71,6 +76,10 @@
     -webkit-backface-visibility: hidden; //Stops flickering in webkit mobile browsers. credit: http://www.pixeldock.com/blog/how-to-avoid-the-ugly-flickering-effect-when-using-css-transitions-in-ios/
     -webkit-transition: transform 1s;
     transition: transform 1s;
+}
+
+.nav_main_list{
+    position: relative;
 }
 
 .nav_main-open{
@@ -131,6 +140,12 @@
 
 }
 
+@media only screen and (min-height: 450px) {
+    .nav_main_container{
+        overflow-y: hidden;
+    }
+}
+
 @media only screen and (min-width: $med-bp) {
 
     .nav{
@@ -148,7 +163,7 @@
         transform: none;
     }
 
-	.nav_main_list{
+	.nav_main_container{
             display: inline;
             position: relative;
             left: 0;

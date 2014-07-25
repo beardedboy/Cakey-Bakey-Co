@@ -8,7 +8,7 @@
 	@extend %clearfix;
 	max-width: $container-width;
 	margin: 0 auto;
-	min-height: 1500px;
+	height: 100%;
 }
 
 .row{
@@ -19,7 +19,7 @@
 }
 
 [class*='col-']{
-	margin: $col-margin;
+	margin: 0 $col-margin $col-margin $col-margin;
 	width: 100%;
 	//background-color: #ccc;
 	@include min-screen($sm-bp){
