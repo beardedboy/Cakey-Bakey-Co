@@ -57,8 +57,8 @@
     width: 100%;
     color: $white;
     border-bottom: 1px solid $darkgrey;
-    padding-right: 3em;
-    text-align: right;
+    padding-left: 3em;
+    text-align: left;
  } 
 
 .nav_main_container{
@@ -105,13 +105,13 @@
 	position: relative;
     text-transform: uppercase;
     letter-spacing: 1px;
-    text-align: right;
+    text-align: left;
     a{  
     	font: bold 1.285714285714286em/3 $font-family; //18px;
         display: block;
         text-decoration: none;
         color: white;
-        padding-right: 3em;
+        padding-left: 3em;
         &:hover, &:active{
         	background-color: $pink;
             .icon-dropdown:before{
@@ -176,6 +176,7 @@
         .icon-dropdown{
         	display: inline;
             font-size: 1.142857142857143em; //16px;
+            padding-right: .5em;
             &:before {
                 position: relative;
                 left: 0.2142857142857143em;
@@ -187,7 +188,7 @@
         .nav_main_list_item{
             display: inline;
             position: relative;
-            padding: .5em 1em;
+            padding: .5em 2em;
             &:hover{
             	border-radius: 0.2777777777777778em; 
 			  	background-color: $pink;
@@ -232,7 +233,7 @@
             margin: 0;
             position: absolute;
             //background-color: $pink;
-            top: 100%;
+            top: 98%;
             right: 0;
         }
 
@@ -240,7 +241,7 @@
         	position: relative;
         	&:first-child{
             	a{
-            		border-top-left-radius: 0.2777777777777778em;
+            		//border-top-left-radius: 0.2777777777777778em;
             	}
             }
         	&:last-child{
@@ -255,7 +256,7 @@
                 font-style: normal;
             	width: 100%;
                 line-height: 2em;
-                padding: .5em 1em .5em 3em;
+                padding: .5em 1em;
                 border-radius: 0;
                 text-align: right;
                 &:hover{

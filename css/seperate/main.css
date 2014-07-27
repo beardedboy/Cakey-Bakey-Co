@@ -559,13 +559,19 @@ textarea {
 }
 
 html {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.5;
 }
 
 @media only screen and (min-width: 53.125em) {
   html {
-    font-size: 18px;
+    font-size: 24px;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  /* Retina-specific stuff here */
+  html {
+    font-size: 24px;
   }
 }
 body {
@@ -1468,8 +1474,8 @@ img {
   width: 100%;
   color: white;
   border-bottom: 1px solid #404040;
-  padding-right: 3em;
-  text-align: right;
+  padding-left: 3em;
+  text-align: left;
 }
 
 .nav_main_container {
@@ -1515,14 +1521,14 @@ img {
   position: relative;
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-align: right;
+  text-align: left;
 }
 .nav_main_list_item a {
   font: bold 1.28571em/3 "Open Sans", Helvetica, Arial, sans-serif;
   display: block;
   text-decoration: none;
   color: white;
-  padding-right: 3em;
+  padding-left: 3em;
 }
 .nav_main_list_item a:hover, .nav_main_list_item a:active {
   background-color: #e68a9e;
@@ -1583,6 +1589,7 @@ img {
   .icon-dropdown {
     display: inline;
     font-size: 1.142857142857143em;
+    padding-right: .5em;
   }
   .icon-dropdown:before {
     position: relative;
@@ -1594,7 +1601,7 @@ img {
   .nav_main_list_item {
     display: inline;
     position: relative;
-    padding: .5em 1em;
+    padding: .5em 2em;
   }
   .nav_main_list_item:hover {
     border-radius: 0.2777777777777778em;
@@ -1642,15 +1649,12 @@ img {
     display: none;
     margin: 0;
     position: absolute;
-    top: 100%;
+    top: 98%;
     right: 0;
   }
 
   .nav_main_list_item_sublist_item {
     position: relative;
-  }
-  .nav_main_list_item_sublist_item:first-child a {
-    border-top-left-radius: 0.2777777777777778em;
   }
   .nav_main_list_item_sublist_item:last-child a {
     border-bottom-right-radius: 0.2777777777777778em;
@@ -1662,7 +1666,7 @@ img {
     font-style: normal;
     width: 100%;
     line-height: 2em;
-    padding: .5em 1em .5em 3em;
+    padding: .5em 1em;
     border-radius: 0;
     text-align: right;
   }
