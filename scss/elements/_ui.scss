@@ -1,6 +1,18 @@
+.logo_container{
+	text-align: center;
+	width: 100%;
+}
+
 .logo{
 	margin: 1em auto;
 	max-width: 100%;
+}
+
+.logo_main{
+	max-width: 12.5rem;
+	@include min-screen($med-bp){
+		max-width: 15.625rem;
+	}
 }
 
 .tooltip{
@@ -82,7 +94,7 @@
 .badge{
 	display: inline-block;
 	font-size: $h6;
-	padding: 0.1571111111111111em 0.3142222222222222em;
+	padding: 0.1571111111111111em 0.5em;
 	margin-right: 0.628444444444444em;
 	margin-left: -0.628444444444444em;
 	color: $white;

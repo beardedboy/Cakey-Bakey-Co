@@ -18,6 +18,10 @@
 	width: 100%;
 }
 
+.row-nopadding{
+	padding: 0;
+}
+
 [class*='col-']{
 	margin: 0 $col-margin $col-margin $col-margin;
 	width: 100%;
@@ -37,6 +41,11 @@
 @include min-screen($sm-bp){}// end small media query
 
 @include min-screen($med-bp){
+	
+	.row{
+		padding: 0 1em;
+	}
+
 	@for $i from 1 through $cols {
 		$val: (100% - (($cols - 1) * $col-margin)) / $cols;
 

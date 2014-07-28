@@ -1,0 +1,6 @@
+.cbc_main_header{
+	padding-top: 0;
+	@include min-screen($med-bp){
+		padding-top: 1em;
+	}
+}

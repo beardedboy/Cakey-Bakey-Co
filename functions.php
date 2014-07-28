@@ -280,16 +280,16 @@ function cakeybakeyco_setup(){
 		$data = cbc_GetStoreData();
 		$basket = '<div class = "basket_link basket_link-mobile">';
 
+		$basket .= '<a href="'.$data['cart_url'].'" class = "icon-basket basket_link_icon-mobile icon-basket-empty">';
+
 		if($data['cart_contents_count'] > 0 ){
-				$basket .= '<span class = "badge basket_badge basket_badge-mobile">'.$data['cart_contents_count'].'</span>';
-			}
-			else{
-				$basket .= '';
+			$basket .= '<span class = "badge basket_badge basket_badge-mobile">'.$data['cart_contents_count'].'</span>';
+		}
+		else{
+			$basket .= '';
 		}
 
-		$basket .= '<a href="'.$data['cart_url'].'" class = "icon-basket basket_link_icon-mobile icon-basket-empty"></a>';
-
-		$basket .= '</div>';
+		$basket .= '</a></div>';
 
 		return $basket;
 
@@ -310,7 +310,7 @@ function cakeybakeyco_setup(){
 		    'after'           => '',
 		    'link_before'     => '',
 		    'link_after'      => '',
-		    'items_wrap'      => '<div class = "nav_main_container"> <ul class="%2$s"> <a href = "#" class = "nav_main_btn nav_main_btn-close"> <span class = "icon-close"></span> Close</a>%3$s</ul> </div>'.mobileBasket(),
+		    'items_wrap'      => '<div class = "nav_main_container"> <ul class="%2$s"> <a href = "#" class = "nav_main_btn nav_main_btn-close"> <span class = "icon-close"></span> Go back</a>%3$s</ul> </div>'.mobileBasket(),
 		    'depth'           => 0,
 		    'walker'          => new mainnav_walker()
 		);
@@ -344,7 +344,7 @@ function cakeybakeyco_setup(){
 
 		wp_deregister_script('jquery');
 
-		wp_register_script( 'jquery', get_template_directory_uri().'js/vendor/jquery.js', false, '1.11.1', true );
+		wp_register_script( 'jquery', get_template_directory_uri().'/js/vendor/jquery.js', false, '1.11.1', true );
 		wp_enqueue_script( 'jquery' );
 
 		wp_register_script( 'modernizr', get_template_directory_uri().'/js/vendor/modernizr.js', false, '2.8.3', false );

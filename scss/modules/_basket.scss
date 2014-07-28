@@ -20,6 +20,7 @@
 
     .basket_link-mobile{
         display: inline-block;
+        position: relative;
         width: 30%;
         font-size: 1.285714285714286em; //18px;
         line-height: 1.5;
@@ -39,6 +40,8 @@
         text-decoration: none;
         padding: 0;
         color: black;
+        display: block;
+        width: 100%;
     }
 
     .basket_link_icon-desktop, .basket_link_title, .basket_badge{
@@ -50,6 +53,7 @@
         font-size: .8em;
         display: inline;
         visibility: inherit;
+        position: absolute;
     }
 
     .basket_list_item{
@@ -62,13 +66,14 @@
     .basket_wrapper{
         display: inline;
         position: relative;
-        padding-left: 1em;
+        //padding-left: 1em;
     }
 
     .basket_badge{
         font-size: 1em;
         display: inline;
         visibility: inherit;
+        margin-left: .5em;
     }
 
     .basket_badge-mobile{
@@ -80,7 +85,7 @@
         position: absolute;
         font-size: 1.3em;
         right: 0;
-        top: 1.4em;
+        top: 100%;
         width: 16em;
         background-color: $pink;
         border-top-left-radius: 0.2777777777777778em;

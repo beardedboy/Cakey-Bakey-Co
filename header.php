@@ -31,12 +31,23 @@
         <![endif]-->
 
     <div class = "container">
-        <header class = "row">
-            <div class = "col-12-12">
-                <nav class = "nav nav_main" role = "navigation">
-                    <a href = "#" class = "nav_main_btn nav_main_btn-menu">MENU</a>
-                    <?php wp_nav_menu( mainNav() ); ?>
-                </nav><!-- end nav nav_main -->
-                <hr class = "hr hr-double" />
-            </div><!-- end col-12-12 -->
+        <header class = "cbc_main_header">
+            <div class = "row">
+                <div class = "col-12-12">
+                    <div class = "logo_container">
+                        <a class = "logo_home_link" href = "<?php get_home_url(); ?>">
+                            <img src= "<?php bloginfo('template_directory'); ?>/img/build/Logo/logo-01.svg" class = "logo logo_main" alt="Cakey Bakey Co.">
+                        </a>
+                    </div><!-- end logo_container -->
+                </div>
+            </div><!-- end row -->
+            <div class = "row">
+                <div class = "col-12-12">
+                    <nav class = "nav nav_main" role = "navigation">
+                        <a href = "#" class = "nav_main_btn nav_main_btn-menu">MENU</a>
+                        <?php wp_nav_menu( mainNav() ); ?>
+                    </nav><!-- end nav nav_main -->
+                    <hr class = "hr hr-double" />
+                </div><!-- end col-12-12 -->
+            </div><!-- end row -->
         </header><!-- end header -->
