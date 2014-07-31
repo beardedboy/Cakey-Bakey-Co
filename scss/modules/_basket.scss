@@ -8,7 +8,6 @@
         text-decoration: none;
         font-size: 1.285714285714286em; //18px;
         line-height: 1.5;
-        padding: .5em 0;
         &:hover, &:active{
             color: white;
             background-color: $pink;
@@ -42,6 +41,7 @@
         color: black;
         display: block;
         width: 100%;
+        padding: .5em 0;
     }
 
     .basket_link_icon-desktop, .basket_link_title, .basket_badge{
@@ -50,10 +50,8 @@
     }
 
     .basket_badge-mobile{
-        font-size: .8em;
         display: inline;
         visibility: inherit;
-        position: absolute;
     }
 
     .basket_list_item{
@@ -61,7 +59,7 @@
     }
 
 
-@include min-screen($med-bp) {
+@include min-screen(54.375em) {
 
     .basket_wrapper{
         display: inline;

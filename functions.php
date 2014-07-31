@@ -1,10 +1,9 @@
 <?php
 
- 
 /**************************************************************************************
 ***************************************************************************************
 
-Main Navigation Walker Class
+Theme WooCommerce Extensions
 
 ***************************************************************************************
 ***************************************************************************************/
@@ -13,13 +12,62 @@ function cbc_GetStoreData(){
 	global $woocommerce;
 
 	return array(
-		"cart_url" => $woocommerce->cart->get_cart_url(),
+		"cart_url" => WC()->cart->get_cart_url(),
 		"shop_page_url" => get_permalink( woocommerce_get_page_id( 'shop' ) ),
-		"cart_contents_count" => $woocommerce->cart->cart_contents_count,
+		"cart_contents_count" => WC()->cart->cart_contents_count,
 		"cart_contents" => sprintf(_n('%d', '%d', $cart_contents_count, 'cakeybakeyco'), $cart_contents_count),
-		"cart_total" => $woocommerce->cart->get_cart_total(),
+		"cart_items" => WC()->cart->get_cart(),
+		"cart_total" => WC()->cart->get_cart_total(),
 	);
 }
+
+function cbc_CartContent() { 
+
+	$output = 'I\'m empty, fill me up with yummy cakes!';
+
+  	if ( sizeof( WC()->cart->get_cart() ) > 0 ):
+
+	  	foreach( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+
+	  		print_r($cart_item);
+
+	  		$_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+			$product_id   = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+
+			$product_name  = apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );
+			$thumbnail     = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(array(40,40)), $cart_item, $cart_item_key );
+			
+			$quantity = $cart_item['quantity'];
+			$_desc = $cart_item['data']->post->post_excerpt;
+
+
+	  		$output = '<li class = "basket_list_item">';
+			$output .= $thumbnail;
+			$output .= '<div class =  "basket_list_item_detail">';
+			$output .= '<a href="'.get_permalink( $_product_id ).'" class = "basket_list_item_detail_title">'.$product_name.'</a>';
+			$output .= '<h2 class = "basket_list_item_detail_desc">'.$_desc.'</h2>';
+			$output .= '<div class = "basket_list_item_quantity">
+                            <span class ="basket_list_item_detail_quantity_title">Quantity</span>
+                            <span class ="basket_list_item_detail_quantity_amount">'.$quantity.'</span>
+                        </div>';
+            $output .= '</div>';
+	        $output .= '</li>';
+	  	}
+	else:
+		return $output;
+
+	endif;
+
+	return $output;
+}
+
+/**************************************************************************************
+***************************************************************************************
+
+Main Navigation Walker Class
+
+***************************************************************************************
+***************************************************************************************/
 
 
 class mainnav_walker extends Walker_Nav_Menu{
@@ -49,14 +97,14 @@ class mainnav_walker extends Walker_Nav_Menu{
 		if ($item->title == 'Basket'){
 
 			$data = cbc_GetStoreData();
+			$cartTotal = cbc_CartContent();
 
-			global $woocommerce;
 			$cart_url = $data["cart_url"];
 			$shop_page_url = $data["shop_page_url"];
 			$cart_contents_count = $data["cart_contents_count"];
 			$cart_contents = $data["cart_contents"];
 			$cart_total = $data["cart_total"];
-
+			$cart_items = $data["cart_items"];
 
 			if($cart_contents_count > 0 ){
 				$counter = '<span class = "badge basket_badge">'.$cart_contents_count.'</span>';
@@ -84,7 +132,9 @@ class mainnav_walker extends Walker_Nav_Menu{
                             ."$args->before<a $attributes>$args->link_before$title</a>"
 							."$args->link_after$args->after"
 							.'<div class = "basket">
-							<ul class = "basket_list">
+							<ul class = "basket_list">'.$cartTotal.'</ul>
+							<span class = "cart_subtotal">Sub-Total</span>
+							<span class = "cart_subtotal">'.$cart_total.'</span>
 							<footer class = "basket_footer">
 							<a class = "btn_flat btn_flat-full" href="'.$cart_url.'">View basket</a>
                             </footer><!-- end basket_footer -->

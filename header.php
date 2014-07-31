@@ -46,6 +46,7 @@
                     <nav class = "nav nav_main" role = "navigation">
                         <a href = "#" class = "nav_main_btn nav_main_btn-menu">MENU</a>
                         <?php wp_nav_menu( mainNav() ); ?>
+                        
                     </nav><!-- end nav nav_main -->
                     <hr class = "hr hr-double" />
                 </div><!-- end col-12-12 -->
