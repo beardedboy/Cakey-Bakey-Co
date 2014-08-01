@@ -122,6 +122,13 @@
 	padding-top: 3px; 
 }
 
+.hr-nav{
+	display: none;
+	@include min-screen($med-bp){
+		display: block;
+	}
+}
+
 
 /*-----------------------------------------------------
  	CAROUSEL

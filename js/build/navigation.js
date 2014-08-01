@@ -7,11 +7,6 @@ var Navigation = ( function() {
     openClass: "nav_main-open"
   }
 
-  window.onscroll = alertScroll;
-
-  function alertScroll(){
-  }
-
   //****** PUBLIC METHODS ********************************************** //
 
   function publicInit(){

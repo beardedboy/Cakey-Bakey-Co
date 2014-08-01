@@ -22,6 +22,10 @@
 	padding: 0;
 }
 
+.main_content{
+	padding: 0 1em;
+}
+
 [class*='col-']{
 	margin: 0 $col-margin $col-margin $col-margin;
 	width: 100%;
@@ -42,8 +46,12 @@
 
 @include min-screen($med-bp){
 	
-	.row{
+	.container{
 		padding: 0 1em;
+	}
+
+	.main_content{
+		padding: 0;
 	}
 
 	@for $i from 1 through $cols {

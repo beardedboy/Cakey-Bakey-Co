@@ -31,11 +31,11 @@
         <![endif]-->
 
     <div class = "container">
-        <header class = "cbc_main_header">
+        <header class = "main_header">
             <div class = "row">
                 <div class = "col-12-12">
                     <div class = "logo_container">
-                        <a class = "logo_home_link" href = "<?php get_home_url(); ?>">
+                        <a class = "logo_home_link" href = "<?php get_site_url(); ?>">
                             <img src= "<?php bloginfo('template_directory'); ?>/img/build/Logo/logo-01.svg" class = "logo logo_main" alt="Cakey Bakey Co.">
                         </a>
                     </div><!-- end logo_container -->
@@ -48,7 +48,7 @@
                         <?php wp_nav_menu( mainNav() ); ?>
                         
                     </nav><!-- end nav nav_main -->
-                    <hr class = "hr hr-double" />
+                    <hr class = "hr hr-double hr-nav" />
                 </div><!-- end col-12-12 -->
             </div><!-- end row -->
         </header><!-- end header -->

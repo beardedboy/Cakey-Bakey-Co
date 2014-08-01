@@ -29,13 +29,11 @@ function cbc_CartContent() {
 
 	  	foreach( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 
-	  		print_r($cart_item);
-
 	  		$_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 			$product_id   = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 
 			$product_name  = apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );
-			$thumbnail     = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(array(40,40)), $cart_item, $cart_item_key );
+			$thumbnail     = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(array(40,40)), $cart_item, $cart_item_key );;
 			
 			$quantity = $cart_item['quantity'];
 			$_desc = $cart_item['data']->post->post_excerpt;
