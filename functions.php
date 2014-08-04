@@ -23,7 +23,7 @@ function cbc_GetStoreData(){
 
 function cbc_CartContent() { 
 
-	$output = 'I\'m empty, fill me up with yummy cakes!';
+	$output = '';
 
   	if ( sizeof( WC()->cart->get_cart() ) > 0 ):
 
@@ -39,7 +39,7 @@ function cbc_CartContent() {
 			$_desc = $cart_item['data']->post->post_excerpt;
 
 
-	  		$output = '<li class = "basket_list_item">';
+	  		$output .= '<li class = "basket_list_item">';
 			$output .= $thumbnail;
 			$output .= '<div class =  "basket_list_item_detail">';
 			$output .= '<a href="'.get_permalink( $_product_id ).'" class = "basket_list_item_detail_title">'.$product_name.'</a>';
@@ -50,9 +50,10 @@ function cbc_CartContent() {
                         </div>';
             $output .= '</div>';
 	        $output .= '</li>';
+
+
 	  	}
-	else:
-		return $output;
+	else: $output = "I'm empty, fill me up!";
 
 	endif;
 

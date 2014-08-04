@@ -556,7 +556,7 @@ textarea {
 }
 
 html {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.5;
 }
 
@@ -657,13 +657,15 @@ textarea {
 
 .main_content {
   padding: 0 1em;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 [class*='col-'] {
   margin: 0 1% 1% 1%;
   width: 100%;
 }
-@media only screen and (min-width: 30em) {
+@media only screen and (min-width: 26.66667em) {
   [class*='col-'] {
     float: left;
     margin: 0 0 1.6% 1%;
@@ -673,13 +675,13 @@ textarea {
   margin-left: 0;
 }
 
-@media only screen and (min-width: 51.875em) {
+@media only screen and (min-width: 42.22222em) {
   .container {
     padding: 0 1em;
   }
 
   .main_content {
-    padding: 0;
+    padding: 3em 0;
   }
 
   .col-1-12 {
@@ -738,29 +740,28 @@ textarea {
 }
 
 .h1 {
-  font-size: 2.8271444444em;
-  margin: 0 0 0.589523em 0;
-}
-
-.h2 {
   font-size: 2em;
   margin: 0 0 0.83333333em 0;
 }
 
-.h3 {
+.h2 {
   font-size: 1.413888em;
   margin: 0 0 0.83333333em 0;
 }
 
-.h4 {
+.h3 {
   font-size: 1em;
   margin: 0 0 0.83333333em 0;
 }
 
-.h5 {
+.h4 {
   font-size: 0.875em;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.h5 {
+  text-transform: uppercase;
 }
 
 .pg {
@@ -802,12 +803,12 @@ textarea {
   font-size: 0.7777777777777778em;
 }
 
-@media only screen and (min-width: 30em) {
+@media only screen and (min-width: 26.66667em) {
   .h1, .h2, .h3, .h4, .h5, .h6 {
     text-align: center;
   }
 }
-@media only screen and (min-width: 51.875em) {
+@media only screen and (min-width: 42.22222em) {
   .pg-withquote {
     margin-bottom: 0;
   }
@@ -990,11 +991,13 @@ textarea {
 }
 
 .logo_main {
-  max-width: 12.5rem;
+  max-width: 203px;
+  max-width: 11.3rem;
 }
-@media only screen and (min-width: 51.875em) {
+@media only screen and (min-width: 66.66667em) {
   .logo_main {
-    max-width: 15.625rem;
+    max-width: 287.65px;
+    max-width: 15.9rem;
   }
 }
 
@@ -1086,6 +1089,8 @@ textarea {
   -webkit-border-radius: 5%;
   border-radius: 2px;
   text-align: center;
+  border: 1px solid #e06d86;
+  box-shadow: 0px 3px 3px rgba(51, 51, 51, 0.2);
 }
 
 .hr {
@@ -1095,20 +1100,26 @@ textarea {
   margin: 0 0 1.66666667em 0;
 }
 
-.hr-thick {
+.hr_thick {
   border-bottom: 5px solid black;
 }
 
-.hr-double {
+.hr_double {
   border-top: 3px solid black;
   padding-top: 3px;
 }
 
-.hr-nav {
-  display: none;
+.hr_double-reversed {
+  border-bottom: 3px solid black;
+  padding-bottom: 3px;
 }
-@media only screen and (min-width: 51.875em) {
-  .hr-nav {
+
+.hr_nav {
+  display: none;
+  margin: 0;
+}
+@media only screen and (min-width: 42.22222em) {
+  .hr_nav {
     display: block;
   }
 }
@@ -1160,7 +1171,7 @@ textarea {
   padding: 0 4em;
 }
 
-@media only screen and (min-width: 51.875em) {
+@media only screen and (min-width: 42.22222em) {
   .carousel {
     height: 480px;
     max-width: 1000px;
@@ -1523,6 +1534,7 @@ img {
   margin: 0;
   padding: 0;
   background-color: #333333;
+  background-color: rgba(51, 51, 51, 0.95);
   box-shadow: rgba(0, 0, 0, 0.2) 10px 0 20px inset;
   -webkit-backface-visibility: hidden;
   -webkit-transition: transform 1s;
@@ -1639,8 +1651,8 @@ img {
   }
 
   .nav_main_list {
-    padding: 0;
-    margin: 0 0 1em 0;
+    padding: .5em 0;
+    margin: 0;
   }
 
   .nav_main_list_item {
@@ -1656,10 +1668,12 @@ img {
     color: black;
     font-weight: bold;
     border-radius: 0.2777777777777778em;
+    border: 1px solid transparent;
   }
   .nav_main_list_item a:hover {
     color: white;
     background-color: #e68a9e;
+    border: 1px solid #e06d86;
   }
   .nav_main_list_item a:hover .icon-dropdown:before {
     color: white;
@@ -1760,7 +1774,7 @@ img {
   margin: .5em;
 }
 
-@media only screen and (min-width: 51.875em) {
+@media only screen and (min-width: 42.22222em) {
   .nav_footer {
     margin: 1em;
     text-align: left;
@@ -1797,7 +1811,7 @@ img {
 /*
     Breadcrumb Navigation ----------------------------------------------------------
 */
-@media only screen and (min-width: 51.875em) {
+@media only screen and (min-width: 42.22222em) {
   .nav_breadcrumb {
     margin: 1em auto;
     width: 100%;
@@ -2054,10 +2068,16 @@ img {
 .main_header {
   padding-top: 0;
 }
-@media only screen and (min-width: 51.875em) {
+@media only screen and (min-width: 42.22222em) {
   .main_header {
     padding-top: 1em;
   }
+}
+
+.main_footer {
+  width: 100%;
+  height: 200px;
+  border-top: 3px solid black;
 }
 
 /* ==========================================================================

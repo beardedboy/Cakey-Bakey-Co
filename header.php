@@ -43,12 +43,12 @@
             </div><!-- end row -->
             <div class = "row">
                 <div class = "col-12-12">
+                                    <hr class = "hr hr_double hr_nav" />
                     <nav class = "nav nav_main" role = "navigation">
                         <a href = "#" class = "nav_main_btn nav_main_btn-menu">MENU</a>
-                        <?php wp_nav_menu( mainNav() ); ?>
-                        
+                        <?php wp_nav_menu( mainNav() ); ?>    
                     </nav><!-- end nav nav_main -->
-                    <hr class = "hr hr-double hr-nav" />
+                    <hr class = "hr hr_double-reversed hr_nav" />
                 </div><!-- end col-12-12 -->
             </div><!-- end row -->
         </header><!-- end header -->

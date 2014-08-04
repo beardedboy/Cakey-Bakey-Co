@@ -24,6 +24,9 @@
 
 .main_content{
 	padding: 0 1em;
+	max-width: 760px;
+	//max-width: 53.33333333333333rem;
+	margin: 0 auto;
 }
 
 [class*='col-']{
@@ -51,7 +54,7 @@
 	}
 
 	.main_content{
-		padding: 0;
+		padding: 3em 0;
 	}
 
 	@for $i from 1 through $cols {
