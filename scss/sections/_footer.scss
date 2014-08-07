@@ -1,5 +1,22 @@
 .main_footer{
 	width: 100%;
-	height: 200px;
 	border-top: 3px solid $black;
+	padding: 2em 0;
 }
+
+.main_footer_left_col{
+	float: left;
+	@include min-screen($sm-bp){
+		margin-bottom: 0;
+	}
+}
+
+.main_footer_right_col{
+	float: right;
+}
+
+.footer_links_container{
+
+}
+
+.footer_links_list{}

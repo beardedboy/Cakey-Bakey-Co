@@ -10,8 +10,12 @@ Grid variables
 ========================================================================== */
 
 	$cols: 12;
-	$col-margin: 1%;
-	$container-width: 65em;
+	$col-margin: 2%;
+	$container-width: 65em; //1170px
+	
+	$sm-content-width: 42.22222222222222em; //760px
+	$md-content-width: 53.33333333333333em; //960px
+	$lrg-content-width: 65em;
 
 
 /* ==========================================================================

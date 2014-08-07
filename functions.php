@@ -266,6 +266,81 @@ class mainnav_walker extends Walker_Nav_Menu{
 
 }
 
+/**************************************************************************************
+***************************************************************************************
+
+Footer Navigation Walker Class
+
+***************************************************************************************
+***************************************************************************************/
+
+class footernav_walker extends Walker_Nav_Menu
+{
+	/**
+	 * Start the element output.
+	 *
+	 * @param  string $output Passed by reference. Used to append additional content.
+	 * @param  object $item   Menu item data object.
+	 * @param  int $depth     Depth of menu item. May be used for padding.
+	 * @param  array $args    Additional strings.
+	 * @return void
+	 */
+	public function start_el( &$output, $item, $depth, $args )
+	{
+		$output     .= '<li class = "nav_footer_list_item">';
+		$attributes  = '';
+
+		$attributes .= ' href="' . esc_attr( $item->url ) .'"';
+ 
+		$attributes  = trim( $attributes );
+		$title       = apply_filters( 'the_title', $item->title, $item->ID );
+		$item_output = "<a $attributes>$args->link_before$title</a>"
+						. "$args->link_after$args->after";
+ 
+		// Since $output is called by reference we don't need to return anything.
+		$output .= apply_filters(
+			'walker_nav_menu_start_el'
+			,   $item_output
+			,   $item
+			,   $depth
+			,   $args
+		);
+	}
+ 
+	/**
+	 * @see Walker::start_lvl()
+	 *
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @return void
+	 */
+	public function start_lvl( &$output )
+	{
+		$output .= '<ul class="nav_footer_list">';
+	}
+ 
+	/**
+	 * @see Walker::end_lvl()
+	 *
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @return void
+	 */
+	public function end_lvl( &$output )
+	{
+		$output .= '</ul>';
+	}
+ 
+	/**
+	 * @see Walker::end_el()
+	 *
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @return void
+	 */
+	function end_el( &$output )
+	{
+		$output .= '</li>';
+	}
+}
+
 
 
 /****************************************************************************************
@@ -282,16 +357,57 @@ function cakeybakeyco_setup(){
 	remove_action('wp_head', 'rsd_link');
 	remove_action('wp_head', 'wp_generator');
 
-	//Register Main Navigation
+	// REGISTER THEME NAVIGATIONS
 	add_action( 'init', 'register_main_nav' );
 
 	add_action( 'wp_enqueue_scripts', 'cbc_load_js' );	
 	add_action( 'wp_enqueue_scripts', 'child_manage_woocommerce_styles', 99 );
 
+	//ADDS WOOCOMMERCE SUPPORT
 	add_action( 'after_setup_theme', 'woocommerce_support' );
 
+	//CHANGES PAGE TITLE
 	add_filter('wp_title', 'cbc_main_title', 10, 2);
 
+	// WOOCOMMERCE SETUP ACTIONS
+
+	remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+	remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+	remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+	add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
+	add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
+
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+	//remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+	remove_action('woocommerce_before_shop_loop_item_title','woocommerce_template_loop_product_thumbnail', 10);
+	add_action('woocommerce_before_shop_loop_item_title','cbc_product_loop_img', 10);
+
+	add_filter('woocommerce_short_description', 'cbc_filter_short_description', 10);
+
+	//Function to add custom html tag around a products short description
+	function cbc_filter_short_description( $desc ){
+	    global $product;
+
+	    $newDesc = '<div class = "product_container_info_desc">'.wp_strip_all_tags($desc).'</div>';
+
+	    return $newDesc;
+	}
+
+	//Function echos a revised thumbnail function only
+	function cbc_product_loop_img() {
+		echo cbc_product_loop_thumbnail();
+	}
+
+	//Function that replaces the default thumbnail image generation in the Woocommerce product page loop with one that gives the
+	//images 100% responsive width.
+	function cbc_product_loop_thumbnail( $size = 'shop_catalog', $placeholder_width = 1, $placeholder_height = 0  ) {
+		global $post;
+		if ( has_post_thumbnail() ){
+			$blah = wp_get_attachment_image_src( get_post_thumbnail_id() ,$size );
+     		return '<img width="100%" class = "product_container_img" src="' . $blah[0] . '">';
+		}
+	}
 
 	//Function to add Site title before each individual page title.  Eg. > 'Cupcakes' becomes 'Cakey Bakey Co. - Cupcakes'
 	function cbc_main_title($title, $sep){
@@ -365,6 +481,69 @@ function cakeybakeyco_setup(){
 		);
 	}
 
+	function footerNav1(){
+		return array(
+		    'theme_location'  => 'footer-one',
+		    'menu'            => 'Footer Links #1',
+		    'container'       => '',
+		    'container_class' => '',
+		    'container_id'    => '',
+		    'menu_class'      => 'nav_footer_list',
+		    'menu_id'         => '',
+		    'echo'            => true,
+		    'fallback_cb'     => 'wp_page_menu',
+		    'before'          => '',
+		    'after'           => '',
+		    'link_before'     => '',
+		    'link_after'      => '',
+		    'items_wrap'      => '<nav class = "nav nav_footer"><h1 class = "nav_footer_title">Ordering</h1> <ul class="%2$s">%3$s</ul> </nav>',
+		    'depth'           => 0,
+		    'walker'          => new footernav_walker()
+		);
+	}
+
+	function footerNav2(){
+		return array(
+		    'theme_location'  => 'footer-two',
+		    'menu'            => 'Footer Links #2',
+		    'container'       => '',
+		    'container_class' => '',
+		    'container_id'    => '',
+		    'menu_class'      => 'nav_footer_list',
+		    'menu_id'         => '',
+		    'echo'            => true,
+		    'fallback_cb'     => 'wp_page_menu',
+		    'before'          => '',
+		    'after'           => '',
+		    'link_before'     => '',
+		    'link_after'      => '',
+		    'items_wrap'      => '<nav class = "nav nav_footer"><h1 class = "nav_footer_title">Information</h1> <ul class="%2$s">%3$s</ul> </nav>',
+		    'depth'           => 0,
+		    'walker'          => new footernav_walker()
+		);
+	}
+
+	function footerNav3(){
+		return array(
+		    'theme_location'  => 'footer-three',
+		    'menu'            => 'Footer Links #3',
+		    'container'       => '',
+		    'container_class' => '',
+		    'container_id'    => '',
+		    'menu_class'      => 'nav_footer_list',
+		    'menu_id'         => '',
+		    'echo'            => true,
+		    'fallback_cb'     => 'wp_page_menu',
+		    'before'          => '',
+		    'after'           => '',
+		    'link_before'     => '',
+		    'link_after'      => '',
+		    'items_wrap'      => '<nav class = "nav nav_footer"><h1 class = "nav_footer_title">Social</h1> <ul class="%2$s">%3$s</ul> </nav>',
+		    'depth'           => 0,
+		    'walker'          => new footernav_walker()
+		);
+	}
+
 	function woocommerce_support() {
 	    add_theme_support( 'woocommerce' );
 	}
@@ -385,6 +564,22 @@ function cakeybakeyco_setup(){
 				wp_dequeue_script( 'jquery-placeholder' );
 	        }
 	    }	 
+	}
+
+	/*
+		WOOCOMMERCE SETUP FUNCTIONS
+	*/
+	function my_theme_wrapper_start() {
+		if(is_shop()){
+			echo '<section class="main_content main_content-shop">';
+		}
+			else{
+				echo '<section class="main_content">';
+			}
+	}
+
+	function my_theme_wrapper_end() {
+	  echo '</section>';
 	}
 
 

@@ -1,14 +1,20 @@
 
         </div><!-- end container -->
 
-        <footer class = "main_footer row">
-            <div class = "col-7-12">
-                <div class = "main_footer_left_col"></div>
-            </div>
-            <div class = "col-5-12">
-                <div class = "main_footer_right_col"></div>
-            </div>
-        </footer>
+        <footer class = "main_footer">
+            <div class = "container">
+                <div class = "row">
+                    <div class = "col-7-12 main_footer_left_col">
+                        <?php wp_nav_menu( footerNav1() ); ?>
+                        <?php wp_nav_menu( footerNav2() ); ?>
+                        <?php wp_nav_menu( footerNav3() ); ?>
+                    </div><!-- end col-7-12 main_footer_left_col -->
+                    <div class = "col-5-12 main_footer_right_col">
+                        
+                    </div><!-- end col-5-12 main_footer_right_col-->
+                </div><!-- end row -->
+                </div><!-- end container -->
+        </footer><!-- end main_footer -->
         <?php wp_footer(); ?>
 
         <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
