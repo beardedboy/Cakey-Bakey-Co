@@ -58,6 +58,10 @@
         @extend %clearfix;
     }
 
+    .basket_subtotal{
+        @extend %clearfix;
+    }
+
 
 @include min-screen(54.375em) {
 
@@ -206,9 +210,22 @@
         font-size: $h6;
     }
 
+    .basket_subtotal{
+        padding: .5em 1em;
+    }
+
+    .basket_subtotal_label{
+        float: left;
+    }
+
+    .basket_subtotal_value{
+        float: right;
+    }
+
 
     .basket_footer{
         padding: 1em 1em 0 1em;
+        border-top: 1px solid darken($pink, 5%);
     }
 
 }

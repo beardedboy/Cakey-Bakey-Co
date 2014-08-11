@@ -506,7 +506,7 @@ table {
   border-spacing: 0;
 }
 
-.container:after, .row:after, .form:after, .form_group:after, .form_group-container:after, .nav_main:after, .basket_list_item:after, .sg_header:after {
+.container:after, .row:after, .form:after, .form_group:after, .form_group-container:after, .nav_main:after, .basket_list_item:after, .basket_subtotal:after, .sg_header:after {
   content: "";
   display: table;
   clear: both;
@@ -563,7 +563,7 @@ html {
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   /* Retina-specific stuff here */
   html {
-    font-size: 22px;
+    font-size: 16px;
   }
 }
 body {
@@ -2068,8 +2068,21 @@ img {
     font-size: 0.70721em;
   }
 
+  .basket_subtotal {
+    padding: .5em 1em;
+  }
+
+  .basket_subtotal_label {
+    float: left;
+  }
+
+  .basket_subtotal_value {
+    float: right;
+  }
+
   .basket_footer {
     padding: 1em 1em 0 1em;
+    border-top: 1px solid #e2758d;
   }
 }
 .main_header {
@@ -2328,7 +2341,7 @@ img {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.container:after, .row:after, .form:after, .form_group:after, .form_group-container:after, .nav_main:after, .basket_list_item:after, .sg_header:after {
+.container:after, .row:after, .form:after, .form_group:after, .form_group-container:after, .nav_main:after, .basket_list_item:after, .basket_subtotal:after, .sg_header:after {
   content: "";
   display: table;
   clear: both;
@@ -2409,8 +2422,7 @@ img {
 
   @page {
     margin: 0.5cm;
-}
-
+  }
   p,
   h2,
   h3 {

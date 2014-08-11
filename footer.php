@@ -5,9 +5,15 @@
             <div class = "container">
                 <div class = "row">
                     <div class = "col-7-12 main_footer_left_col">
-                        <?php wp_nav_menu( footerNav1() ); ?>
-                        <?php wp_nav_menu( footerNav2() ); ?>
-                        <?php wp_nav_menu( footerNav3() ); ?>
+                    <?php if ( has_nav_menu( 'footer-one' ) ) {
+                         wp_nav_menu( footerNav1() );
+                    }?>
+                    <?php if ( has_nav_menu( 'footer-two' ) ) {
+                         wp_nav_menu( footerNav2() );
+                    }?>
+                    <?php if ( has_nav_menu( 'footer-three' ) ) {
+                         wp_nav_menu( footerNav3() );
+                    }?>
                     </div><!-- end col-7-12 main_footer_left_col -->
                     <div class = "col-5-12 main_footer_right_col">
                         

@@ -33,14 +33,14 @@ function cbc_CartContent() {
 			$product_id   = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 
 			$product_name  = apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );
-			$thumbnail     = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(array(40,40)), $cart_item, $cart_item_key );;
-			
+			$thumbnail     = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(array(40,40)), $cart_item, $cart_item_key );
+
 			$quantity = $cart_item['quantity'];
 			$_desc = $cart_item['data']->post->post_excerpt;
 
 
 	  		$output .= '<li class = "basket_list_item">';
-			$output .= $thumbnail;
+			$output .= '<div class = "basket_list_item_thumb">'.$thumbnail.'</div>';
 			$output .= '<div class =  "basket_list_item_detail">';
 			$output .= '<a href="'.get_permalink( $_product_id ).'" class = "basket_list_item_detail_title">'.$product_name.'</a>';
 			$output .= '<h2 class = "basket_list_item_detail_desc">'.$_desc.'</h2>';
@@ -131,14 +131,19 @@ class mainnav_walker extends Walker_Nav_Menu{
                             ."$args->before<a $attributes>$args->link_before$title</a>"
 							."$args->link_after$args->after"
 							.'<div class = "basket">
-							<ul class = "basket_list">'.$cartTotal.'</ul>
-							<span class = "cart_subtotal">Sub-Total</span>
-							<span class = "cart_subtotal">'.$cart_total.'</span>
+							<ul class = "basket_list">'.$cartTotal.'</ul>';
+
+			if($cart_contents_count > 0){
+				$item_output .= '<div class = "basket_subtotal">
+								<span class = "basket_subtotal_label">Sub-Total  </span>
+								<span class = "basket_subtotal_value">'.$cart_total.'</span>
+							</div><!-- end basket_subtotal -->
 							<footer class = "basket_footer">
 							<a class = "btn_flat btn_flat-full" href="'.$cart_url.'">View basket</a>
                             </footer><!-- end basket_footer -->
                             </div><!-- end basket -->
                             </div><!-- end basket_link -->';
+            }
 
 		}
 
@@ -524,24 +529,24 @@ function cakeybakeyco_setup(){
 	}
 
 	function footerNav3(){
-		return array(
-		    'theme_location'  => 'footer-three',
-		    'menu'            => 'Footer Links #3',
-		    'container'       => '',
-		    'container_class' => '',
-		    'container_id'    => '',
-		    'menu_class'      => 'nav_footer_list',
-		    'menu_id'         => '',
-		    'echo'            => true,
-		    'fallback_cb'     => 'wp_page_menu',
-		    'before'          => '',
-		    'after'           => '',
-		    'link_before'     => '',
-		    'link_after'      => '',
-		    'items_wrap'      => '<nav class = "nav nav_footer"><h1 class = "nav_footer_title">Social</h1> <ul class="%2$s">%3$s</ul> </nav>',
-		    'depth'           => 0,
-		    'walker'          => new footernav_walker()
-		);
+			return array(
+			    'theme_location'  => 'footer-three',
+			    'menu'            => 'Footer Links #3',
+			    'container'       => '',
+			    'container_class' => '',
+			    'container_id'    => '',
+			    'menu_class'      => 'nav_footer_list',
+			    'menu_id'         => '',
+			    'echo'            => true,
+			    'fallback_cb'     => 'wp_page_menu',
+			    'before'          => '',
+			    'after'           => '',
+			    'link_before'     => '',
+			    'link_after'      => '',
+			    'items_wrap'      => '<nav class = "nav nav_footer"><h1 class = "nav_footer_title">Social</h1> <ul class="%2$s">%3$s</ul> </nav>',
+			    'depth'           => 0,
+			    'walker'          => new footernav_walker()
+			);
 	}
 
 	function woocommerce_support() {
