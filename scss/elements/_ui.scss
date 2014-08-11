@@ -127,12 +127,13 @@
 }
 
 .hr_double-reversed{
+	border-top: 1px solid $black;
 	border-bottom: 3px solid $black;
 	padding-bottom: 3px; 
 }
 
 .hr_nav{
-	display: none;
+	//display: none;
 	margin: 0;
 	@include min-screen($med-bp){
 		display: block;
