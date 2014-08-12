@@ -293,7 +293,7 @@
     }
 
     .nav_footer_title{
-        font: bold 1.285714285714286em/1.5 $font-family, Helvetica, Arial, sans-serif; //18px;
+        font: bold 1.285714285714286em/1.5 $font-family, Helvetica, Arial, sans-serif; //23.14285714285715px;
         text-transform: uppercase;
     }
 
@@ -301,7 +301,7 @@
         a{
             display: block;
             color: $black;
-            font: normal 1.285714285714286em/2.5 $font-family, Helvetica, Arial, sans-serif; //18px;
+            font: normal 1.285714285714286em/2.5 $font-family, Helvetica, Arial, sans-serif; //23.14285714285715px;
             //text-transform: uppercase;
             letter-spacing: 1px;
             text-decoration: none;
@@ -327,7 +327,8 @@
     .nav_footer{       
         margin: 1em 1.5em 1em 1em;
         text-align: left;
-        display: inline-block;
+        display: inline;
+        float: left;
         width: auto;
     }
 

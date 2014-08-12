@@ -53,7 +53,7 @@ function cbc_CartContent() {
 
 
 	  	}
-	else: $output = "I'm empty, fill me up!";
+	else: $output = '<div class = "basket_empty"><h2 class = "basket_empty_title">Your basket\'s empty</h2><a class = "">Why not fill me up!</a></div>';
 
 	endif;
 
@@ -380,8 +380,8 @@ function cakeybakeyco_setup(){
 	remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 	remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 
-	add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
-	add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
+	add_action('woocommerce_before_main_content', 'cbc_wrapper_start', 10);
+	add_action('woocommerce_after_main_content', 'cbc_wrapper_end', 10);
 
 	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 	//remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
@@ -574,7 +574,7 @@ function cakeybakeyco_setup(){
 	/*
 		WOOCOMMERCE SETUP FUNCTIONS
 	*/
-	function my_theme_wrapper_start() {
+	function cbc_wrapper_start() {
 		if(is_shop()){
 			echo '<section class="main_content main_content-shop">';
 		}
@@ -583,7 +583,7 @@ function cakeybakeyco_setup(){
 			}
 	}
 
-	function my_theme_wrapper_end() {
+	function cbc_wrapper_end() {
 	  echo '</section>';
 	}
 

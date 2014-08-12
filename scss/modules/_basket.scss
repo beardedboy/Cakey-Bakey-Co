@@ -14,6 +14,10 @@
             .basket_link_icon-mobile{
                 color: $white;
             }
+            .badge{
+                box-shadow: none;
+                border: none;
+            }
         }
     }
 
@@ -61,9 +65,12 @@
     .basket_subtotal{
         @extend %clearfix;
     }
+    
+    .basket_empty{}
 
 
 @include min-screen(54.375em) {
+
 
     .basket_wrapper{
         display: inline;
@@ -150,6 +157,12 @@
         display: inline-block;
         visibility: inherit;
         border-left: 1px solid black;
+    }
+
+    .basket_empty_title{
+        font-size: 1rem;
+        color: white;
+        letter-spacing: 1px;
     }
 
     .basket_list{

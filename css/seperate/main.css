@@ -1788,7 +1788,8 @@ img {
   .nav_footer {
     margin: 1em 1.5em 1em 1em;
     text-align: left;
-    display: inline-block;
+    display: inline;
+    float: left;
     width: auto;
   }
 
@@ -1890,6 +1891,10 @@ img {
 }
 .basket_link:hover .basket_link_icon-mobile, .basket_link:active .basket_link_icon-mobile {
   color: white;
+}
+.basket_link:hover .badge, .basket_link:active .badge {
+  box-shadow: none;
+  border: none;
 }
 
 .basket_link-mobile {
@@ -2014,6 +2019,12 @@ img {
     display: inline-block;
     visibility: inherit;
     border-left: 1px solid black;
+  }
+
+  .basket_empty_title {
+    font-size: 1rem;
+    color: white;
+    letter-spacing: 1px;
   }
 
   .basket_list {
@@ -2306,7 +2317,8 @@ img {
 
   @page {
     margin: 0.5cm;
-  }
+}
+
   p,
   h2,
   h3 {
