@@ -36,11 +36,10 @@ $internal_loop++;
 $classes = array();
 
 if($woocommerce_loop['loop'] == 1 || $woocommerce_loop['loop'] == 4 || $woocommerce_loop['loop'] == 7 ){ ?>
-	<div class="row product_row">
+	<!--<div class="row product_row">-->
 <?php }
 
-$classes[] = 'product_container';
-$classes[] = 'col-4-12';
+$classes[] = 'product_list_item';
 
 ?>
 <li <?php post_class( $classes ); ?>>
@@ -59,9 +58,9 @@ $classes[] = 'col-4-12';
 			do_action( 'woocommerce_before_shop_loop_item_title' );
 		?>
 	</a>
-	<div class = "product_container_info">
+	<div class = "product_list_item_info">
 	<a class = "product_link" href="<?php the_permalink(); ?>">
-		<h3 class = "h3 product_container_info_title"><?php the_title(); ?></h3>
+		<h3 class = "h3 product_list_item_info_title"><?php the_title(); ?></h3>
 	</a>
 		<?php
 			/**
@@ -81,6 +80,6 @@ $classes[] = 'col-4-12';
 
 <?php
 if($woocommerce_loop['loop'] == 3 || $woocommerce_loop['loop'] == 6 || $woocommerce_loop['loop'] == 9 ){ ?>
-	</div><!-- end row -->
+	<!--</div><!-- end row -->
 	<?php
  } ?>

@@ -9,12 +9,19 @@
 }
 
 .logo_main{
-	max-width: 203px;
-	max-width: 11.3rem;
-	@include min-screen($extlrg-bp){
+	max-width: 150px;
+	max-width: 8.33333333rem;
+
+	@include min-screen($sm-bp){
+		max-width: 203px;
+		max-width: 11.3rem;
+	}
+
+	@include min-screen($med-bp){
 		max-width: 287.65px;
 		max-width: 15.9rem;
 	}
+
 }
 
 .tooltip{

@@ -49,7 +49,16 @@
 
 @include min-screen($extsm-bp){}// end extra small media query
 
-@include min-screen($sm-bp){}// end small media query
+@include min-screen($sm-bp){
+	.product_grid{
+		width: 49%;
+	}
+
+	.product_grid-3rd{
+		margin-left: 0;
+	}
+
+}// end small media query
 
 @include min-screen($med-bp){
 	
@@ -68,6 +77,11 @@
 	  		width: ($val * $i) + ($col-margin * ($i - 1)); 
 	  	}
 	}
+
+	.product_grid-3rd{
+		margin-left: $col-margin;
+	}
+
 }// end medium media query
 
 @include min-screen($lrg-bp){} // end large media query

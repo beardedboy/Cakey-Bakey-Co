@@ -671,19 +671,28 @@ textarea {
 }
 
 [class*='col-'] {
-  margin: 0 2% 2% 2%;
+  margin: 0 4% 4% 4%;
   width: 100%;
 }
 @media only screen and (min-width: 26.66667em) {
   [class*='col-'] {
     float: left;
-    margin: 0 0 1.6% 2%;
+    margin: 0 0 1.6% 4%;
   }
 }
 [class*='col-']:first-child {
   margin-left: 0;
 }
 
+@media only screen and (min-width: 26.66667em) {
+  .product_grid {
+    width: 49%;
+  }
+
+  .product_grid-3rd {
+    margin-left: 0;
+  }
+}
 @media only screen and (min-width: 42.22222em) {
   .container {
     padding: 0 1em;
@@ -694,51 +703,55 @@ textarea {
   }
 
   .col-1-12 {
-    width: 6.5%;
+    width: 4.66667%;
   }
 
   .col-2-12 {
-    width: 15%;
+    width: 13.33333%;
   }
 
   .col-3-12 {
-    width: 23.5%;
+    width: 22%;
   }
 
   .col-4-12 {
-    width: 32%;
+    width: 30.66667%;
   }
 
   .col-5-12 {
-    width: 40.5%;
+    width: 39.33333%;
   }
 
   .col-6-12 {
-    width: 49%;
+    width: 48%;
   }
 
   .col-7-12 {
-    width: 57.5%;
+    width: 56.66667%;
   }
 
   .col-8-12 {
-    width: 66%;
+    width: 65.33333%;
   }
 
   .col-9-12 {
-    width: 74.5%;
+    width: 74%;
   }
 
   .col-10-12 {
-    width: 83%;
+    width: 82.66667%;
   }
 
   .col-11-12 {
-    width: 91.5%;
+    width: 91.33333%;
   }
 
   .col-12-12 {
     width: 100%;
+  }
+
+  .product_grid-3rd {
+    margin-left: 4%;
   }
 }
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -1000,10 +1013,16 @@ textarea {
 }
 
 .logo_main {
-  max-width: 203px;
-  max-width: 11.3rem;
+  max-width: 150px;
+  max-width: 8.33333333rem;
 }
-@media only screen and (min-width: 66.66667em) {
+@media only screen and (min-width: 26.66667em) {
+  .logo_main {
+    max-width: 203px;
+    max-width: 11.3rem;
+  }
+}
+@media only screen and (min-width: 42.22222em) {
   .logo_main {
     max-width: 287.65px;
     max-width: 15.9rem;
@@ -2433,8 +2452,7 @@ img {
 
   @page {
     margin: 0.5cm;
-}
-
+  }
   p,
   h2,
   h3 {

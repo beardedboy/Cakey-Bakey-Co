@@ -394,7 +394,7 @@ function cakeybakeyco_setup(){
 	function cbc_filter_short_description( $desc ){
 	    global $product;
 
-	    $newDesc = '<div class = "product_container_info_desc">'.wp_strip_all_tags($desc).'</div>';
+	    $newDesc = '<div class = "product_list_item_info_desc">'.wp_strip_all_tags($desc).'</div>';
 
 	    return $newDesc;
 	}
@@ -410,7 +410,7 @@ function cakeybakeyco_setup(){
 		global $post;
 		if ( has_post_thumbnail() ){
 			$blah = wp_get_attachment_image_src( get_post_thumbnail_id() ,$size );
-     		return '<img width="100%" class = "product_container_img" src="' . $blah[0] . '">';
+     		return '<img width="100%" class = "product_list_item_img" src="' . $blah[0] . '">';
 		}
 	}
 

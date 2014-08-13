@@ -509,7 +509,7 @@ table {
   border-spacing: 0;
 }
 
-.container:after, .row:after, .form:after, .form_group:after, .form_group-container:after, .nav_main:after, .basket_list_item:after, .basket_subtotal:after {
+.container:after, .row:after, .form:after, .form_group:after, .form_group-container:after, .nav_main:after, .basket_list_item:after, .basket_subtotal:after, .product_list:after, .product_list_item:after {
   content: "";
   display: table;
   clear: both;
@@ -674,19 +674,28 @@ textarea {
 }
 
 [class*='col-'] {
-  margin: 0 2% 2% 2%;
+  margin: 0 4% 4% 4%;
   width: 100%;
 }
 @media only screen and (min-width: 26.66667em) {
   [class*='col-'] {
     float: left;
-    margin: 0 0 1.6% 2%;
+    margin: 0 0 1.6% 4%;
   }
 }
 [class*='col-']:first-child {
   margin-left: 0;
 }
 
+@media only screen and (min-width: 26.66667em) {
+  .product_grid {
+    width: 49%;
+  }
+
+  .product_grid-3rd {
+    margin-left: 0;
+  }
+}
 @media only screen and (min-width: 42.22222em) {
   .container {
     padding: 0 1em;
@@ -697,51 +706,55 @@ textarea {
   }
 
   .col-1-12 {
-    width: 6.5%;
+    width: 4.66667%;
   }
 
   .col-2-12 {
-    width: 15%;
+    width: 13.33333%;
   }
 
   .col-3-12 {
-    width: 23.5%;
+    width: 22%;
   }
 
   .col-4-12 {
-    width: 32%;
+    width: 30.66667%;
   }
 
   .col-5-12 {
-    width: 40.5%;
+    width: 39.33333%;
   }
 
   .col-6-12 {
-    width: 49%;
+    width: 48%;
   }
 
   .col-7-12 {
-    width: 57.5%;
+    width: 56.66667%;
   }
 
   .col-8-12 {
-    width: 66%;
+    width: 65.33333%;
   }
 
   .col-9-12 {
-    width: 74.5%;
+    width: 74%;
   }
 
   .col-10-12 {
-    width: 83%;
+    width: 82.66667%;
   }
 
   .col-11-12 {
-    width: 91.5%;
+    width: 91.33333%;
   }
 
   .col-12-12 {
     width: 100%;
+  }
+
+  .product_grid-3rd {
+    margin-left: 4%;
   }
 }
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -1003,10 +1016,16 @@ textarea {
 }
 
 .logo_main {
-  max-width: 203px;
-  max-width: 11.3rem;
+  max-width: 150px;
+  max-width: 8.33333333rem;
 }
-@media only screen and (min-width: 66.66667em) {
+@media only screen and (min-width: 26.66667em) {
+  .logo_main {
+    max-width: 203px;
+    max-width: 11.3rem;
+  }
+}
+@media only screen and (min-width: 42.22222em) {
   .logo_main {
     max-width: 287.65px;
     max-width: 15.9rem;
@@ -2099,39 +2118,100 @@ img {
     border-top: 1px solid #e2758d;
   }
 }
-.product {
+.product_list {
   padding: 0;
 }
 
-.product_row {
-  margin-bottom: 1.414rem;
+.product_list_item {
+  list-style-type: none;
+  width: 100%;
+  padding: 0.707em 0;
+  border-bottom: 1px dashed #ccc;
+}
+.product_list_item:first-child {
+  padding-top: 0;
+}
+@media only screen and (min-width: 27.77778em) {
+  .product_list_item:first-child {
+    padding-top: 0.707em;
+  }
+}
+.product_list_item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+@media only screen and (min-width: 27.77778em) {
+  .product_list_item {
+    float: left;
+    width: 46%;
+    margin-left: 4%;
+    border: none;
+  }
+  .product_list_item:nth-child(odd) {
+    margin-left: 0;
+  }
+}
+@media only screen and (min-width: 42.22222em) {
+  .product_list_item {
+    float: left;
+    width: 29.33333%;
+    margin-left: 4%;
+  }
+  .product_list_item:nth-child(odd) {
+    margin-left: 4%;
+  }
+  .product_list_item:nth-child(3n+1) {
+    margin-left: 0;
+  }
 }
 
 .product_link:hover .product_container_info_title {
   color: #e68a9e;
 }
 
-.product_container {
-  list-style-type: none;
+.product_list_item_img {
+  float: left;
+  width: 40%;
+}
+@media only screen and (min-width: 27.77778em) {
+  .product_list_item_img {
+    width: 100%;
+    float: none;
+  }
 }
 
-.product_container_info_title {
+.product_list_item_info {
+  float: right;
+}
+@media only screen and (min-width: 27.77778em) {
+  .product_list_item_info {
+    float: none;
+  }
+}
+
+.product_list_item_info_title {
   margin: 15px 0 0 7px 0;
   margin: 0.7072135785007072rem 0 0.3536067892503536rem 0;
 }
 
-.product_container_info_desc {
+.product_list_item_info_desc {
   font-size: 0.7072135785007072rem;
   margin: 0.3536067892503536rem 0;
-  text-align: center;
 }
 
-.product_container_info_price {
-  text-align: center;
+.product_list_item_info_title, .product_list_item_info_price, .product_list_item_info_desc {
+  text-align: left;
+}
+@media only screen and (min-width: 27.77778em) {
+  .product_list_item_info_title, .product_list_item_info_price, .product_list_item_info_desc {
+    text-align: center;
+  }
 }
 
-.product_container_info_btn {
+.product_list_item_info_btn {
   display: block;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .main_header {
@@ -2236,7 +2316,7 @@ img {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.container:after, .row:after, .form:after, .form_group:after, .form_group-container:after, .nav_main:after, .basket_list_item:after, .basket_subtotal:after {
+.container:after, .row:after, .form:after, .form_group:after, .form_group-container:after, .nav_main:after, .basket_list_item:after, .basket_subtotal:after, .product_list:after, .product_list_item:after {
   content: "";
   display: table;
   clear: both;
@@ -2317,8 +2397,7 @@ img {
 
   @page {
     margin: 0.5cm;
-}
-
+  }
   p,
   h2,
   h3 {
