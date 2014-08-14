@@ -1312,7 +1312,7 @@ textarea {
   -ms-transform: translateY(0.27778em);
   -webkit-transform: translateY(0.27778em);
   transform: translateY(0.27778em);
-  margin-bottom: 0.2777777777777778em;
+  margin-bottom: 0.8333333333333334em;
   text-decoration: none;
 }
 
@@ -2397,7 +2397,8 @@ img {
 
   @page {
     margin: 0.5cm;
-  }
+}
+
   p,
   h2,
   h3 {
