@@ -9,17 +9,29 @@
 }
 
 .main_header_row{
-	width: 50%;
+	width: 100%;
+}
+
+.main_header_row-header, .main_header_row-nav{
+	margin-bottom: 0;
 	float: left;
 	@include min-screen($sm-bp){
-		width: 100%;
+		margin-bottom: 1.6%;
 		float: none;
 	}
 }
 
-.main_header_row_col{
-	margin-bottom: 0;
-	@include min-screen($sm-bp){
-		margin-bottom: 1.6%;
+.main_header_row-header{
+	width: 80%;
+}
+
+
+.main_header_row-nav{
+	width: 20%;
+}
+
+@include min-screen($sm-bp){
+	.main_header_row-header, .main_header_row-nav{
+		width: 100%;	
 	}
 }

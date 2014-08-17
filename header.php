@@ -32,24 +32,24 @@
 
     <div class = "container">
         <header class = "main_header">
-            <div class = "row main_header_row">
-                <div class = "col-12-12 main_header_row_col">
+            <div class = "main_header_row">
+                <div class = "main_header_row-header">
                     <div class = "logo_container">
                         <a class = "logo_home_link" href = "<?php get_site_url(); ?>">
                             <img src= "<?php bloginfo('template_directory'); ?>/img/build/Logo/logo-01.svg" class = "logo logo_main" alt="Cakey Bakey Co.">
                         </a>
                     </div><!-- end logo_container -->
                 </div>
-            </div><!-- end row -->
-            <div class = "row main_header_row">
-                <div class = "col-12-12 main_header_row_col">
-                                    <hr class = "hr hr_double hr_nav" />
+                <div class = "main_header_row-nav">
+                    <hr class = "hr hr_double hr_nav" />
+                    
                     <nav class = "nav nav_main" role = "navigation">
                         <a href = "#" class = "nav_main_btn nav_main_btn-menu">MENU</a>
                         <?php if ( has_nav_menu( 'main-nav' ) ) {
                             wp_nav_menu( mainNav() );
                         } ?>   
                     </nav><!-- end nav nav_main -->
+
                     <hr class = "hr hr_double-reversed hr_nav" />
                 </div><!-- end col-12-12 -->
             </div><!-- end row -->
