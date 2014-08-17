@@ -1,6 +1,25 @@
 .main_header{
+	@extend %clearfix;
 	padding-top: 0;
-	@include min-screen($med-bp){
+	border-bottom: 2px solid $black;
+	@include min-screen($sm-bp){
 		padding-top: 1em;
+		border: none;
+	}
+}
+
+.main_header_row{
+	width: 50%;
+	float: left;
+	@include min-screen($sm-bp){
+		width: 100%;
+		float: none;
+	}
+}
+
+.main_header_row_col{
+	margin-bottom: 0;
+	@include min-screen($sm-bp){
+		margin-bottom: 1.6%;
 	}
 }

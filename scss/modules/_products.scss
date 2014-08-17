@@ -61,9 +61,11 @@
 }
 
 .product_list_item_info{
-	float: right;
+	float: left;
+	padding-left: 2em;
 	@include min-screen($sm-product-bp){
 		float: none;
+		padding-left: 0;
 	}
 }
 
@@ -86,6 +88,9 @@
 
 .product_list_item_info_btn{
 	display: block;
+	width: 7em;
 	margin-left: 0;
-	margin-right: 0;
+	@include min-screen($sm-product-bp){
+		margin: .5em auto 1em auto;
+	}
 }

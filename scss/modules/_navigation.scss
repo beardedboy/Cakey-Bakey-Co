@@ -40,6 +40,7 @@
     text-transform: uppercase;
     color: $black;
     padding: .5em 0;
+    line-height: 3;
     text-decoration: none;
     border-right: 1px solid $black;
     &:active, &:hover{
@@ -142,6 +143,12 @@
 		padding-left: 5em;
     }
 
+}
+
+@include min-screen($sm-bp){
+    .nav_main_btn{
+        line-height: 1.5;
+    }
 }
 
 @media only screen and (min-height: 28.125em) {

@@ -1,11 +1,19 @@
 .logo_container{
-	text-align: center;
+	text-align: left;
 	width: 100%;
+	margin: .75em;
+	@include min-screen($sm-bp){
+		text-align: center;
+		margin: 0;
+	}
 }
 
 .logo{
-	margin: 1em auto;
+	margin: 0;
 	max-width: 100%;
+	@include min-screen($sm-bp){
+		margin: 1em auto;
+	}
 }
 
 .logo_main{
@@ -140,9 +148,9 @@
 }
 
 .hr_nav{
-	//display: none;
+	display: none;
 	margin: 0;
-	@include min-screen($med-bp){
+	@include min-screen($sm-bp){
 		display: block;
 	}
 }

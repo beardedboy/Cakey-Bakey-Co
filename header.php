@@ -32,8 +32,8 @@
 
     <div class = "container">
         <header class = "main_header">
-            <div class = "row">
-                <div class = "col-12-12">
+            <div class = "row main_header_row">
+                <div class = "col-12-12 main_header_row_col">
                     <div class = "logo_container">
                         <a class = "logo_home_link" href = "<?php get_site_url(); ?>">
                             <img src= "<?php bloginfo('template_directory'); ?>/img/build/Logo/logo-01.svg" class = "logo logo_main" alt="Cakey Bakey Co.">
@@ -41,8 +41,8 @@
                     </div><!-- end logo_container -->
                 </div>
             </div><!-- end row -->
-            <div class = "row">
-                <div class = "col-12-12">
+            <div class = "row main_header_row">
+                <div class = "col-12-12 main_header_row_col">
                                     <hr class = "hr hr_double hr_nav" />
                     <nav class = "nav nav_main" role = "navigation">
                         <a href = "#" class = "nav_main_btn nav_main_btn-menu">MENU</a>
