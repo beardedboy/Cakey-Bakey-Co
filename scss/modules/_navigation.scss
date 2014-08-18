@@ -36,7 +36,7 @@
     display: inline-block;
     float: left;
     width: 60%;
-    font: bold 1em/1.5 $font-family; //18px;
+    font: bold 1/1.5 $font-family; //18px;
     text-transform: uppercase;
     color: $black;
     padding: .5em 0;
@@ -59,8 +59,10 @@
  .nav_main_btn-close{
     float: none;
     width: 100%;
+    font-size: 1.414em;
     color: $white;
-    border-bottom: 1px solid $darkgrey;
+    background-color: $darkgrey;
+    border-bottom: 1px solid $black;
     padding-left: 60px;
     text-align: left;
  } 
@@ -100,7 +102,7 @@
 }
 
 .icon-close{
-    padding-right: 10px;
+    padding-right: 5px;
     &:before{
         top: -2px;
     }
@@ -114,7 +116,7 @@
     letter-spacing: 1px;
     text-align: left;
     a{  
-    	font: bold 1em/3 $font-family; 
+    	font: bold 1.414em/3 $font-family; 
         display: block;
         text-decoration: none;
         color: white;

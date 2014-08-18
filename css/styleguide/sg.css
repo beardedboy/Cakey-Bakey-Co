@@ -1001,8 +1001,11 @@ textarea {
 
 .logo_container {
   text-align: left;
-  width: 3.1em;
-  height: 3.1em;
+  width: 3em;
+  height: 3em;
+  background-color: #e68a9e;
+}
+.logo_container:hover {
   background-color: #e68a9e;
 }
 @media only screen and (min-width: 26.66667em) {
@@ -1012,6 +1015,9 @@ textarea {
     background-color: transparent;
     height: 100%;
   }
+  .logo_container:hover {
+    background-color: transparent;
+  }
 }
 
 .logo {
@@ -1020,6 +1026,7 @@ textarea {
 
 .logo_main {
   background: url("img/build/logo/logo_cake.svg") no-repeat center;
+  background-size: 17px 28px;
 }
 @media only screen and (min-width: 26.66667em) {
   .logo_main {
@@ -1028,7 +1035,7 @@ textarea {
     width: 203px;
     width: 16.3rem;
     height: 100px;
-    margin: 0 auto;
+    margin: .5em auto;
   }
 }
 
@@ -1533,7 +1540,7 @@ img {
   display: inline-block;
   float: left;
   width: 60%;
-  font: bold 1em/1.5 "Open Sans", Helvetica, Arial, sans-serif;
+  font: bold 1/1.5 "Open Sans", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   color: black;
   padding: .5em 0;
@@ -1556,8 +1563,10 @@ img {
 .nav_main_btn-close {
   float: none;
   width: 100%;
+  font-size: 1.414em;
   color: white;
-  border-bottom: 1px solid #404040;
+  background-color: #404040;
+  border-bottom: 1px solid black;
   padding-left: 60px;
   text-align: left;
 }
@@ -1597,7 +1606,7 @@ img {
 }
 
 .icon-close {
-  padding-right: 10px;
+  padding-right: 5px;
 }
 .icon-close:before {
   top: -2px;
@@ -1611,7 +1620,7 @@ img {
   text-align: left;
 }
 .nav_main_list_item a {
-  font: bold 1em/3 "Open Sans", Helvetica, Arial, sans-serif;
+  font: bold 1.414em/3 "Open Sans", Helvetica, Arial, sans-serif;
   display: block;
   text-decoration: none;
   color: white;
@@ -2513,8 +2522,7 @@ img {
 
   @page {
     margin: 0.5cm;
-}
-
+  }
   p,
   h2,
   h3 {

@@ -1,9 +1,19 @@
 .logo_container{
 	text-align: left;
-	width: 3.1em;
-	height: 3.1em;
+	width: 3em;
+	height: 3em;
 	background-color: $pink;
+
+	&:hover{
+		background-color: $pink;
+	}
+
 	@include min-screen($sm-bp){
+		
+		&:hover{
+			background-color: transparent;
+		}
+
 		width: 100%;
 		margin: 0 auto;
 		background-color: transparent;
@@ -17,13 +27,15 @@
 
 .logo_main{
 	background: url('img/build/logo/logo_cake.svg') no-repeat center;
+	background-size: 17px 28px;
+
 	@include min-screen($sm-bp){
 		background: url('img/build/logo/logo-01.svg') no-repeat center;
 		background-size: contain;
 		width: 203px;
 		width: 16.3rem;
 		height: 100px;
-		margin: 0 auto;
+		margin: .5em auto;
 	}
 }
 
