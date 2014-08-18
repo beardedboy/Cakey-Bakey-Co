@@ -1,36 +1,30 @@
 .logo_container{
 	text-align: left;
-	width: 100px;
-	margin: .5em;
+	width: 3.1em;
+	height: 3.1em;
+	background-color: $pink;
 	@include min-screen($sm-bp){
 		width: 100%;
-		text-align: center;
-		margin: 0;
+		margin: 0 auto;
+		background-color: transparent;
+		height: 100%;
 	}
 }
 
 .logo{
 	margin: 0;
-	max-width: 100%;
-	@include min-screen($sm-bp){
-		margin: 1em auto;
-	}
 }
 
 .logo_main{
-	max-width: 150px;
-	max-width: 8.33333333rem;
-
+	background: url('img/build/logo/logo_cake.svg') no-repeat center;
 	@include min-screen($sm-bp){
-		max-width: 203px;
-		max-width: 11.3rem;
+		background: url('img/build/logo/logo-01.svg') no-repeat center;
+		background-size: contain;
+		width: 203px;
+		width: 16.3rem;
+		height: 100px;
+		margin: 0 auto;
 	}
-
-	@include min-screen(54.375em){
-		max-width: 287.65px;
-		max-width: 15.9rem;
-	}
-
 }
 
 .tooltip{

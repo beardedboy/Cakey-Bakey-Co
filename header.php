@@ -36,7 +36,7 @@
                 <div class = "main_header_row-header">
                     <div class = "logo_container">
                         <a class = "logo_home_link" href = "<?php get_site_url(); ?>">
-                            <img src= "<?php bloginfo('template_directory'); ?>/img/build/Logo/logo-01.svg" class = "logo logo_main" alt="Cakey Bakey Co.">
+                            <h1 class = "ir logo logo_main">Cakey Bakey Co.</h1>
                         </a>
                     </div><!-- end logo_container -->
                 </div>

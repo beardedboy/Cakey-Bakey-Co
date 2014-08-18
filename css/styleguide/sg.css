@@ -1001,41 +1001,34 @@ textarea {
 
 .logo_container {
   text-align: left;
-  width: 100px;
-  margin: .5em;
+  width: 3.1em;
+  height: 3.1em;
+  background-color: #e68a9e;
 }
 @media only screen and (min-width: 26.66667em) {
   .logo_container {
     width: 100%;
-    text-align: center;
-    margin: 0;
+    margin: 0 auto;
+    background-color: transparent;
+    height: 100%;
   }
 }
 
 .logo {
   margin: 0;
-  max-width: 100%;
-}
-@media only screen and (min-width: 26.66667em) {
-  .logo {
-    margin: 1em auto;
-  }
 }
 
 .logo_main {
-  max-width: 150px;
-  max-width: 8.33333333rem;
+  background: url("img/build/logo/logo_cake.svg") no-repeat center;
 }
 @media only screen and (min-width: 26.66667em) {
   .logo_main {
-    max-width: 203px;
-    max-width: 11.3rem;
-  }
-}
-@media only screen and (min-width: 54.375em) {
-  .logo_main {
-    max-width: 287.65px;
-    max-width: 15.9rem;
+    background: url("img/build/logo/logo-01.svg") no-repeat center;
+    background-size: contain;
+    width: 203px;
+    width: 16.3rem;
+    height: 100px;
+    margin: 0 auto;
   }
 }
 
@@ -2380,17 +2373,9 @@ img {
  * Image replacement
  */
 .ir {
-  background-color: transparent;
-  border: 0;
+  text-indent: 100%;
+  white-space: nowrap;
   overflow: hidden;
-  /* IE 6/7 fallback */
-  *text-indent: -9999px;
-}
-.ir:before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 150%;
 }
 
 /*
