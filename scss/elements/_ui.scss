@@ -1,8 +1,9 @@
 .logo_container{
 	text-align: left;
-	width: 100%;
-	margin: .75em;
+	width: 100px;
+	margin: .5em;
 	@include min-screen($sm-bp){
+		width: 100%;
 		text-align: center;
 		margin: 0;
 	}
@@ -25,7 +26,7 @@
 		max-width: 11.3rem;
 	}
 
-	@include min-screen($med-bp){
+	@include min-screen(54.375em){
 		max-width: 287.65px;
 		max-width: 15.9rem;
 	}

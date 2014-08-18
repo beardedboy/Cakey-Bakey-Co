@@ -35,14 +35,15 @@
 .nav_main_btn{
     display: inline-block;
     float: left;
-    width: 70%;
-    font: bold 1.285714285714286em/1.5 $font-family; //18px;
+    width: 60%;
+    font: bold 1em/1.5 $font-family; //18px;
     text-transform: uppercase;
     color: $black;
     padding: .5em 0;
     line-height: 3;
     text-decoration: none;
     border-right: 1px solid $black;
+    border-left: 1px solid $black;
     &:active, &:hover{
         background-color: $pink;
         color: $white;
@@ -60,7 +61,7 @@
     width: 100%;
     color: $white;
     border-bottom: 1px solid $darkgrey;
-    padding-left: 3em;
+    padding-left: 60px;
     text-align: left;
  } 
 
@@ -85,6 +86,7 @@
 .nav_main_list{
     position: relative;
     margin: 0;
+    padding: 0;
 }
 
 .nav_main-open{
@@ -112,11 +114,12 @@
     letter-spacing: 1px;
     text-align: left;
     a{  
-    	font: bold 1.285714285714286em/3 $font-family; //18px;
+    	font: bold 1em/3 $font-family; 
         display: block;
         text-decoration: none;
         color: white;
-        padding-left: 3em;
+        padding-left: 60px;
+        padding-left: 3.333333333333333rem;
         &:hover, &:active{
         	background-color: $pink;
             .icon-dropdown:before{
@@ -142,14 +145,26 @@
 		font-style: italic;
 		padding-left: 5em;
     }
-
 }
 
 @include min-screen($sm-bp){
     .nav_main_btn{
         line-height: 1.5;
+        border-left: none;
     }
 }
+
+@media only screen and (min-width: 21.11111111111111em){
+    .nav_main_container{
+       width: 380px;
+       width: 21.11111111111111rem;
+    }
+
+    .nav_main_btn-close, .nav_main_list_item a{
+        padding-left: 80px;
+    }
+}
+
 
 @media only screen and (min-height: 28.125em) {
     .nav_main_container{

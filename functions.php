@@ -384,7 +384,7 @@ function cakeybakeyco_setup(){
 	add_action('woocommerce_after_main_content', 'cbc_wrapper_end', 10);
 
 	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
-	//remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 	remove_action('woocommerce_before_shop_loop_item_title','woocommerce_template_loop_product_thumbnail', 10);
 	add_action('woocommerce_before_shop_loop_item_title','cbc_product_loop_img', 10);
 

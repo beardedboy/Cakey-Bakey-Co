@@ -1,7 +1,7 @@
 .main_header{
 	@extend %clearfix;
 	padding-top: 0;
-	border-bottom: 2px solid $black;
+	//border-bottom: 1px solid $black;
 	@include min-screen($sm-bp){
 		padding-top: 1em;
 		border: none;
@@ -16,18 +16,20 @@
 	margin-bottom: 0;
 	float: left;
 	@include min-screen($sm-bp){
-		margin-bottom: 1.6%;
 		float: none;
 	}
 }
 
 .main_header_row-header{
-	width: 80%;
+	width: 60%;
+	@include min-screen($sm-bp){
+		margin-bottom: 1.6%;
+	}
 }
 
 
 .main_header_row-nav{
-	width: 20%;
+	width: 40%;
 }
 
 @include min-screen($sm-bp){

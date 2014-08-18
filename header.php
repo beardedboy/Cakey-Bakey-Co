@@ -49,8 +49,7 @@
                             wp_nav_menu( mainNav() );
                         } ?>   
                     </nav><!-- end nav nav_main -->
-
-                    <hr class = "hr hr_double-reversed hr_nav" />
                 </div><!-- end col-12-12 -->
             </div><!-- end row -->
         </header><!-- end header -->
+        <hr class = "hr hr_double-reversed" />
