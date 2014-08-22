@@ -1028,6 +1028,11 @@ textarea {
   background: url("img/build/logo/logo_cake.svg") no-repeat center;
   background-size: 17px 28px;
 }
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .logo_main {
+    background: url("img/build/logo/logo_cake@2x.svg") no-repeat center;
+  }
+}
 @media only screen and (min-width: 26.66667em) {
   .logo_main {
     background: url("img/build/logo/logo-01.svg") no-repeat center;
@@ -1035,6 +1040,7 @@ textarea {
     width: 203px;
     width: 16.3rem;
     height: 100px;
+    height: 5.555555555555556rem;
     margin: .5em auto;
   }
 }
@@ -1667,6 +1673,12 @@ img {
   .nav_main_btn-close, .nav_main_list_item a {
     padding-left: 80px;
   }
+
+  .nav_divider {
+    display: inline;
+    border-left: 1px solid black;
+    margin: 0 .5em;
+  }
 }
 @media only screen and (min-height: 28.125em) {
   .nav_main_container {
@@ -1756,6 +1768,7 @@ img {
   }
   .nav_main_list_item-dropdown:hover {
     background-color: #e68a9e;
+    border: 1px solid transparent !important;
     -webkit-border-bottom-right-radius: 0;
     -moz-border-bottom-right-radius: 0;
     -ms-border-bottom-right-radius: 0;
@@ -1845,8 +1858,12 @@ img {
     margin: 1em 1.5em 1em 1em;
     text-align: left;
     display: inline;
-    float: left;
+    float: right;
     width: auto;
+  }
+
+  .nav_footer_logo {
+    float: left;
   }
 
   .nav_footer_title {
@@ -2030,7 +2047,7 @@ img {
   .basket_link {
     display: inline;
     font-size: 1em;
-    padding: .5em 1em;
+    padding: .5em 1.5em;
     text-transform: uppercase;
     color: black;
     text-decoration: none;
@@ -2079,7 +2096,6 @@ img {
   .basket_link_icon-desktop {
     display: inline-block;
     visibility: inherit;
-    border-left: 1px solid black;
   }
 
   .basket_empty_title {
@@ -2185,7 +2201,7 @@ img {
 }
 
 .main_header_row-header {
-  width: 60%;
+  width: 50%;
 }
 @media only screen and (min-width: 26.66667em) {
   .main_header_row-header {
@@ -2194,7 +2210,7 @@ img {
 }
 
 .main_header_row-nav {
-  width: 40%;
+  width: 50%;
 }
 
 @media only screen and (min-width: 26.66667em) {
@@ -2522,7 +2538,8 @@ img {
 
   @page {
     margin: 0.5cm;
-  }
+}
+
   p,
   h2,
   h3 {

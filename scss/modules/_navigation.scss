@@ -165,6 +165,12 @@
     .nav_main_btn-close, .nav_main_list_item a{
         padding-left: 80px;
     }
+
+    .nav_divider{
+        display: inline;
+        border-left: 1px solid black;
+        margin: 0 .5em;
+    }
 }
 
 
@@ -260,6 +266,7 @@
         }
     	&:hover{
             background-color: $pink;
+            border: 1px solid transparent !important;
     		a, .icon-dropdown:after{
                 color: $white;
             }
@@ -316,35 +323,35 @@
         text-align: center;
     }
 
-    .nav_footer_title{
-        font: bold 1.285714285714286em/1.5 $font-family, Helvetica, Arial, sans-serif; //23.14285714285715px;
-        text-transform: uppercase;
-    }
+.nav_footer_title{
+    font: bold 1.285714285714286em/1.5 $font-family, Helvetica, Arial, sans-serif; //23.14285714285715px;
+    text-transform: uppercase;
+}
 
-    .nav_footer_list_item{
-        a{
-            display: block;
-            color: $black;
-            font: normal 1.285714285714286em/2.5 $font-family, Helvetica, Arial, sans-serif; //23.14285714285715px;
-            //text-transform: uppercase;
-            letter-spacing: 1px;
+.nav_footer_list_item{
+    a{
+        display: block;
+        color: $black;
+        font: normal 1.285714285714286em/2.5 $font-family, Helvetica, Arial, sans-serif; //23.14285714285715px;
+        //text-transform: uppercase;
+        letter-spacing: 1px;
+        text-decoration: none;
+        &:hover{
+            color: $white;
+            background-color: $pink;
             text-decoration: none;
-            &:hover{
-                color: $white;
-                background-color: $pink;
-                text-decoration: none;
-            }
+        }
     }
-    }
+}
 
-    .nav_footer_list{
-        padding: 0;
-    }
+.nav_footer_list{
+    padding: 0;
+}
 
-    .nav_footer_list_item_sublist{
-        padding-left: 1em;
-        margin: .5em;
-    }
+.nav_footer_list_item_sublist{
+    padding-left: 1em;
+    margin: .5em;
+}
 
 @media only screen and (min-width: $med-bp) {
 
@@ -352,9 +359,15 @@
         margin: 1em 1.5em 1em 1em;
         text-align: left;
         display: inline;
-        float: left;
+        float: right;
         width: auto;
     }
+
+    .nav_footer_logo{
+        float: left;
+    }
+
+    .nav_footer_copyright{}
 
     .nav_footer_title{
         font: bold 1em/1 $font-family, Helvetica, Arial, sans-serif; //14px;

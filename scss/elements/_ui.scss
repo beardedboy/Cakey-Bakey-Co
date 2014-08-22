@@ -8,8 +8,7 @@
 		background-color: $pink;
 	}
 
-	@include min-screen($sm-bp){
-		
+	@include min-screen($sm-bp){	
 		&:hover{
 			background-color: transparent;
 		}
@@ -28,6 +27,9 @@
 .logo_main{
 	background: url('img/build/logo/logo_cake.svg') no-repeat center;
 	background-size: 17px 28px;
+	@include retina-display(){
+		background: url('img/build/logo/logo_cake@2x.svg') no-repeat center;
+	}
 
 	@include min-screen($sm-bp){
 		background: url('img/build/logo/logo-01.svg') no-repeat center;
@@ -35,6 +37,7 @@
 		width: 203px;
 		width: 16.3rem;
 		height: 100px;
+		height: 5.555555555555556rem;
 		margin: .5em auto;
 	}
 }

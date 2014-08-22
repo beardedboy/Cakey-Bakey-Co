@@ -81,7 +81,6 @@
     .basket_wrapper{
         display: inline;
         position: relative;
-        //padding-left: 1em;
     }
 
     .basket_badge{
@@ -113,7 +112,7 @@
     .basket_link{
         display: inline;
         font-size: 1em;
-        padding: .5em 1em;
+        padding: .5em 1.5em;
         text-transform: uppercase;
         color: $black;
         text-decoration: none;
@@ -162,7 +161,6 @@
     .basket_link_icon-desktop{
         display: inline-block;
         visibility: inherit;
-        border-left: 1px solid black;
     }
 
     .basket_empty_title{

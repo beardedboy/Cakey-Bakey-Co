@@ -23,7 +23,7 @@
 		<clipPath id="SVGID_6_" clip-path="url(#SVGID_5_)">
 			<use xlink:href="#SVGID_3_"  overflow="visible"/>
 		</clipPath>
-		<path clip-path="url(#SVGID_6_)" fill-rule="evenodd" clip-rule="evenodd" d="M-2,4h29v19H-2V4z M-2,4"/>
+		<path clip-path="url(#SVGID_6_)" fill-rule="evenodd" fill="#fff" clip-rule="evenodd" d="M-2,4h29v19H-2V4z M-2,4"/>
 	</g>
 	<g>
 		<defs>
@@ -44,7 +44,7 @@
 		<clipPath id="SVGID_12_" clip-path="url(#SVGID_11_)">
 			<use xlink:href="#SVGID_9_"  overflow="visible"/>
 		</clipPath>
-		<path clip-path="url(#SVGID_12_)" fill-rule="evenodd" clip-rule="evenodd" d="M1-5h23v17H1V-5z M1-5"/>
+		<path clip-path="url(#SVGID_12_)" fill-rule="evenodd" fill="#fff" clip-rule="evenodd" d="M1-5h23v17H1V-5z M1-5"/>
 	</g>
 	<g>
 		<defs>
@@ -65,7 +65,7 @@
 		<clipPath id="SVGID_18_" clip-path="url(#SVGID_17_)">
 			<use xlink:href="#SVGID_15_"  overflow="visible"/>
 		</clipPath>
-		<path clip-path="url(#SVGID_18_)" fill-rule="evenodd" clip-rule="evenodd" d="M-5,15h35v21H-5V15z M-5,15"/>
+		<path clip-path="url(#SVGID_18_)" fill-rule="evenodd" fill="#fff" clip-rule="evenodd" d="M-5,15h35v21H-5V15z M-5,15"/>
 	</g>
 	<g>
 		<defs>
@@ -86,7 +86,7 @@
 		<clipPath id="SVGID_24_" clip-path="url(#SVGID_23_)">
 			<use xlink:href="#SVGID_21_"  overflow="visible"/>
 		</clipPath>
-		<path clip-path="url(#SVGID_24_)" fill-rule="evenodd" clip-rule="evenodd" d="M6,25h13v17H6V25z M6,25"/>
+		<path clip-path="url(#SVGID_24_)" fill-rule="evenodd" fill="#fff" clip-rule="evenodd" d="M6,25h13v17H6V25z M6,25"/>
 	</g>
 	<g>
 		<defs>
@@ -107,7 +107,7 @@
 		<clipPath id="SVGID_30_" clip-path="url(#SVGID_29_)">
 			<use xlink:href="#SVGID_27_"  overflow="visible"/>
 		</clipPath>
-		<path clip-path="url(#SVGID_30_)" fill-rule="evenodd" clip-rule="evenodd" d="M2,32h21v13H2V32z M2,32"/>
+		<path clip-path="url(#SVGID_30_)" fill-rule="evenodd" fill="#fff" clip-rule="evenodd" d="M2,32h21v13H2V32z M2,32"/>
 	</g>
 </g>
 </svg>

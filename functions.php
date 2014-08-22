@@ -111,7 +111,7 @@ class mainnav_walker extends Walker_Nav_Menu{
 			else{
 				$counter = '';
 			}
-			$output .= '<li class = "basket_wrapper basket_link_icon-desktop">';
+			$output .= '<li class = "nav_divider"></li><li class = "basket_wrapper basket_link_icon-desktop">';
 
 			$attributes  = '';
 	 
