@@ -49,6 +49,14 @@ module.exports = function(grunt) {
 
             }
         },
+        autoprefixer: {
+            options: {
+                // Task-specific options go here.
+            },
+            your_target: {
+                // Target-specific file lists and/or options go here.
+            },
+        },
 
         cssmin: {
             combine: {
@@ -73,7 +81,7 @@ module.exports = function(grunt) {
             },
             sass: {
                 files: 'scss/**/*.scss',
-                tasks: ['sass','cssmin'],
+                tasks: ['sass','autoprefixer','cssmin'],
                 options: {
                     spawn: false,
                 }
@@ -97,8 +105,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    //grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-autoprefixer');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'cssmin', 'imagemin']);
+    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer', 'cssmin', 'imagemin']);
 };
