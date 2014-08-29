@@ -5,7 +5,7 @@
     <description>Created with Sketch.</description>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Cake-only---medium" sketch:type="MSLayerGroup" fill="#FFFFFF">
+        <g id="Cake-only---medium" sketch:type="MSLayerGroup" fill="#000">
             <g id="Cake" sketch:type="MSShapeGroup">
                 <path d="M3,14.9677074 L3,10.9995634 C3,9.9048519 3.89427625,9 4.99742191,9 L20.0025781,9 C21.1090746,9 22,9.89523501 22,10.9995634 L22,14.9677074 L22,18 L3,18 L3,14.9677074 Z" id="Middle-Tier"></path>
                 <path d="M6,2.5 L6,2.0048815 C6,0.893899798 6.89666625,0 8.00276013,0 L16.9972399,0 C18.1064574,0 19,0.897616023 19,2.0048815 L19,2.5 L19,7 L6,7 L6,2.5 Z" id="Top-Tier"></path>

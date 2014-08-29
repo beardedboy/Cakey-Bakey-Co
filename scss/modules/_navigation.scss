@@ -65,6 +65,7 @@
     border-bottom: 1px solid $black;
     padding-left: 60px;
     text-align: left;
+    line-height: 2;
  } 
 
 .nav_main_container{
@@ -150,8 +151,8 @@
 }
 
 @include min-screen($sm-bp){
-    .nav_main_btn{
-        line-height: 1.5;
+    .nav_main_btn, .basket_link_icon-mobile{
+        line-height: 2;
         border-left: none;
     }
 }
@@ -161,6 +162,8 @@
        width: 380px;
        width: 21.11111111111111rem;
     }
+
+
 
     .nav_main_btn-close, .nav_main_list_item a{
         padding-left: 80px;
@@ -256,7 +259,7 @@
     }
 
     .nav_main_list_item-dropdown{
-        padding: .4em 0 .4em 1.5em;
+        padding: 0.5em 0 0.5em 1.5em;
         //border-top-right-radius: 0.2777777777777778em;
         //border-top-left-radius: 0.2777777777777778em;
         border-radius: 0.2777777777777778em;
@@ -266,7 +269,7 @@
         a{
             line-height: 1;
             padding: 0;
-            
+            border: none;
         }
     	&:hover{
             background-color: $pink;
@@ -274,7 +277,7 @@
             box-shadow: 0px 3px 3px rgba(51,51,51,0.2);
     		a, .icon-dropdown:after{
                 color: $white;
-                border: 1px solid transparent;
+                border: none;
                 box-shadow: none;
             }
             &> .nav_main_list_item_sublist{
@@ -294,17 +297,22 @@
     .nav_main_list_item_sublist{
         display: none;
         margin: 0;
+        width: 14.28571428571429em;
         position: absolute;
         top: 100%;
-        left: -10%;
+        left: -7.14285714285715em;
+        margin-left: 50%;
         padding-top: 10px;
         box-shadow: 0px 3px 3px rgba(51,51,51,0.2);
     }
 
     .nav_main_list_item_sublist_item{
     	position: relative;
-        border-bottom: 1px solid darken($pink, 5%);
+        border-left: 1px solid $darkpink;
+        border-right: 1px solid $darkpink;
+        border-bottom: 1px solid $darkpink;
         &:first-child{
+            border-top: 1px solid $darkpink;
             border-top-right-radius: 0.2777777777777778em;
             border-top-left-radius: 0.2777777777777778em;
             &:before{
@@ -321,7 +329,6 @@
             }
         }
         &:last-child{
-            border-bottom: none;
             border-bottom-right-radius: 0.2777777777777778em;
             border-bottom-left-radius: 0.2777777777777778em;
         }

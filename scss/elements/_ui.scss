@@ -2,21 +2,14 @@
 	text-align: left;
 	width: 3em;
 	height: 3em;
-	background-color: $pink;
-
-	&:hover{
-		background-color: $pink;
-	}
+	border-right: 1px solid $black;
 
 	@include min-screen($sm-bp){	
-		&:hover{
-			background-color: transparent;
-		}
-
 		width: 100%;
 		margin: 0 auto;
 		background-color: transparent;
 		height: 100%;
+		border-right: none;
 	}
 }
 
@@ -29,6 +22,7 @@
 	background-size: 17px 28px;
 	@include retina-display(){
 		background: url('img/build/logo/logo_cake@2x.svg') no-repeat center;
+		background-size: 17px 28px;
 	}
 
 	@include min-screen($sm-bp){
