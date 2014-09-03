@@ -1,27 +1,39 @@
 .logo_container{
-	text-align: center;
-	width: 100%;
+	text-align: left;
+	width: 3em;
+	height: 3em;
+	border-right: 1px solid $black;
+
+	@include min-screen($sm-bp){	
+		width: 100%;
+		margin: 0 auto;
+		background-color: transparent;
+		height: 100%;
+		border-right: none;
+	}
 }
 
 .logo{
-	margin: 1em auto;
-	max-width: 100%;
+	margin: 0;
 }
 
 .logo_main{
-	max-width: 150px;
-	max-width: 8.33333333rem;
+	background: url('img/build/logo/logo_cake.svg') no-repeat center;
+	background-size: 17px 28px;
+	@include retina-display(){
+		background: url('img/build/logo/logo_cake@2x.svg') no-repeat center;
+		background-size: 17px 28px;
+	}
 
 	@include min-screen($sm-bp){
-		max-width: 203px;
-		max-width: 11.3rem;
+		background: url('img/build/logo/logo-01.svg') no-repeat center;
+		background-size: contain;
+		width: 203px;
+		width: 16.3rem;
+		height: 100px;
+		height: 5.555555555555556rem;
+		margin: .5em auto;
 	}
-
-	@include min-screen($med-bp){
-		max-width: 287.65px;
-		max-width: 15.9rem;
-	}
-
 }
 
 .tooltip{
@@ -140,9 +152,9 @@
 }
 
 .hr_nav{
-	//display: none;
+	display: none;
 	margin: 0;
-	@include min-screen($med-bp){
+	@include min-screen($sm-bp){
 		display: block;
 	}
 }

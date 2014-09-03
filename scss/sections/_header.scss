@@ -1,6 +1,39 @@
 .main_header{
+	@extend %clearfix;
 	padding-top: 0;
-	@include min-screen($med-bp){
+	//border-bottom: 1px solid $black;
+	@include min-screen($sm-bp){
 		padding-top: 1em;
+		border: none;
+	}
+}
+
+.main_header_row{
+	width: 100%;
+}
+
+.main_header_row-header, .main_header_row-nav{
+	margin-bottom: 0;
+	float: left;
+	@include min-screen($sm-bp){
+		float: none;
+	}
+}
+
+.main_header_row-header{
+	width: 50%;
+	@include min-screen($sm-bp){
+		margin-bottom: 1.6%;
+	}
+}
+
+
+.main_header_row-nav{
+	width: 50%;
+}
+
+@include min-screen($sm-bp){
+	.main_header_row-header, .main_header_row-nav{
+		width: 100%;	
 	}
 }

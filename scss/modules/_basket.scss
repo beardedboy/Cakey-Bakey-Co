@@ -24,9 +24,9 @@
     .basket_link-mobile{
         display: inline-block;
         position: relative;
-        width: 30%;
-        font-size: 1.285714285714286em; //18px;
-        line-height: 1.5;
+        width: 40%;
+        font-size: 1em; //18px;
+        line-height: 3;
         float: left;
         color: $black;
         text-align: center;
@@ -68,6 +68,12 @@
     
     .basket_empty{}
 
+@include min-screen($sm-bp){
+    .basket_link-mobile{
+        line-height: 1.5em;
+    }
+}
+
 
 @include min-screen(54.375em) {
 
@@ -75,7 +81,6 @@
     .basket_wrapper{
         display: inline;
         position: relative;
-        //padding-left: 1em;
     }
 
     .basket_badge{
@@ -93,21 +98,27 @@
     .basket{
         position: absolute;
         font-size: 1.3em;
-        right: 0;
-        top: 100%;
+        right: -1px;
+        top: 98%;
         width: 16em;
         background-color: $pink;
+        z-index: -99999;
         border-top-left-radius: 0.2777777777777778em;
         border-bottom-right-radius: 0.2777777777777778em;
         border-bottom-left-radius: 0.2777777777777778em;
         padding: 1em 0;
-        margin: -0.0030864198em;
+        border: 1px solid $darkpink;
+        box-shadow: 0px 3px 3px rgba(51,51,51,0.2);
+        @include retina-display(){
+            top: 95%;
+        }
     }
 
     .basket_link{
+        position: relative;
         display: inline;
         font-size: 1em;
-        padding: .5em 1em;
+        padding: .5em 1.5em;
         text-transform: uppercase;
         color: $black;
         text-decoration: none;
@@ -117,9 +128,11 @@
             border-top-left-radius: 0.2777777777777778em;
             border-top-right-radius: 0.2777777777777778em;
             background-color: $pink;
+            border-left: 1px solid $darkpink;
+            border-right: 1px solid $darkpink;
+            border-top: 1px solid $darkpink;
             .basket{
                 display: block;
-                z-index: 99999;
             }
             .basket_link_title{
                 color: $white;
@@ -156,7 +169,7 @@
     .basket_link_icon-desktop{
         display: inline-block;
         visibility: inherit;
-        border-left: 1px solid black;
+        z-index: 99999;
     }
 
     .basket_empty_title{

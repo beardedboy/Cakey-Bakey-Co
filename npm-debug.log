@@ -1,0 +1,125 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'grunt-autoprefixer',
+1 verbose cli   '--save-dev' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json Cakey-Bakey-Co@1.0.0 No repository field.
+6 verbose readDependencies using package.json deps
+7 verbose cache add [ 'grunt-autoprefixer', null ]
+8 verbose cache add name=undefined spec="grunt-autoprefixer" args=["grunt-autoprefixer",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: 'grunt-autoprefixer',
+9 verbose parsed url   path: 'grunt-autoprefixer',
+9 verbose parsed url   href: 'grunt-autoprefixer' }
+10 silly lockFile de9ac666-grunt-autoprefixer grunt-autoprefixer
+11 verbose lock grunt-autoprefixer C:\Users\MRu\AppData\Roaming\npm-cache\de9ac666-grunt-autoprefixer.lock
+12 silly lockFile de9ac666-grunt-autoprefixer grunt-autoprefixer
+13 silly lockFile de9ac666-grunt-autoprefixer grunt-autoprefixer
+14 verbose addNamed [ 'grunt-autoprefixer', '' ]
+15 verbose addNamed [ null, '*' ]
+16 silly lockFile 07ba9399-grunt-autoprefixer grunt-autoprefixer@
+17 verbose lock grunt-autoprefixer@ C:\Users\MRu\AppData\Roaming\npm-cache\07ba9399-grunt-autoprefixer.lock
+18 silly addNameRange { name: 'grunt-autoprefixer', range: '*', hasData: false }
+19 verbose url raw grunt-autoprefixer
+20 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-autoprefixer' ]
+21 verbose url resolved https://registry.npmjs.org/grunt-autoprefixer
+22 info trying registry request attempt 1 at 09:49:04
+23 verbose etag "AYP3Q3PYT2JDFB23TV2LG41OX"
+24 http GET https://registry.npmjs.org/grunt-autoprefixer
+25 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+26 info trying registry request attempt 2 at 09:49:16
+27 verbose etag "AYP3Q3PYT2JDFB23TV2LG41OX"
+28 http GET https://registry.npmjs.org/grunt-autoprefixer
+29 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+30 info trying registry request attempt 3 at 09:50:17
+31 verbose etag "AYP3Q3PYT2JDFB23TV2LG41OX"
+32 http GET https://registry.npmjs.org/grunt-autoprefixer
+33 silly registry.get cb [ 304, undefined ]
+34 verbose etag grunt-autoprefixer from cache
+35 silly addNameRange number 2 { name: 'grunt-autoprefixer', range: '*', hasData: true }
+36 silly addNameRange versions [ 'grunt-autoprefixer',
+36 silly addNameRange   [ '0.1.0',
+36 silly addNameRange     '0.1.20130424',
+36 silly addNameRange     '0.1.20130516',
+36 silly addNameRange     '0.1.20130615',
+36 silly addNameRange     '0.2.0',
+36 silly addNameRange     '0.2.20130718',
+36 silly addNameRange     '0.2.20130806',
+36 silly addNameRange     '0.3.0',
+36 silly addNameRange     '0.3.1',
+36 silly addNameRange     '0.4.0',
+36 silly addNameRange     '0.4.1',
+36 silly addNameRange     '0.4.2',
+36 silly addNameRange     '0.5.0',
+36 silly addNameRange     '0.6.0',
+36 silly addNameRange     '0.6.1',
+36 silly addNameRange     '0.6.2',
+36 silly addNameRange     '0.6.3',
+36 silly addNameRange     '0.6.4',
+36 silly addNameRange     '0.6.5',
+36 silly addNameRange     '0.7.0',
+36 silly addNameRange     '0.7.1',
+36 silly addNameRange     '0.7.2',
+36 silly addNameRange     '0.7.3' ] ]
+37 verbose addNamed [ 'grunt-autoprefixer', '0.7.3' ]
+38 verbose addNamed [ '0.7.3', '0.7.3' ]
+39 silly lockFile f4167728-grunt-autoprefixer-0-7-3 grunt-autoprefixer@0.7.3
+40 verbose lock grunt-autoprefixer@0.7.3 C:\Users\MRu\AppData\Roaming\npm-cache\f4167728-grunt-autoprefixer-0-7-3.lock
+41 silly lockFile 9dab6f59-xer-grunt-autoprefixer-0-7-3-tgz https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
+42 verbose lock https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz C:\Users\MRu\AppData\Roaming\npm-cache\9dab6f59-xer-grunt-autoprefixer-0-7-3-tgz.lock
+43 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz',
+43 verbose addRemoteTarball   'c267b82ea81d3c902f4a6a07479253e91dd0212e' ]
+44 info retry fetch attempt 1 at 09:50:18
+45 verbose fetch to= C:\Users\MRu\AppData\Local\Temp\npm-7432-IxdyMyiW\1408351818130-0.36788620171137154\tmp.tgz
+46 http GET https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
+47 error fetch failed https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
+48 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+49 info retry fetch attempt 2 at 09:50:29
+50 verbose fetch to= C:\Users\MRu\AppData\Local\Temp\npm-7432-IxdyMyiW\1408351818130-0.36788620171137154\tmp.tgz
+51 http GET https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
+52 error fetch failed https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
+53 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+54 info retry fetch attempt 3 at 09:51:30
+55 verbose fetch to= C:\Users\MRu\AppData\Local\Temp\npm-7432-IxdyMyiW\1408351818130-0.36788620171137154\tmp.tgz
+56 http GET https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
+57 error fetch failed https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
+58 silly lockFile 9dab6f59-xer-grunt-autoprefixer-0-7-3-tgz https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
+59 silly lockFile 9dab6f59-xer-grunt-autoprefixer-0-7-3-tgz https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
+60 silly lockFile f4167728-grunt-autoprefixer-0-7-3 grunt-autoprefixer@0.7.3
+61 silly lockFile f4167728-grunt-autoprefixer-0-7-3 grunt-autoprefixer@0.7.3
+62 silly lockFile 07ba9399-grunt-autoprefixer grunt-autoprefixer@
+63 silly lockFile 07ba9399-grunt-autoprefixer grunt-autoprefixer@
+64 error Error: connect ECONNREFUSED
+64 error     at errnoException (net.js:904:11)
+64 error     at Object.afterConnect [as oncomplete] (net.js:895:19)
+64 error  { [Error: connect ECONNREFUSED]
+64 error   code: 'ECONNREFUSED',
+64 error   errno: 'ECONNREFUSED',
+64 error   syscall: 'connect',
+64 error   parent: 'Cakey-Bakey-Co' }
+65 error If you are behind a proxy, please make sure that the
+65 error 'proxy' config is set properly.  See: 'npm help config'
+66 error System Windows_NT 6.1.7601
+67 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "grunt-autoprefixer" "--save-dev"
+68 error cwd C:\Bitnami\wampstack-5.4.29-0\apps\wordpress\htdocs\wp-content\themes\cakeybakeyco
+69 error node -v v0.10.26
+70 error npm -v 1.4.3
+71 error syscall connect
+72 error code ECONNREFUSED
+73 error errno ECONNREFUSED
+74 error stack Error: connect ECONNREFUSED
+74 error stack     at errnoException (net.js:904:11)
+74 error stack     at Object.afterConnect [as oncomplete] (net.js:895:19)
+75 verbose exit [ 1, true ]

@@ -7,15 +7,9 @@
 	@extend %clearfix;
 	list-style-type: none;
 	width: 100%;
-	padding: 0.707em 0;
+	padding: 1em 0;
 	border-bottom: 1px dashed #ccc;
 
-	&:first-child{
-		padding-top: 0;
-		@include min-screen($sm-product-bp){
-			padding-top: 0.707em;
-		}
-	}
 	&:last-child{
 		border-bottom: none;
 		padding-bottom: 0;
@@ -24,23 +18,12 @@
 	@include min-screen($sm-product-bp){
 		float: left;
 		width: (100% / 2 ) - $col-margin;
-		margin-left: $col-margin;
+		margin: 0 $col-margin / 2 ;
 		border: none;
-		&:nth-child(odd){
-			margin-left: 0;
-		}
 	}
 
 	@include min-screen($med-bp){
-		float: left;
 		width: (100% / 3 ) - $col-margin;
-		margin-left: $col-margin;
-		&:nth-child(odd){
-			margin-left: $col-margin;
-		}
-		&:nth-child(3n+1){
-			margin-left: 0;
-		}
 	}
 }
 
@@ -53,7 +36,7 @@
 
 .product_list_item_img{
 	float: left;
-	width: 40%;
+	width: 30%;
 	@include min-screen($sm-product-bp){
 		width: 100%;
 		float: none;
@@ -61,15 +44,23 @@
 }
 
 .product_list_item_info{
-	float: right;
+	float: left;
+	width: 70%;
+	padding-left: 1em;
 	@include min-screen($sm-product-bp){
 		float: none;
+		width: 100%;
+		padding-left: 0;
 	}
 }
 
 .product_list_item_info_title{
-	margin: 15px 0 0 7px 0;
-	margin: 0.7072135785007072rem 0 0.3536067892503536rem 0;
+	margin-bottom: 7px;
+	margin-bottom: 0.3536067892503536rem;
+	@include min-screen($sm-product-bp){
+		margin-top: 15px;
+		margin-top: 0.7072135785007072rem;
+	}
 }
 
 .product_list_item_info_desc{
@@ -86,6 +77,11 @@
 
 .product_list_item_info_btn{
 	display: block;
+	font-size: .75rem;
+	width: 6em;
 	margin-left: 0;
-	margin-right: 0;
+	@include min-screen($sm-product-bp){
+		margin: .5em auto 1em auto;
+		font-size: 1em;
+	}
 }

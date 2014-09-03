@@ -33,7 +33,7 @@ function cbc_CartContent() {
 			$product_id   = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 
 			$product_name  = apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );
-			$thumbnail     = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(array(40,40)), $cart_item, $cart_item_key );
+			$thumbnail     = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(array(60,60)), $cart_item, $cart_item_key );
 
 			$quantity = $cart_item['quantity'];
 			$_desc = $cart_item['data']->post->post_excerpt;
@@ -111,7 +111,7 @@ class mainnav_walker extends Walker_Nav_Menu{
 			else{
 				$counter = '';
 			}
-			$output .= '<li class = "basket_wrapper basket_link_icon-desktop">';
+			$output .= '<li class = "nav_divider"></li><li class = "basket_wrapper basket_link_icon-desktop">';
 
 			$attributes  = '';
 	 
@@ -384,7 +384,7 @@ function cakeybakeyco_setup(){
 	add_action('woocommerce_after_main_content', 'cbc_wrapper_end', 10);
 
 	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
-	//remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 	remove_action('woocommerce_before_shop_loop_item_title','woocommerce_template_loop_product_thumbnail', 10);
 	add_action('woocommerce_before_shop_loop_item_title','cbc_product_loop_img', 10);
 
