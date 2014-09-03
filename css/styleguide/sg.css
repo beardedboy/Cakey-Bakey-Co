@@ -662,7 +662,7 @@ textarea {
 }
 
 .main_content {
-  padding: 0 1em;
+  padding: 1em 1em;
   max-width: 42.22222em;
   margin: 0 auto;
 }
@@ -1295,7 +1295,7 @@ textarea {
     color: #333333;
   }
 }
-.btn, .btn_flat {
+.btn, .btn_flat, .btn_buy {
   display: inline-block;
   position: relative;
   cursor: pointer;
@@ -1343,14 +1343,20 @@ textarea {
 }
 
 .buy_basket_icon:after {
-  padding-right: 0.16666667em;
+  display: block;
+}
+@media only screen and (min-width: 27.77778em) {
+  .buy_basket_icon:after {
+    display: inline;
+    padding-right: 0.16666667em;
+  }
 }
 
-.btn_flat {
+.btn_flat, .btn_buy {
   margin: 0;
   border: 1px solid #e06d86;
 }
-.btn_flat:hover {
+.btn_flat:hover, .btn_buy:hover {
   background-color: #e06d86;
 }
 
@@ -1642,7 +1648,7 @@ img {
 }
 
 .nav_main_list_item_sublist {
-  margin: 0 0 .5em 0;
+  margin: 0 0 .5em 2em;
   padding: 0;
 }
 
@@ -2078,13 +2084,15 @@ img {
 @media only screen and (min-width: 54.375em) {
   .basket_link {
     position: relative;
-    display: inline;
     font-size: 1em;
     padding: .5em 1.5em;
     text-transform: uppercase;
     color: black;
     text-decoration: none;
     letter-spacing: 1px;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
   }
   .basket_link:hover, .basket_link:active {
     color: white;

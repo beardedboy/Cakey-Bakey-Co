@@ -9,6 +9,7 @@
 	width: 100%;
 	padding: 1em 0;
 	border-bottom: 1px dashed #ccc;
+	position: relative;
 
 	&:last-child{
 		border-bottom: none;
@@ -36,7 +37,7 @@
 
 .product_list_item_img{
 	float: left;
-	width: 30%;
+	width: 20%;
 	@include min-screen($sm-product-bp){
 		width: 100%;
 		float: none;
@@ -45,7 +46,7 @@
 
 .product_list_item_info{
 	float: left;
-	width: 70%;
+	width: 45%;
 	padding-left: 1em;
 	@include min-screen($sm-product-bp){
 		float: none;
@@ -77,11 +78,16 @@
 
 .product_list_item_info_btn{
 	display: block;
+	float: left;
 	font-size: .75rem;
-	width: 6em;
-	margin-left: 0;
+	width: 25%;
+	margin-left: 10%;
+	font-size: 1em;
+	padding: 1em 0;
 	@include min-screen($sm-product-bp){
+		float: none;
+		width: auto;
+		padding:  0.2777777777777778em 0.8333333333333333em; //5px 15px;
 		margin: .5em auto 1em auto;
-		font-size: 1em;
 	}
 }
