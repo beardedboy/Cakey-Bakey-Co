@@ -1,4 +1,4 @@
-.btn, .btn_flat{
+.btn, .btn_flat, .btn_buy{
 	display: inline-block;
 	position: relative;
 	cursor: pointer;
@@ -51,12 +51,16 @@
 }
 
 .buy_basket_icon:after{
-	padding-right: 0.16666667em;
+	display: block;
+	@include min-screen($sm-product-bp){
+		display: inline;
+		padding-right: 0.16666667em;
+	}
 }
 
 
 
-.btn_flat{
+.btn_flat, .btn_buy{
     margin: 0;
     border: 1px solid $darkpink;
     &:hover{
