@@ -53,16 +53,16 @@ var Navigation = ( function() {
 
     if (window.PointerEventsSupport) {
       // Add Pointer Event Listener
-      settings.nav_list.addEventListener(pointerDownName, this.handleGestureStart, true);
+      settings.nav_open.addEventListener(pointerDownName, this.handleGestureStart, true);
     } else {
       // Add Touch Listener
-      settings.nav_list.addEventListener('touchstart', this.handleGestureStart, true);
+      settings.nav_open.addEventListener('touchstart', this.handleGestureStart, true);
     
       // Add Mouse Listener
-      settings.nav_list.addEventListener('mousedown', this.handleGestureStart, true);
+      settings.nav_open.addEventListener('mousedown', this.handleGestureStart, true);
     }
 
-     function getGesturePointFromEvent(evt) {
+     /*function getGesturePointFromEvent(evt) {
         var point = {};
 
         if(evt.targetTouches) {
@@ -76,7 +76,7 @@ var Navigation = ( function() {
         }
 
         return point;
-      }
+      }*/
 
     // Handle the start of gestures
     this.handleGestureStart = function(evt) {
@@ -86,7 +86,8 @@ var Navigation = ( function() {
         return;
       }
 
-      // Add the move and end listeners
+
+      /*Add the move and end listeners
       if (window.PointerEventsSupport) {
         // Pointer events are supported.
         document.addEventListener(pointerMoveName, this.handleGestureMove, true);
@@ -138,7 +139,7 @@ var Navigation = ( function() {
         document.removeEventListener('mouseup', this.handleGestureEnd, true);
       }
     
-      updateSwipeRestPosition();
+      updateSwipeRestPosition();*/
     }.bind(this);
   }
 
@@ -156,6 +157,6 @@ Navigation.init();
 
 
 //if(Modernizr.touch){
-  Navigation.enableTouch();
+  //Navigation.enableTouch();
   Navigation.runTouch();
 //}

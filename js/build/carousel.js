@@ -62,7 +62,7 @@ var Carousel = (function ($) {
 		$(".carousel_controls-left").bind("click", leftSlide);
 		$(".carousel_controls-right").bind("click", rightSlide);
 		if (Modernizr.touch) {   
-    		console.log('Touch Screen');  
+    		//console.log('Touch Screen');  
 		}
 	};
 
