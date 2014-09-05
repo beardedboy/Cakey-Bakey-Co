@@ -1,7 +1,10 @@
 .main_footer{
 	width: 100%;
 	border-top: 3px solid $black;
-	padding: 2em 0;
+	padding: 0;
+	@include min-screen($sm-bp){
+		padding: 2em 0;
+	}
 }
 
 .main_footer_left_col{
@@ -13,6 +16,8 @@
 
 .main_footer_right_col{
 	float: right;
+	margin: 0;
+	padding:1em;
 }
 
 .footer_links_container{
