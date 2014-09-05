@@ -35,15 +35,15 @@
 19 verbose url raw grunt-autoprefixer
 20 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-autoprefixer' ]
 21 verbose url resolved https://registry.npmjs.org/grunt-autoprefixer
-22 info trying registry request attempt 1 at 09:49:04
+22 info trying registry request attempt 1 at 09:15:41
 23 verbose etag "AYP3Q3PYT2JDFB23TV2LG41OX"
 24 http GET https://registry.npmjs.org/grunt-autoprefixer
 25 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
-26 info trying registry request attempt 2 at 09:49:16
+26 info trying registry request attempt 2 at 09:15:53
 27 verbose etag "AYP3Q3PYT2JDFB23TV2LG41OX"
 28 http GET https://registry.npmjs.org/grunt-autoprefixer
 29 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
-30 info trying registry request attempt 3 at 09:50:17
+30 info trying registry request attempt 3 at 09:16:54
 31 verbose etag "AYP3Q3PYT2JDFB23TV2LG41OX"
 32 http GET https://registry.npmjs.org/grunt-autoprefixer
 33 silly registry.get cb [ 304, undefined ]
@@ -81,18 +81,18 @@
 42 verbose lock https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz C:\Users\MRu\AppData\Roaming\npm-cache\9dab6f59-xer-grunt-autoprefixer-0-7-3-tgz.lock
 43 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz',
 43 verbose addRemoteTarball   'c267b82ea81d3c902f4a6a07479253e91dd0212e' ]
-44 info retry fetch attempt 1 at 09:50:18
-45 verbose fetch to= C:\Users\MRu\AppData\Local\Temp\npm-7432-IxdyMyiW\1408351818130-0.36788620171137154\tmp.tgz
+44 info retry fetch attempt 1 at 09:16:55
+45 verbose fetch to= C:\Users\MRu\AppData\Local\Temp\npm-6892-dhBLkwsM\1409905015156-0.9785139090381563\tmp.tgz
 46 http GET https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
 47 error fetch failed https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
 48 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
-49 info retry fetch attempt 2 at 09:50:29
-50 verbose fetch to= C:\Users\MRu\AppData\Local\Temp\npm-7432-IxdyMyiW\1408351818130-0.36788620171137154\tmp.tgz
+49 info retry fetch attempt 2 at 09:17:06
+50 verbose fetch to= C:\Users\MRu\AppData\Local\Temp\npm-6892-dhBLkwsM\1409905015156-0.9785139090381563\tmp.tgz
 51 http GET https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
 52 error fetch failed https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
 53 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
-54 info retry fetch attempt 3 at 09:51:30
-55 verbose fetch to= C:\Users\MRu\AppData\Local\Temp\npm-7432-IxdyMyiW\1408351818130-0.36788620171137154\tmp.tgz
+54 info retry fetch attempt 3 at 09:18:07
+55 verbose fetch to= C:\Users\MRu\AppData\Local\Temp\npm-6892-dhBLkwsM\1409905015156-0.9785139090381563\tmp.tgz
 56 http GET https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
 57 error fetch failed https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz
 58 silly lockFile 9dab6f59-xer-grunt-autoprefixer-0-7-3-tgz https://registry.npmjs.org/grunt-autoprefixer/-/grunt-autoprefixer-0.7.3.tgz

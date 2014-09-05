@@ -567,7 +567,6 @@ html {
   }
 }
 body {
-  height: 100%;
   overflow-x: hidden;
 }
 
@@ -1581,7 +1580,7 @@ img {
 }
 
 .nav_main_container {
-  position: fixed;
+  position: absolute;
   overflow-y: scroll;
   z-index: 99999;
   top: 0;
@@ -1593,6 +1592,7 @@ img {
   background-color: #333333;
   background-color: rgba(51, 51, 51, 0.95);
   box-shadow: rgba(0, 0, 0, 0.2) 10px 0 20px inset;
+  -webkit-overflow-scrolling: touch;
   -webkit-backface-visibility: hidden;
   -webkit-transition: transform 1s;
   transition: transform 1s;
@@ -1602,6 +1602,7 @@ img {
   position: relative;
   margin: 0;
   padding: 0;
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 .nav_main-open {
@@ -2074,14 +2075,6 @@ img {
     border: 1px solid #e06d86;
     box-shadow: 0px 3px 3px rgba(51, 51, 51, 0.2);
   }
-}
-@media only screen and (min-width: 54.375em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 54.375em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 54.375em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 54.375em) and (min-device-pixel-ratio: 2), only screen and (min-width: 54.375em) and (min-resolution: 192dpi), only screen and (min-width: 54.375em) and (min-resolution: 2dppx) {
-  .basket {
-    top: 95%;
-  }
-}
-
-@media only screen and (min-width: 54.375em) {
   .basket_link {
     position: relative;
     font-size: 1em;
@@ -2220,6 +2213,12 @@ img {
     border-top: 1px solid #e2758d;
   }
 }
+@media only screen and (min-width: 54.375em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 54.375em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 54.375em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 54.375em) and (min-device-pixel-ratio: 2), only screen and (min-width: 54.375em) and (min-resolution: 192dpi), only screen and (min-width: 54.375em) and (min-resolution: 2dppx) {
+  .basket {
+    top: 95%;
+  }
+}
+
 .main_header {
   padding-top: 0;
 }
@@ -2582,7 +2581,8 @@ img {
 
   @page {
     margin: 0.5cm;
-  }
+}
+
   p,
   h2,
   h3 {

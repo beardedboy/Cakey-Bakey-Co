@@ -10,14 +10,18 @@ var Navigation = ( function() {
   //****** PUBLIC METHODS ********************************************** //
 
   function publicInit(){
-    settings.nav_open.addEventListener("click", function(event){
+    settings.nav_open.addEventListener("touchstart", function(event){
       event.preventDefault();
+      console.log("open");
       window.requestAnimFrame(onAnimFrame);
+      document.body.style.overflowY = "hidden";
     });
 
-    settings.nav_close.addEventListener("click", function(event){
+    settings.nav_close.addEventListener("touchstart", function(event){
       event.preventDefault();
+      console.log("close");
       window.requestAnimFrame(onAnimFrame);
+      document.body.style.overflowY = "auto";
     });
   }
 
@@ -53,13 +57,13 @@ var Navigation = ( function() {
 
     if (window.PointerEventsSupport) {
       // Add Pointer Event Listener
-      settings.nav_open.addEventListener(pointerDownName, this.handleGestureStart, true);
+      settings.nav_open.addEventListener(pointerDownName, handleGestureStart, true);
     } else {
       // Add Touch Listener
-      settings.nav_open.addEventListener('touchstart', this.handleGestureStart, true);
+      settings.nav_open.addEventListener('touchstart', handleGestureStart, true);
     
       // Add Mouse Listener
-      settings.nav_open.addEventListener('mousedown', this.handleGestureStart, true);
+      settings.nav_open.addEventListener('mousedown', handleGestureStart, true);
     }
 
      /*function getGesturePointFromEvent(evt) {
@@ -79,12 +83,14 @@ var Navigation = ( function() {
       }*/
 
     // Handle the start of gestures
-    this.handleGestureStart = function(evt) {
+    var handleGestureStart = function(evt) {
       evt.preventDefault();
 
       if(evt.touches && evt.touches.length > 1) {
         return;
       }
+
+      console.log("blah");
 
 
       /*Add the move and end listeners
@@ -140,7 +146,7 @@ var Navigation = ( function() {
       }
     
       updateSwipeRestPosition();*/
-    }.bind(this);
+    };
   }
 
   return {
