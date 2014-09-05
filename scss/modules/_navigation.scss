@@ -30,20 +30,16 @@
     //border-top: 1px solid $black;
     //border-bottom: 1px solid $black;
     @extend %clearfix;
+
  }
 
 .nav_main_btn{
     display: inline-block;
-    float: left;
-    width: 60%;
+    width: 20%;
     font: bold 1/1.5 $font-family; //18px;
     text-transform: uppercase;
     color: $black;
-    padding: .5em 0;
-    line-height: 3;
     text-decoration: none;
-    border-right: 1px solid $black;
-    border-left: 1px solid $black;
     &:active, &:hover{
         background-color: $pink;
         color: $white;
@@ -52,24 +48,29 @@
  }
 
  .nav_main_btn-menu{
+    position: absolute;
+    left: 0;
     color: $black;
     text-align: center;
+    line-height: 5rem;
+
  }
 
  .nav_main_btn-close{
+    position: static;
     float: none;
     width: 100%;
-    font-size: 1.414em;
+    font-size: 1em;
     color: $white;
     background-color: $darkgrey;
     border-bottom: 1px solid $black;
     padding-left: 60px;
     text-align: left;
-    line-height: 2;
+    line-height: 3;
  } 
 
 .nav_main_container{
-    position: absolute;
+    position: fixed;
     overflow-y: scroll;
     z-index: 99999;
     top: 0;
@@ -119,12 +120,12 @@
     letter-spacing: 1px;
     text-align: left;
     a{  
-    	font: bold 1.414em/3 $font-family; 
+    	font: bold 1em/3 $font-family; 
         display: block;
         text-decoration: none;
         color: white;
-        padding-left: 60px;
-        padding-left: 3.333333333333333rem;
+        padding-left: 64px;
+        padding-left: 4rem;
         &:hover, &:active{
         	background-color: $pink;
             .icon-dropdown:before{
@@ -148,14 +149,14 @@
 	a{
 		font-weight: 400;
 		font-style: italic;
-		padding-left: 5em;
+        padding-left: 64px;
+		padding-left: 4rem;
     }
 }
 
 @include min-screen($sm-bp){
-    .nav_main_btn, .basket_link_icon-mobile{
-        line-height: 2;
-        border-left: none;
+    .nav_main_btn-menu{
+        height: 100%;
     }
 }
 
@@ -185,6 +186,9 @@
     .nav_main_container{
         overflow-y: hidden;
     }
+    .nav_main_btn-menu{
+        top: 0;
+    }
 }
 
 @media only screen and (min-width: 54.375em) {
@@ -194,6 +198,8 @@
     }
 
     .nav_main{
+        position: relative;
+        z-index: 99999;
         border-top: none;
     }
 

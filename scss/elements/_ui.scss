@@ -1,10 +1,12 @@
 .logo_container{
-	text-align: left;
-	width: 3em;
-	height: 3em;
-	border-right: 1px solid $black;
+	position: absolute;
+	line-height: 5em;
+	width: 100%;
+	margin: 0 auto;
 
 	@include min-screen($sm-bp){	
+		position: static;
+		line-height: auto;
 		width: 100%;
 		margin: 0 auto;
 		background-color: transparent;
@@ -18,21 +20,27 @@
 }
 
 .logo_main{
-	background: url('img/build/logo/logo_cake.svg') no-repeat center;
-	background-size: 17px 28px;
+	background: url('img/build/logo/logo_lrg.svg') no-repeat center;
+	background-size: 150px 45px;
 	@include retina-display(){
-		background: url('img/build/logo/logo_cake@2x.svg') no-repeat center;
-		background-size: 17px 28px;
+		background: url('img/build/logo/logo_lrg.svg') no-repeat center;
+		background-size: 150px 45px;
 	}
 
 	@include min-screen($sm-bp){
 		background: url('img/build/logo/logo-01.svg') no-repeat center;
 		background-size: contain;
-		width: 203px;
-		width: 16.3rem;
-		height: 100px;
+		width: 176px;
+		width: 11rem;
+		height: 88.8888888888889px;
 		height: 5.555555555555556rem;
 		margin: .5em auto;
+	}
+	@include min-screen($med-bp){
+		width: 261px;
+		width: 16.3rem;
+		height: 88.8888888888889px;
+		height: 5.555555555555556rem;
 	}
 }
 
@@ -154,7 +162,7 @@
 .hr_nav{
 	display: none;
 	margin: 0;
-	@include min-screen($sm-bp){
+	@media only screen and (min-width: 54.375em) {
 		display: block;
 	}
 }

@@ -10,6 +10,20 @@ var Navigation = ( function() {
   //****** PUBLIC METHODS ********************************************** //
 
   function publicInit(){
+    settings.nav_open.addEventListener("click", function(event){
+      event.preventDefault();
+      console.log("open");
+      window.requestAnimFrame(onAnimFrame);
+      document.body.style.overflowY = "hidden";
+    });
+
+    settings.nav_close.addEventListener("click", function(event){
+      event.preventDefault();
+      console.log("close");
+      window.requestAnimFrame(onAnimFrame);
+      document.body.style.overflowY = "auto";
+    });
+
     settings.nav_open.addEventListener("touchstart", function(event){
       event.preventDefault();
       console.log("open");

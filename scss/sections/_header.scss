@@ -1,10 +1,12 @@
 .main_header{
 	@extend %clearfix;
 	padding-top: 0;
-	//border-bottom: 1px solid $black;
+	height: 5rem;
 	@include min-screen($sm-bp){
+		position: relative;
 		padding-top: 1em;
 		border: none;
+		height: auto;
 	}
 }
 

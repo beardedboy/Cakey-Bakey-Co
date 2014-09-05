@@ -23,11 +23,11 @@
 
     .basket_link-mobile{
         display: inline-block;
-        position: relative;
-        width: 40%;
+        position: absolute;
+        right: 0;
+        width: 20%;
         font-size: 1em; //18px;
-        line-height: 3;
-        float: left;
+        line-height: 5rem;
         color: $black;
         text-align: center;
         &:hover, &:active{
@@ -45,7 +45,6 @@
         color: black;
         display: block;
         width: 100%;
-        padding: .5em 0;
     }
 
     .basket_link_icon-desktop, .basket_link_title, .basket_badge{
@@ -56,6 +55,7 @@
     .basket_badge-mobile{
         display: inline;
         visibility: inherit;
+        font-size: 1em;
     }
 
     .basket_list_item{
@@ -70,7 +70,10 @@
 
 @include min-screen($sm-bp){
     .basket_link-mobile{
-        line-height: 1.5em;
+        height: 100%;
+        top: 0;
+    }
+    .basket_link_icon-mobile{
     }
 }
 
@@ -87,7 +90,7 @@
         font-size: 1em;
         display: inline;
         visibility: inherit;
-        margin-left: .5em;
+        margin-left: .2em;
     }
 
     .basket_badge-mobile{
@@ -133,6 +136,9 @@
             border-left: 1px solid $darkpink;
             border-right: 1px solid $darkpink;
             border-top: 1px solid $darkpink;
+            .basket_badge{
+                margin-left: .3em;
+            }
             .basket{
                 display: block;
             }
