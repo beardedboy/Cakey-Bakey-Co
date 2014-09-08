@@ -44,7 +44,7 @@
                     <hr class = "hr hr_double hr_nav" />
                     
                     <nav class = "nav nav_main" role = "navigation">
-                        <a href = "#" class = "nav_main_btn nav_main_btn-menu">MENU</a>
+                        <a href = "#" data-icon="f" class = "nav_main_btn nav_main_btn-menu">MENU</a>
                         <?php if ( has_nav_menu( 'main-nav' ) ) {
                             wp_nav_menu( mainNav() );
                         } ?>   

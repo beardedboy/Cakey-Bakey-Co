@@ -11,7 +11,7 @@
   font-style: normal;
 }*/ 
 
-[data-icon]:after {
+[data-icon]:before {
   font-family: "cakeybakeyco" !important;
   content: attr(data-icon);
   font-style: normal !important;
@@ -113,3 +113,10 @@
 .icon-right-arrow-small:after {
   content: "y";
 }
+
+[data-icon|=f]:before {
+    font-size: 1.4em;
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 0.0625em;
+  }

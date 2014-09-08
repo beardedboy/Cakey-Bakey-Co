@@ -367,6 +367,9 @@ function cakeybakeyco_setup(){
 
 	add_action( 'wp_enqueue_scripts', 'cbc_load_js' );	
 	add_action( 'wp_enqueue_scripts', 'child_manage_woocommerce_styles', 99 );
+	
+	//ADDS CUSTOM FONTS
+	add_action('wp_print_styles', 'load_fonts');
 
 	//ADDS WOOCOMMERCE SUPPORT
 	add_action( 'after_setup_theme', 'woocommerce_support' );
@@ -433,6 +436,12 @@ function cakeybakeyco_setup(){
 		return $title;
 	}
 
+	//Function to load custom font into themeƒ
+	function load_fonts() {
+            wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,800,700');
+            wp_enqueue_style( 'googleFonts');
+        }
+
 	//Register theme menus
 
 	function register_main_nav(){
@@ -480,7 +489,7 @@ function cakeybakeyco_setup(){
 		    'after'           => '',
 		    'link_before'     => '',
 		    'link_after'      => '',
-		    'items_wrap'      => '<div class = "nav_main_container"> <ul class="%2$s"> <a href = "#" class = "nav_main_btn nav_main_btn-close"> <span class = "icon-close"></span> Go back</a>%3$s</ul> </div>'.mobileBasket(),
+		    'items_wrap'      => '<div class = "nav_main_container"> <ul class="%2$s"> <a href = "#" class = "nav_main_btn nav_main_btn-close"> <span class = "icon-close"></span> Close</a>%3$s</ul> </div>'.mobileBasket(),
 		    'depth'           => 0,
 		    'walker'          => new mainnav_walker()
 		);

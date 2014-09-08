@@ -19,7 +19,7 @@
 */
 
  .nav{
-    font: bold 0.7777777777777778rem/1.5 $font-family; //14px;
+    font: bold 0.7777777777777778em/1.5 $font-family; //14px;
     text-decoration: none;
     text-align: left;
     margin: 0 0 1em 0;
@@ -35,7 +35,6 @@
 
 .nav_main_btn{
     display: inline-block;
-    width: 20%;
     font: bold 1/1.5 $font-family; //18px;
     text-transform: uppercase;
     color: $black;
@@ -48,13 +47,15 @@
  }
 
  .nav_main_btn-menu{
+    display: table;
     position: absolute;
     left: 0;
+    width: 7em;
     color: $black;
     text-align: center;
     line-height: 5rem;
-
- }
+    padding: 0 .9em;
+}
 
  .nav_main_btn-close{
     position: static;
@@ -154,12 +155,6 @@
     }
 }
 
-@include min-screen($sm-bp){
-    .nav_main_btn-menu{
-        height: 100%;
-    }
-}
-
 @media only screen and (min-width: 21.11111111111111em){
     .nav_main_container{
        width: 380px;
@@ -174,10 +169,13 @@
         padding-left: 80px;
     }
 
-    .nav_divider{
-        display: inline;
-        border-left: 1px solid black;
-        margin: 0 .5em;
+}
+
+@media only screen and (min-width: 35em) {
+
+    .nav_main_btn-menu{
+        width: 15%;
+        line-height: 8.4em;
     }
 }
 
@@ -191,15 +189,13 @@
     }
 }
 
-@media only screen and (min-width: 54.375em) {
+@media only screen and (min-width: 47.5em) {
 
     .nav{
         text-align: center;
     }
 
     .nav_main{
-        position: relative;
-        z-index: 99999;
         border-top: none;
     }
 
@@ -216,7 +212,7 @@
 
 	.nav_main_container{
             display: inline;
-            position: relative;
+            position: static;
             left: 0;
             background-color: transparent;
             box-shadow: none;
@@ -357,6 +353,18 @@
 				background-color: darken($pink, 10%);
             }
         }
+    }
+}
+
+@media only screen and (min-width: 57.5em) {
+    .nav_main{
+        position: relative;
+        z-index: 99999;
+    }
+    .nav_divider{
+        display: inline;
+        border-left: 1px solid black;
+        margin: 0 .5em;
     }
 }
 

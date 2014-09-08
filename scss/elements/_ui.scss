@@ -4,15 +4,16 @@
 	width: 100%;
 	margin: 0 auto;
 
-	@include min-screen($sm-bp){	
+	@include min-screen(35em){	
 		position: static;
 		line-height: auto;
-		width: 100%;
-		margin: 0 auto;
 		background-color: transparent;
-		height: 100%;
+		height: 5em;
 		border-right: none;
 	}
+	@include min-screen(47.5em){
+		height: 100%;
+	}	
 }
 
 .logo{
@@ -20,28 +21,24 @@
 }
 
 .logo_main{
-	background: url('img/build/logo/logo_lrg.svg') no-repeat center;
-	background-size: 150px 45px;
-	@include retina-display(){
-		background: url('img/build/logo/logo_lrg.svg') no-repeat center;
-		background-size: 150px 45px;
+	background: url('img/build/logo/logo-01.svg') no-repeat center;
+	background-size: 120px;
+
+	@include min-screen(35em){
+		background-size: 176px;
 	}
 
-	@include min-screen($sm-bp){
-		background: url('img/build/logo/logo-01.svg') no-repeat center;
-		background-size: contain;
-		width: 176px;
-		width: 11rem;
-		height: 88.8888888888889px;
-		height: 5.555555555555556rem;
-		margin: .5em auto;
+
+	@include min-screen(47.5em){
+		background-size: 261px;
+		height: 95px;
 	}
-	@include min-screen($med-bp){
-		width: 261px;
-		width: 16.3rem;
-		height: 88.8888888888889px;
-		height: 5.555555555555556rem;
+
+	@include min-screen(60em){
 	}
+	//@include retina-display(){
+	//	background: url('img/build/logo/logo-01.svg') no-repeat center;
+	//}
 }
 
 .tooltip{
@@ -162,7 +159,7 @@
 .hr_nav{
 	display: none;
 	margin: 0;
-	@media only screen and (min-width: 54.375em) {
+	@media only screen and (min-width: 47.5em) {
 		display: block;
 	}
 }
