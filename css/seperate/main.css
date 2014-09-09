@@ -1004,10 +1004,20 @@ textarea {
 }
 
 [data-icon|=f]:before {
-  font-size: 1.4em;
-  display: table-cell;
-  vertical-align: middle;
-  padding-top: 0.0625em;
+  display: none;
+}
+@media only screen and (min-width: 35em) {
+  [data-icon|=f]:before {
+    font-size: 1.4em;
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 0.2em;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  [data-icon|=f]:before {
+    padding-top: 0.0625em;
+  }
 }
 
 .logo_container {
@@ -1571,10 +1581,10 @@ img {
   display: table;
   position: absolute;
   left: 0;
-  width: 7em;
+  width: 5em;
   color: black;
   text-align: center;
-  line-height: 5rem;
+  line-height: 6.45em;
   padding: 0 .9em;
 }
 
@@ -1689,8 +1699,8 @@ img {
 }
 @media only screen and (min-width: 35em) {
   .nav_main_btn-menu {
-    width: 15%;
-    line-height: 8.4em;
+    width: 7em;
+    line-height: 8.25em;
   }
 }
 @media only screen and (min-height: 28.125em) {
@@ -2037,7 +2047,7 @@ img {
   display: inline-block;
   position: absolute;
   right: 0;
-  width: 7em;
+  width: 5em;
   font-size: 1em;
   line-height: 5rem;
   color: black;
@@ -2073,8 +2083,8 @@ img {
 @media only screen and (min-width: 35em) {
   .basket_link-mobile {
     top: 0;
-    line-height: 8.4em;
-    width: 15%;
+    line-height: 8.25em;
+    width: 7em;
   }
 }
 @media only screen and (min-width: 47.5em) {
@@ -2116,14 +2126,6 @@ img {
     border: 1px solid #e06d86;
     box-shadow: 0px 3px 3px rgba(51, 51, 51, 0.2);
   }
-}
-@media only screen and (min-width: 57.5em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 57.5em) and (min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min-resolution: 192dpi), only screen and (min-width: 57.5em) and (min-resolution: 2dppx) {
-  .basket {
-    top: 95%;
-  }
-}
-
-@media only screen and (min-width: 57.5em) {
   .basket_link {
     position: relative;
     font-size: 1em;
@@ -2265,6 +2267,12 @@ img {
     border-top: 1px solid #e2758d;
   }
 }
+@media only screen and (min-width: 57.5em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 57.5em) and (min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min-resolution: 192dpi), only screen and (min-width: 57.5em) and (min-resolution: 2dppx) {
+  .basket {
+    top: 95%;
+  }
+}
+
 .product_list {
   padding: 0;
 }
@@ -2586,7 +2594,8 @@ img {
 
   @page {
     margin: 0.5cm;
-  }
+}
+
   p,
   h2,
   h3 {

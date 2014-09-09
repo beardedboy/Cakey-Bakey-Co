@@ -50,10 +50,10 @@
     display: table;
     position: absolute;
     left: 0;
-    width: 7em;
+    width: 5em;
     color: $black;
     text-align: center;
-    line-height: 5rem;
+    line-height: 6.45em;
     padding: 0 .9em;
 }
 
@@ -174,8 +174,8 @@
 @media only screen and (min-width: 35em) {
 
     .nav_main_btn-menu{
-        width: 15%;
-        line-height: 8.4em;
+        width: 7em;
+        line-height: 8.25em;
     }
 }
 

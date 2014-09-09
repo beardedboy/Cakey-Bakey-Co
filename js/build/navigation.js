@@ -4,16 +4,27 @@ var Navigation = ( function() {
     nav_open: document.querySelector('.nav_main_btn-menu'),
     nav_close: document.querySelector('.nav_main_btn-close'),
     nav_list: document.querySelector('.nav_main_container'),
+    dropdown_links: document.querySelectorAll('.nav_main_list_item-dropdown'),
     openClass: "nav_main-open"
   }
 
   //****** PUBLIC METHODS ********************************************** //
 
   function publicInit(){
+
+    for(var i = 0; i < dropdown_links.length; i++){
+      settings.dropdown_links[i].addEventListener("click", function(event){
+        event.preventDefault();
+      })
+    };
+
     settings.nav_open.addEventListener("click", function(event){
       event.preventDefault();
       console.log("open");
       window.requestAnimFrame(onAnimFrame);
+      document.body.addEventListener('scroll',function(e){
+        e.preventDefault();
+      });
       document.body.style.overflowY = "hidden";
     });
 
@@ -21,6 +32,9 @@ var Navigation = ( function() {
       event.preventDefault();
       console.log("close");
       window.requestAnimFrame(onAnimFrame);
+      document.body.removeEventListener('scroll',function(e){
+        return true;
+      });
       document.body.style.overflowY = "auto";
     });
 
@@ -28,6 +42,9 @@ var Navigation = ( function() {
       event.preventDefault();
       console.log("open");
       window.requestAnimFrame(onAnimFrame);
+      document.body.addEventListener('touchmove',function(e){
+        e.preventDefault();
+      });
       document.body.style.overflowY = "hidden";
     });
 
@@ -35,6 +52,9 @@ var Navigation = ( function() {
       event.preventDefault();
       console.log("close");
       window.requestAnimFrame(onAnimFrame);
+      document.body.removeEventListener('touchmove',function(e){
+        return true;
+      });
       document.body.style.overflowY = "auto";
     });
   }

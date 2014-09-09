@@ -25,7 +25,7 @@
         display: inline-block;
         position: absolute;
         right: 0;
-        width: 7em;
+        width: 5em;
         font-size: 1em; //18px;
         line-height: 5rem;
         color: $black;
@@ -71,8 +71,8 @@
 @include min-screen(35em){
     .basket_link-mobile{
         top: 0;
-        line-height: 8.4em;
-        width: 15%;
+        line-height: 8.25em;
+        width: 7em;
     }
 }
 
