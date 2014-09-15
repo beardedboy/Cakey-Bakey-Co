@@ -36,13 +36,24 @@ function cbc_CartContent() {
 			$thumbnail     = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(array(60,60)), $cart_item, $cart_item_key );
 
 			$quantity = $cart_item['quantity'];
-			$_desc = $cart_item['data']->post->post_excerpt;
+			$_desc = '';
+
+			$blah = $_product->variation_data;
+			$_type = $_product->product_type;
+			$_variation = woocommerce_get_formatted_variation( $blah, true);
+
+			if($_type == 'simple'){
+				$_desc = $cart_item['data']->post->post_excerpt;
+			}
+			elseif($_type == "variation"){
+				$_desc = $_variation;
+			}
 
 
 	  		$output .= '<li class = "basket_list_item">';
 			$output .= '<div class = "basket_list_item_thumb">'.$thumbnail.'</div>';
 			$output .= '<div class =  "basket_list_item_detail">';
-			$output .= '<a href="'.get_permalink( $_product_id ).'" class = "basket_list_item_detail_title">'.$product_name.'</a>';
+			$output .= '<a href="'.get_permalink( $product_id ).'" class = "basket_list_item_detail_title">'.$product_name.'</a>';
 			$output .= '<h2 class = "basket_list_item_detail_desc">'.$_desc.'</h2>';
 			$output .= '<div class = "basket_list_item_quantity">
                             <span class ="basket_list_item_detail_quantity_title">Quantity</span>
@@ -391,7 +402,23 @@ function cakeybakeyco_setup(){
 	remove_action('woocommerce_before_shop_loop_item_title','woocommerce_template_loop_product_thumbnail', 10);
 	add_action('woocommerce_before_shop_loop_item_title','cbc_product_loop_img', 10);
 
+	remove_action('woocommerce_before_single_product_summary','woocommerce_show_product_sale_flash', 10);
+
+	//remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+	add_action( 'woocommerce_single_product_summary', 'woocommerce_product_description_tab', 40 );
+	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 50 );
+
+	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+    remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+    remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+
 	add_filter('woocommerce_short_description', 'cbc_filter_short_description', 10);
+
+if ( function_exists('register_sidebar') )
+register_sidebar();
+
 
 	//Function to add custom html tag around a products short description
 	function cbc_filter_short_description( $desc ){
@@ -584,7 +611,7 @@ function cakeybakeyco_setup(){
 		WOOCOMMERCE SETUP FUNCTIONS
 	*/
 	function cbc_wrapper_start() {
-		if(is_shop()){
+		if(is_shop() || is_product_tag()){
 			echo '<section class="main_content main_content-shop">';
 		}
 			else{

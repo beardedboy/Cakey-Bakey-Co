@@ -18,9 +18,6 @@ $internal_loop;
 if ( empty( $woocommerce_loop['loop'] ) )
 	$woocommerce_loop['loop'] = 0;
 
-// Store column count for displaying the grid
-if ( empty( $woocommerce_loop['columns'] ) )
-	$woocommerce_loop['columns'] = apply_filters( 'loop_shop_columns', 4 );
 
 // Ensure visibility
 if ( ! $product || ! $product->is_visible() )
@@ -43,39 +40,36 @@ $classes[] = 'product_list_item';
 
 ?>
 <li <?php post_class( $classes ); ?>>
-
-	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
-
 	<a class ="product_link" href="<?php the_permalink(); ?>">
+		<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
 
-		<?php
-			/**
-			 * woocommerce_before_shop_loop_item_title hook
-			 *
-			 * @hooked woocommerce_show_product_loop_sale_flash - 10
-			 * @hooked woocommerce_template_loop_product_thumbnail - 10
-			 */
-			do_action( 'woocommerce_before_shop_loop_item_title' );
-		?>
-	</a>
-	<div class = "product_list_item_info">
-	<a class = "product_link" href="<?php the_permalink(); ?>">
-		<h3 class = "h3 product_list_item_info_title"><?php the_title(); ?></h3>
-	</a>
-		<?php
-			/**
-			 * woocommerce_after_shop_loop_item_title hook
-			 *
-			 * @hooked woocommerce_template_loop_rating - 5
-			 * @hooked woocommerce_template_loop_price - 10
-			 */
-			echo apply_filters( 'woocommerce_short_description', $post->post_excerpt );
-			do_action( 'woocommerce_after_shop_loop_item_title' );
-		?>
 
-	</div><!-- end product_container_info -->
+			<?php
+				/**
+			 	* woocommerce_before_shop_loop_item_title hook
+			 	*
+			 	* @hooked woocommerce_show_product_loop_sale_flash - 10
+			 	* @hooked woocommerce_template_loop_product_thumbnail - 10
+			 	*/
+				do_action( 'woocommerce_before_shop_loop_item_title' );
+			?>
+
+		<div class = "product_list_item_info">
+			<h3 class = "h3 product_list_item_info_title"><?php the_title(); ?></h3>
+			<?php
+				/**
+				 * woocommerce_after_shop_loop_item_title hook
+				 *
+				 * @hooked woocommerce_template_loop_rating - 5
+				 * @hooked woocommerce_template_loop_price - 10
+				 */
+				//echo apply_filters( 'woocommerce_short_description', $post->post_excerpt );
+				do_action( 'woocommerce_after_shop_loop_item_title' );
+			?>
+			<div class="btn_flat product_list_item_info_btn">BUY</div>
+		</div><!-- end product_list_item_info -->
 	<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
-
+	</a>
 </li>
 
 <?php

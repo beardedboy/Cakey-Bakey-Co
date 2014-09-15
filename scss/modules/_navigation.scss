@@ -58,12 +58,12 @@
 }
 
  .nav_main_btn-close{
-    position: static;
+    position: relative;
     float: none;
     width: 100%;
     font-size: 1em;
     color: $white;
-    background-color: $darkgrey;
+    background-color: $grey;
     border-bottom: 1px solid $black;
     padding-left: 60px;
     text-align: left;
@@ -81,7 +81,7 @@
     margin: 0;
     padding: 0;
     background-color: $grey;
-    background-color: rgba(51,51,51,0.95);
+    background-color: rgba(51,51,51,1);
     box-shadow:rgba(0,0,0,0.2) 10px 0 20px inset;
     -webkit-overflow-scrolling: touch;
     -webkit-backface-visibility: hidden; //Stops flickering in webkit mobile browsers. credit: http://www.pixeldock.com/blog/how-to-avoid-the-ugly-flickering-effect-when-using-css-transitions-in-ios/
@@ -107,7 +107,8 @@
 }
 
 .icon-close{
-    padding-right: 5px;
+    position: absolute;
+    right: 15px;
     &:before{
         top: -2px;
     }

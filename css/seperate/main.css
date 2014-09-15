@@ -509,7 +509,7 @@ table {
   border-spacing: 0;
 }
 
-.container:after, .row:after, .form:after, .form_group:after, .form_group-container:after, .nav_main:after, .basket_list_item:after, .basket_subtotal:after, .product_list:after, .product_list_item:after, .main_header:after {
+.container:after, .row:after, .form:after, .form_group:after, .form_group-container:after, .nav_main:after, .basket_list_item:after, .basket_subtotal:after, .product_list:after, .product_link:after, .main_header:after {
   content: "";
   display: table;
   clear: both;
@@ -1589,12 +1589,12 @@ img {
 }
 
 .nav_main_btn-close {
-  position: static;
+  position: relative;
   float: none;
   width: 100%;
   font-size: 1em;
   color: white;
-  background-color: #404040;
+  background-color: #333333;
   border-bottom: 1px solid black;
   padding-left: 60px;
   text-align: left;
@@ -1612,7 +1612,7 @@ img {
   margin: 0;
   padding: 0;
   background-color: #333333;
-  background-color: rgba(51, 51, 51, 0.95);
+  background-color: #333333;
   box-shadow: rgba(0, 0, 0, 0.2) 10px 0 20px inset;
   -webkit-overflow-scrolling: touch;
   -webkit-backface-visibility: hidden;
@@ -1638,7 +1638,8 @@ img {
 }
 
 .icon-close {
-  padding-right: 5px;
+  position: absolute;
+  right: 15px;
 }
 .icon-close:before {
   top: -2px;
@@ -2126,6 +2127,14 @@ img {
     border: 1px solid #e06d86;
     box-shadow: 0px 3px 3px rgba(51, 51, 51, 0.2);
   }
+}
+@media only screen and (min-width: 57.5em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 57.5em) and (min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min-resolution: 192dpi), only screen and (min-width: 57.5em) and (min-resolution: 2dppx) {
+  .basket {
+    top: 95%;
+  }
+}
+
+@media only screen and (min-width: 57.5em) {
   .basket_link {
     position: relative;
     font-size: 1em;
@@ -2267,26 +2276,19 @@ img {
     border-top: 1px solid #e2758d;
   }
 }
-@media only screen and (min-width: 57.5em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 57.5em) and (min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min-resolution: 192dpi), only screen and (min-width: 57.5em) and (min-resolution: 2dppx) {
-  .basket {
-    top: 95%;
-  }
-}
-
 .product_list {
   padding: 0;
 }
 
 .product_list_item {
+  position: relative;
   list-style-type: none;
   width: 100%;
-  padding: 1em 0;
   border-bottom: 1px dashed #ccc;
-  position: relative;
+  padding-top: 1em;
 }
 .product_list_item:last-child {
   border-bottom: none;
-  padding-bottom: 0;
 }
 @media only screen and (min-width: 27.77778em) {
   .product_list_item {
@@ -2294,6 +2296,7 @@ img {
     width: 46%;
     margin: 0 2%;
     border: none;
+    padding: 1em 0 2em 0;
   }
 }
 @media only screen and (min-width: 42.22222em) {
@@ -2319,25 +2322,31 @@ img {
 
 .product_list_item_info {
   float: left;
-  width: 45%;
-  padding-left: 1em;
+  width: 50%;
+  padding: .8em 0 1.8em 1em;
+  margin-right: 30%;
 }
 @media only screen and (min-width: 27.77778em) {
   .product_list_item_info {
-    float: none;
-    width: 100%;
-    padding-left: 0;
+    width: 70%;
+    padding: 0;
   }
 }
 
 .product_list_item_info_title {
+  font-size: 1em;
   margin-bottom: 7px;
   margin-bottom: 0.3536067892503536rem;
 }
 @media only screen and (min-width: 27.77778em) {
   .product_list_item_info_title {
-    margin-top: 15px;
-    margin-top: 0.7072135785007072rem;
+    margin-top: 0.9375em;
+    font-size: .8em;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .product_list_item_info_title {
+    font-size: 1em;
   }
 }
 
@@ -2351,26 +2360,57 @@ img {
 }
 @media only screen and (min-width: 27.77778em) {
   .product_list_item_info_title, .product_list_item_info_price, .product_list_item_info_desc {
-    text-align: center;
+    text-align: left;
   }
 }
 
 .product_list_item_info_btn {
-  display: block;
-  float: left;
-  font-size: .75rem;
-  width: 25%;
-  margin-left: 10%;
-  font-size: 1em;
-  padding: 1em 0;
+  position: absolute;
+  top: 2.25em;
+  right: 0;
 }
 @media only screen and (min-width: 27.77778em) {
   .product_list_item_info_btn {
-    float: none;
-    width: auto;
-    padding: 0.2777777777777778em 0.8333333333333333em;
-    margin: .5em auto 1em auto;
+    font-size: .8em;
+    top: auto;
+    bottom: 3.3em;
   }
+}
+@media only screen and (min-width: 800px) {
+  .product_list_item_info_btn {
+    bottom: 3.5em;
+  }
+}
+
+.single_product_images {
+  border-right: 1px solid black;
+}
+
+.single_product_images_main {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  padding-right: 2.3em;
+}
+
+.single_product_images_thumbnails {
+  padding-right: 2.3em;
+}
+
+.single_product_images_thumbnails_single {
+  margin-right: 1.08em;
+}
+
+.single_product_images_thumbnails_single-last {
+  margin-right: 0;
+}
+
+.single_product_info_title {
+  text-align: left;
+}
+
+.single_product_info_desc_title {
+  text-align: left;
 }
 
 .main_header {
@@ -2408,7 +2448,7 @@ img {
 }
 @media only screen and (min-width: 47.5em) {
   .main_header_row-header {
-    padding: 1.414em 0;
+    padding: 1.414em 0 1.8em 0;
   }
 }
 
@@ -2513,7 +2553,7 @@ img {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.container:after, .row:after, .form:after, .form_group:after, .form_group-container:after, .nav_main:after, .basket_list_item:after, .basket_subtotal:after, .product_list:after, .product_list_item:after, .main_header:after {
+.container:after, .row:after, .form:after, .form_group:after, .form_group-container:after, .nav_main:after, .basket_list_item:after, .basket_subtotal:after, .product_list:after, .product_link:after, .main_header:after {
   content: "";
   display: table;
   clear: both;
@@ -2594,8 +2634,7 @@ img {
 
   @page {
     margin: 0.5cm;
-}
-
+  }
   p,
   h2,
   h3 {
