@@ -100,9 +100,12 @@
 	//border-bottom: 1px solid $black;
 }
 
-.single_product_info{}
+.single_product_info{
+	width: 54.57497928748964%;
+}
 
 .single_product_images{
+	width: 41.42502071251036%;
 	border-right: 1px solid $black;
 }
 
@@ -125,13 +128,14 @@
 	margin-right: 0;
 }
 
+
 .single_product_info_title{
 	text-align: left;
 }
 
 .single_product_info_price{}
 
-.single_product_info_excerpt{}
+.single_product_info_subtitle{}
 
 .single_product_info_desc_title{
 	text-align: left;
@@ -139,6 +143,14 @@
 
 .single_product_info_desc_content{}
 
+
+
 .single_product_info_option{}
 
 .single_product_info_option_label{}
+
+.single_product_info_option_dropdown{}
+
+.single_product_info_option_quantity{}
+
+.single_product_info_option_quantity_select{}

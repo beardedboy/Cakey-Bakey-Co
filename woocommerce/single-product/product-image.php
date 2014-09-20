@@ -31,7 +31,7 @@ global $post, $woocommerce, $product;
 				$gallery = '';
 			}
 
-			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" class = "single_product_images_main" />', $image_link, $image_title, $image ), $post->ID );
+			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" itemprop="image" class = "single_product_images_main" />', $image_link, $image_title, $image ), $post->ID );
 
 		} else {
 

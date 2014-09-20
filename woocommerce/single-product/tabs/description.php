@@ -16,6 +16,8 @@ $heading = esc_html( apply_filters( 'woocommerce_product_description_heading', _
 
 <?php if ( $heading ): ?>
   <h2 class = "h4 single_product_info_desc_title" ><?php echo $heading; ?></h2>
-<?php endif; ?>
+<?php endif; 
+ $content = get_the_content();
+?>
 
-<?php the_content(); ?>
+<div class = "single_product_info_desc_content"><?php echo $content; ?></div>

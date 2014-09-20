@@ -1,4 +1,4 @@
-.logo_container{
+ .logo_container{
 	position: absolute;
 	line-height: 5em;
 	width: 100%;
@@ -22,16 +22,16 @@
 
 .logo_main{
 	background: url('img/build/logo/logo-01.svg') no-repeat center;
-	background-size: 120px;
+	background-size: 3.99625em;
 
 	@include min-screen(35em){
-		background-size: 176px;
+		background-size: 5.650625em;
 	}
 
 
 	@include min-screen(47.5em){
-		background-size: 261px;
-		height: 95px;
+		background-size: 8em;
+		height: 3.55222222222222em;
 	}
 
 	@include min-screen(60em){

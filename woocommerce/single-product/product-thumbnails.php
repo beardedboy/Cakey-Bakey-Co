@@ -18,7 +18,7 @@ if ( $attachment_ids ) {
 	<div class="single_product_images_thumbnails"><?php
 
 		$loop = 0;
-		$columns = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
+		$columns = apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
 
 		foreach ( $attachment_ids as $attachment_id ) {
 

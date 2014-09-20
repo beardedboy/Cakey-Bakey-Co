@@ -1047,17 +1047,17 @@ textarea {
 
 .logo_main {
   background: url("img/build/logo/logo-01.svg") no-repeat center;
-  background-size: 120px;
+  background-size: 3.99625em;
 }
 @media only screen and (min-width: 35em) {
   .logo_main {
-    background-size: 176px;
+    background-size: 5.650625em;
   }
 }
 @media only screen and (min-width: 47.5em) {
   .logo_main {
-    background-size: 261px;
-    height: 95px;
+    background-size: 8em;
+    height: 3.55222222222222em;
   }
 }
 
@@ -2382,7 +2382,12 @@ img {
   }
 }
 
+.single_product_info {
+  width: 54.57497928748964%;
+}
+
 .single_product_images {
+  width: 41.42502071251036%;
   border-right: 1px solid black;
 }
 
