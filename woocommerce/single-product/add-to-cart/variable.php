@@ -16,13 +16,13 @@ global $product, $post;
 
 <form class="variations_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo $post->ID; ?>" data-product_variations="<?php echo esc_attr( json_encode( $available_variations ) ) ?>">
 	<?php if ( ! empty( $available_variations ) ) : ?>
-		<table class="variations" cellspacing="0">
+		<table class="variations single_product_info_option" cellspacing="0">
 			<tbody>
 				<?php $loop = 0; foreach ( $attributes as $name => $options ) : $loop++; ?>
 					<tr>
-						<td class="label"><label for="<?php echo sanitize_title($name); ?>"><?php echo wc_attribute_label( $name ); ?></label></td>
-						<td class="value"><select id="<?php echo esc_attr( sanitize_title( $name ) ); ?>" name="attribute_<?php echo sanitize_title( $name ); ?>">
-							<option value=""><?php echo __( 'Choose an option', 'woocommerce' ) ?>&hellip;</option>
+						<td class="label single_product_info_option_label"><label for="<?php echo sanitize_title($name); ?>"><?php echo wc_attribute_label( $name ); ?></label></td>
+						<td class="value"><select id="<?php echo esc_attr( sanitize_title( $name ) ); ?>" class = "single_product_info_option_dropdown" name="attribute_<?php echo sanitize_title( $name ); ?>">
+							<option value=""><?php echo __( 'Select a size...', 'woocommerce' ) ?>&hellip;</option>
 							<?php
 								if ( is_array( $options ) ) {
 
@@ -70,7 +70,7 @@ global $product, $post;
 							?>
 						</select> <?php
 							if ( sizeof( $attributes ) == $loop )
-								echo '<a class="reset_variations" href="#reset">' . __( 'Clear selection', 'woocommerce' ) . '</a>';
+								echo '<a class="reset_variations single_product_info_option_dropdown_reset" href="#reset">' . __( 'Clear selection', 'woocommerce' ) . '</a>';
 						?></td>
 					</tr>
 		        <?php endforeach;?>
@@ -79,14 +79,14 @@ global $product, $post;
 
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
-		<div class="single_variation_wrap">
+		<div class="single_variation_wrap" style="display: none;">
 			<?php do_action( 'woocommerce_before_single_variation' ); ?>
 
 			<div class="single_variation"></div>
 
 			<div class="variations_button">
 				<?php woocommerce_quantity_input(); ?>
-				<button type="submit" class="btn_flat"><?php echo $product->single_add_to_cart_text(); ?></button>
+				<button type="submit" class="btn_buy single_product_info_option_add_btn"><?php echo $product->single_add_to_cart_text(); ?></button>
 			</div>
 
 			<input type="hidden" name="add-to-cart" value="<?php echo $product->id; ?>" />

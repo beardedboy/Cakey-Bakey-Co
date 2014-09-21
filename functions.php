@@ -620,6 +620,10 @@ function cakeybakeyco_setup(){
 	    }	 
 	}
 
+
+	// Function to override the default plus/minus quantity buttons on the variable single product page
+
+
 	/*
 		WOOCOMMERCE SETUP FUNCTIONS
 	*/

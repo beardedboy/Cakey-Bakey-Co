@@ -1489,6 +1489,30 @@ textarea {
   border-left: 1px solid #333333;
 }
 
+/*---------------- DROPDOWN SELECT STYLES ---------------------- */
+.form_input-number {
+  position: relative;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  outline: none;
+  border: 0;
+  padding: 0.5em 0;
+  border: 1px solid black;
+}
+.form_input-number::-ms-expand {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /*---------------- FORM VALIDATION ---------------------- */
 .form_input-error {
   border: 1px solid #e74c3c;

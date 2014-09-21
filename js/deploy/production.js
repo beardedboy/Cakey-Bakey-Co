@@ -333,13 +333,52 @@ var Touch = (function(){
 
 })();
 
+
+$( document ).on( 'click', '.plus, .minus', function() {
+
+    // Get values
+    var $qty    = $( this ).closest( '.single_product_info_option_quantity' ).find( '.qty' ),
+      currentVal  = parseFloat( $qty.val() ),
+      max     = parseFloat( $qty.attr( 'max' ) ),
+      min     = parseFloat( $qty.attr( 'min' ) ),
+      step    = $qty.attr( 'step' );
+
+    // Format values
+    if ( ! currentVal || currentVal === '' || currentVal === 'NaN' ) currentVal = 0;
+    if ( max === '' || max === 'NaN' ) max = '';
+    if ( min === '' || min === 'NaN' ) min = 0;
+    if ( step === 'any' || step === '' || step === undefined || parseFloat( step ) === 'NaN' ) step = 1;
+
+    // Change the value
+    if ( $( this ).is( '.plus' ) ) {
+
+      if ( max && ( max == currentVal || currentVal > max ) ) {
+        $qty.val( max );
+      } else {
+        $qty.val( currentVal + parseFloat( step ) );
+      }
+
+    } else {
+
+      if ( min && ( min == currentVal || currentVal < min ) ) {
+        $qty.val( min );
+      } else if ( currentVal > 0 ) {
+        $qty.val( currentVal - parseFloat( step ) );
+      }
+
+    }
+
+    // Trigger change event
+    $qty.trigger( 'change' );
+  });
+
 var Navigation = ( function() {
 
   var settings = {
     nav_open: document.querySelector('.nav_main_btn-menu'),
     nav_close: document.querySelector('.nav_main_btn-close'),
     nav_list: document.querySelector('.nav_main_container'),
-    dropdown_links: document.querySelectorAll('.nav_main_list_item-dropdown'),
+    //dropdown_links: document.querySelectorAll('.nav_main_list_item-dropdown'),
     openClass: "nav_main-open"
   }
 
@@ -347,11 +386,13 @@ var Navigation = ( function() {
 
   function publicInit(){
 
-    for(var i = 0; i < dropdown_links.length; i++){
-      settings.dropdown_links[i].addEventListener("click", function(event){
-        event.preventDefault();
-      }
-    };
+    //console.log(dropdown_links);
+
+    //for(var i = 0; i < dropdown_links.length; i++){
+    //  settings.dropdown_links[i].addEventListener("click", function(event){
+     //   event.preventDefault();
+    //  })
+   // };
 
     settings.nav_open.addEventListener("click", function(event){
       event.preventDefault();
@@ -559,6 +600,8 @@ Navigation.init();
 }());
 
 // Place any jQuery/helper plugins in here.
+
+
 
 var Touch = ( function() {
 
