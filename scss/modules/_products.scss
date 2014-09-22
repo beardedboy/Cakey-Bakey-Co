@@ -99,6 +99,10 @@
 .single_product{
 }
 
+.single_product_hr{
+	display: none;
+}
+
 .single_product_info{
 	margin: 0;
 }
@@ -165,7 +169,6 @@
 }
 
 .single_product_info_option_quantity_input{
-	//padding: .3em 0;
 	width: 60px;
 	font-size: 1em;
 	text-align: center;
@@ -185,17 +188,29 @@
 }
 
 @include min-screen(35em){
-		.single_product{
+	.single_product{
 		//border-bottom: 1px solid $black;
+		height: 100%;
+	}
+
+	.single_product_hr{
+		display: block;
 	}
 
 	.single_product_info{
 		width: 54.57497928748964%;
+		height: 100%;
+		border-left: 1px solid $black;
+		//margin-left: 2em;
+	}
+
+	.single_product_info_title{
+		margin-bottom: .25em;
 	}
 
 	.single_product_images{
 		width: 41.42502071251036%;
-		border-right: 1px solid $black;
+		height: 100%;
 	}
 
 	.single_product_images_main{
@@ -206,6 +221,7 @@
 	}
 
 	.single_product_images_thumbnails{
+		display: block;
 		padding-right: 2.3em;
 	}
 
@@ -218,13 +234,29 @@
 	}
 
 
-	.single_product_info_title{
+	.single_product_info_title, .single_product_info_price, .single_product_info_subtitle, .single_product_info_desc_title{
 		text-align: left;
 	}
 
-	.single_product_info_price{}
+	.single_product_variation_form{
+		margin-bottom: 1.6875em;
+	}
 
-	.single_product_info_subtitle{}
+	.single_product_info_price{
+		margin: 0.79411764705882em 0;
+	}
+
+	.single_variation_wrap{
+
+	}
+
+	.single_product_info_desc_container{
+		margin-left: 2em;
+	}
+
+	.single_product_info_subtitle{
+		font-size: .9em;
+	}
 
 	.single_product_info_desc_title{
 		text-align: left;
@@ -236,11 +268,28 @@
 
 	.single_product_info_option{}
 
-	.single_product_info_option_label{}
+	.single_product_info_option_label{
+	}
 
-	.single_product_info_option_dropdown{}
+	.single_product_info_option_dropdown{
+		width: 15em;
+	}
 
-	.single_product_info_option_quantity{}
+	.single_product_info_option_quantity{
+		margin: 1.6875em 0;
+	}
+
+	.single_product_info_option_quantity_label, .single_product_info_option_quantity_input{
+		margin-right: .6em;
+	}
+
+	.single_product_info_option_add_btn{
+		width: 15em;
+	}
 
 	.single_product_info_option_quantity_select{}
+
+	.single_product_info_option_quantity_button{
+		font-weight: 700;
+	}
 }
