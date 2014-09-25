@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 global $post, $woocommerce, $product;
 
 ?>
-<div class="col-6-12 single_product_images">
+<div class="col-6-12 images single_product_images">
 
 	<?php
 		if ( has_post_thumbnail() ) {
@@ -31,7 +31,7 @@ global $post, $woocommerce, $product;
 				$gallery = '';
 			}
 
-			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" itemprop="image" class = "single_product_images_main" />', $image_link, $image_title, $image ), $post->ID );
+			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" itemprop="image" class = "woocommerce-main-image zoom single_product_images_main" />', $image_link, $image_title, $image ), $post->ID );
 
 		} else {
 

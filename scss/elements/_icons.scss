@@ -24,6 +24,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+[data-icon-after]:after {
+  font-family: "cakeybakeyco" !important;
+  content: attr(data-icon-after);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 [class^="icon-"]:after,
 [class*=" icon-"]:after {
   font-family: "cakeybakeyco" !important;
@@ -114,6 +127,20 @@
   content: "y";
 }
 
+.icon-ionicons:before {
+  content: "x";
+}
+.icon-arrow-line-left:before {
+  content: "z";
+}
+
+.icon-info:before {
+  content: "A";
+}
+.icon-minus:before {
+  content: "B";
+}
+
 [data-icon|=f]:before {
   display: none;
   @include min-screen(35em){
@@ -126,3 +153,12 @@
     padding-top: 0.0625em;
   }
 }
+
+[data-icon-after|=g]:after, [data-icon-after|=B]:after {
+  position: absolute;
+  right: 0;
+  padding-top: .15em;
+}
+
+
+

@@ -136,4 +136,10 @@ $( document ).on( 'click', '.plus, .minus', function() {
 
     // Trigger change event
     $qty.trigger( 'change' );
-  });
+});
+
+$('.single_product_info_desc_container-dropdown').on('click', function(){
+  $(this).children(".single_product_info_desc_content").toggleClass('visuallyhidden');
+  console.log($(this));
+  $(this).data("iconAfter", "B");
+});

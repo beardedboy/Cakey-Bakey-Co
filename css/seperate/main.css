@@ -892,6 +892,19 @@ textarea {
   -moz-osx-font-smoothing: grayscale;
 }
 
+[data-icon-after]:after {
+  font-family: "cakeybakeyco" !important;
+  content: attr(data-icon-after);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 [class^="icon-"]:after,
 [class*=" icon-"]:after {
   font-family: "cakeybakeyco" !important;
@@ -1003,6 +1016,22 @@ textarea {
   content: "y";
 }
 
+.icon-ionicons:before {
+  content: "x";
+}
+
+.icon-arrow-line-left:before {
+  content: "z";
+}
+
+.icon-info:before {
+  content: "A";
+}
+
+.icon-minus:before {
+  content: "B";
+}
+
 [data-icon|=f]:before {
   display: none;
 }
@@ -1018,6 +1047,12 @@ textarea {
   [data-icon|=f]:before {
     padding-top: 0.0625em;
   }
+}
+
+[data-icon-after|=g]:after, [data-icon-after|=B]:after {
+  position: absolute;
+  right: 0;
+  padding-top: .15em;
 }
 
 .logo_container {
@@ -2408,6 +2443,7 @@ img {
 
 .single_product_hr {
   display: none;
+  margin: 0;
 }
 
 .single_product_info {
@@ -2424,6 +2460,16 @@ img {
   display: none;
 }
 
+.single_product_tags {
+  font-size: .9em;
+}
+.single_product_tags:before {
+  vertical-align: middle;
+  font-size: 1.5em;
+  margin-left: -5px;
+  color: #e68a9e;
+}
+
 .single_product_info_title {
   text-align: center;
 }
@@ -2438,7 +2484,8 @@ img {
   text-align: center;
 }
 
-.single_product_info_desc_title {
+.single_product_info_desc_title, .single_product_info_desc_title-dropdown {
+  position: relative;
   text-align: center;
 }
 
@@ -2510,13 +2557,18 @@ img {
     padding-right: 2.3em;
   }
 
+  .attachment-shop_thumbnail {
+    width: 30%;
+    height: auto;
+  }
+
   .single_product_images_thumbnails {
     display: block;
-    padding-right: 2.3em;
+    margin-right: 2.3em;
   }
 
   .single_product_images_thumbnails_single {
-    margin-right: 1.08em;
+    margin-right: 5%;
   }
 
   .single_product_images_thumbnails_single-last {
@@ -2535,8 +2587,13 @@ img {
     margin: 0.79411764705882em 0;
   }
 
-  .single_product_info_desc_container {
-    margin-left: 2em;
+  .single_product_info_desc_container, .single_product_info_desc_container-dropdown {
+    padding: 1em 0 1em 2em;
+    cursor: pointer;
+  }
+
+  .single_product_info_desc_container-title {
+    padding-left: 2em;
   }
 
   .single_product_info_subtitle {

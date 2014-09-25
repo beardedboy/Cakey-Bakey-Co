@@ -409,19 +409,20 @@ function cakeybakeyco_setup(){
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
-	add_action( 'woocommerce_single_product_summary', 'cbc_single_product_desc_wrapper_start', 1 );
+	add_action( 'woocommerce_single_product_summary', 'cbc_single_product_desc_wrapper_title_start', 1 );
 	add_action( 'woocommerce_single_product_summary', 'cbc_single_product_subtitle', 8 );
 	add_action( 'woocommerce_single_product_summary', 'cbc_single_product_desc_wrapper_end', 35 );
 	add_action( 'woocommerce_single_product_summary', 'cbc_add_hr', 35 );
 	add_action( 'woocommerce_single_product_summary', 'cbc_single_product_desc_wrapper_start', 35 );
 	add_action( 'woocommerce_single_product_summary', 'woocommerce_product_description_tab', 40 );
+	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 	add_action( 'woocommerce_single_product_summary', 'cbc_single_product_desc_wrapper_end', 40 );
 	
 	add_action( 'woocommerce_single_product_summary', 'cbc_add_hr', 40 );
 	add_action( 'woocommerce_single_product_summary', 'cbc_single_product_allergy_advice', 50 );
-	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 50 );
-	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 50 );
 	add_action( 'woocommerce_single_product_summary', 'cbc_add_hr', 50 );
+	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 50 );
+	add_action( 'woocommerce_single_product_summary', 'cbc_add_hr', 55 );
 
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
     remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
@@ -433,9 +434,9 @@ function cakeybakeyco_setup(){
 	//Function to add custom html tag around a products short description
 	function cbc_filter_short_description( $desc ){
 	    global $product;
-	    $newDesc = '<div class = "single_product_info_desc_container">';
-	    $newDesc .= '<h2 class = "h4 single_product_info_desc_title">Ingredients</h2>';
-	    $newDesc .= '<div class="pg single_product_info_desc_content">'.wp_strip_all_tags($desc).'</div>';
+	    $newDesc = '<div class = "single_product_info_desc_container-dropdown">';
+	    $newDesc .= '<h2 class = "h4 single_product_info_desc_title" data-icon-after="g">Ingredients</h2>';
+	    $newDesc .= '<div class="pg single_product_info_desc_content visuallyhidden">'.wp_strip_all_tags($desc).'</div>';
 	    $newDesc .= '</div><!--end single_product_info_desc_container -->';
 	    return $newDesc;
 	}
@@ -456,6 +457,10 @@ function cakeybakeyco_setup(){
 
     function cbc_single_product_desc_wrapper_start(){
     	echo '<div class = "single_product_info_desc_container">';
+    }
+
+    function cbc_single_product_desc_wrapper_title_start(){
+    	echo '<div class = "single_product_info_desc_container-title">';
     }
 
     function cbc_single_product_desc_wrapper_end(){
