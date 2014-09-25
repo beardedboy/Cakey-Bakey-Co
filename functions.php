@@ -404,7 +404,7 @@ function cakeybakeyco_setup(){
 
 	remove_action('woocommerce_before_single_product_summary','woocommerce_show_product_sale_flash', 10);
 
-	//remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
@@ -423,6 +423,7 @@ function cakeybakeyco_setup(){
 	add_action( 'woocommerce_single_product_summary', 'cbc_add_hr', 50 );
 	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 50 );
 	add_action( 'woocommerce_single_product_summary', 'cbc_add_hr', 55 );
+	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 55 );
 
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
     remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
@@ -435,7 +436,7 @@ function cakeybakeyco_setup(){
 	function cbc_filter_short_description( $desc ){
 	    global $product;
 	    $newDesc = '<div class = "single_product_info_desc_container-dropdown">';
-	    $newDesc .= '<h2 class = "h4 single_product_info_desc_title" data-icon-after="g">Ingredients</h2>';
+	    $newDesc .= '<h2 class = "h4 single_product_info_desc_title" data-iconafter="g">Ingredients</h2>';
 	    $newDesc .= '<div class="pg single_product_info_desc_content visuallyhidden">'.wp_strip_all_tags($desc).'</div>';
 	    $newDesc .= '</div><!--end single_product_info_desc_container -->';
 	    return $newDesc;

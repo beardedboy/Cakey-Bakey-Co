@@ -889,9 +889,9 @@ textarea {
   -moz-osx-font-smoothing: grayscale;
 }
 
-[data-icon-after]:after {
+[data-iconafter]:after {
   font-family: "cakeybakeyco" !important;
-  content: attr(data-icon-after);
+  content: attr(data-iconafter);
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;
@@ -1046,7 +1046,7 @@ textarea {
   }
 }
 
-[data-icon-after|=g]:after, [data-icon-after|=B]:after {
+[data-iconafter|=g]:after, [data-iconafter|=B]:after {
   position: absolute;
   right: 0;
   padding-top: .15em;
