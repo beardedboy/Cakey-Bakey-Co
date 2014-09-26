@@ -20,4 +20,4 @@ $heading = esc_html( apply_filters( 'woocommerce_product_description_heading', _
  $content = get_the_content();
 ?>
 
-<div class = "pg single_product_info_desc_content"><?php echo $content; ?></div>
+<div class = "pg single_product_info_desc_content" itemprop = "description"><?php echo $content; ?></div>

@@ -372,6 +372,7 @@ function cakeybakeyco_setup(){
 	remove_action('wp_head', 'wlwmanifest_link');
 	remove_action('wp_head', 'rsd_link');
 	remove_action('wp_head', 'wp_generator');
+	add_action('wp_head', 'cbc_add_social_head_meta_tags');
 
 	// REGISTER THEME NAVIGATIONS
 	add_action( 'init', 'register_main_nav' );
@@ -440,6 +441,10 @@ function cakeybakeyco_setup(){
 	    $newDesc .= '<div class="pg single_product_info_desc_content visuallyhidden">'.wp_strip_all_tags($desc).'</div>';
 	    $newDesc .= '</div><!--end single_product_info_desc_container -->';
 	    return $newDesc;
+	}
+
+	function cbc_add_social_head_meta_tags(){
+		wc_get_template( 'single-product/social.php' );
 	}
 
 	//Function to add custom field entitled 'Subtitle' to single product page
