@@ -141,6 +141,10 @@
   content: "B";
 }
 
+.icon-heart:after {
+  content: "C";
+}
+
 [data-icon|=f]:before {
   display: none;
   @include min-screen(35em){

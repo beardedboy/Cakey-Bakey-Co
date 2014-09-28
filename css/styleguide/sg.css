@@ -647,7 +647,6 @@ textarea {
   max-width: 65em;
   margin: 0 auto;
   height: 100%;
-  min-height: 300px;
 }
 
 .row {
@@ -1027,6 +1026,10 @@ textarea {
 
 .icon-minus:before {
   content: "B";
+}
+
+.icon-heart:after {
+  content: "C";
 }
 
 [data-icon|=f]:before {
@@ -1980,13 +1983,18 @@ img {
   margin: .5em;
 }
 
-@media only screen and (min-width: 42.22222em) {
+@media only screen and (min-width: 37.5em) {
   .nav_footer {
-    margin: 1em 1.5em 1em 1em;
-    text-align: left;
+    margin: 0 0 1em 3em;
+    text-align: right;
     display: inline;
     float: right;
     width: auto;
+  }
+
+  .nav_footer_title, .nav_footer_list_item {
+    text-align: right;
+    padding: 0;
   }
 
   .nav_footer_logo {
@@ -2387,23 +2395,108 @@ img {
 }
 @media only screen and (min-width: 26.66667em) {
   .main_footer {
-    padding: 2em 0;
+    padding: 2em 0 0 0;
   }
 }
 
-.main_footer_left_col {
-  float: left;
+.main_footer_row, .main_footer_row-last {
+  padding: 0 2em;
 }
-@media only screen and (min-width: 26.66667em) {
+
+.main_footer_row-last {
+  display: table;
+  padding-top: 3em;
+}
+
+.main_footer_left_col {
+  width: 100%;
+  position: relative;
+  padding: 2.5em 0;
+}
+@media only screen and (min-width: 37.5em) {
   .main_footer_left_col {
+    padding: 0;
+    width: 30%;
+    float: left;
     margin-bottom: 0;
   }
 }
 
+.main_footer_contact_title {
+  text-align: left;
+  margin-bottom: .3em;
+  padding-top: 0.3125em;
+}
+@media only screen and (min-width: 37.5em) {
+  .main_footer_contact_title {
+    padding-top: 0;
+  }
+}
+
 .main_footer_right_col {
-  float: right;
+  width: 100%;
+  position: relative;
   margin: 0;
-  padding: 1em;
+}
+@media only screen and (min-width: 37.5em) {
+  .main_footer_right_col {
+    width: 70%;
+    float: right;
+  }
+}
+@media only screen and (min-width: 46.875em) {
+  .main_footer_right_col {
+    width: 56.66667%;
+  }
+}
+
+.main_footer_logo {
+  width: 150px;
+}
+
+.main_footer_copyright {
+  width: 100%;
+  font-size: 0.75em;
+  padding-bottom: 1.875em;
+}
+@media only screen and (min-width: 26.66667em) {
+  .main_footer_copyright {
+    width: 50%;
+    display: table-cell;
+    vertical-align: bottom;
+    padding-bottom: 1.875em;
+  }
+}
+
+@media only screen and (min-width: 26.66667em) {
+  .main_footer_paypal {
+    display: table;
+    margin: 0 auto;
+    float: right;
+  }
+}
+
+.main_footer_paypal_title {
+  display: none;
+}
+@media only screen and (min-width: 26.66667em) {
+  .main_footer_paypal_title {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 0.75em;
+    padding-right: 10px;
+  }
+}
+
+.main_footer_paypal_logo {
+  width: 200px;
+  float: left;
+  margin-bottom: 0.625em;
+}
+@media only screen and (min-width: 26.66667em) {
+  .main_footer_paypal_logo {
+    float: left;
+  }
 }
 
 /* ==========================================================================

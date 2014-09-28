@@ -9,6 +9,6 @@
 
 global $post, $product;
 
-echo "<div class = 'single_product_info_subtitle'>".get_post_meta( $post->ID, 'subtitle', true )."</div><!-- end .single_product_info_subtitle -->";
+echo "<div class = 'single_product_info_subtitle'>".get_post_meta( $post->ID, '_subtitle', true )."</div><!-- end .single_product_info_subtitle -->";
 
 ?>

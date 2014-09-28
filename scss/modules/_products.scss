@@ -113,6 +113,7 @@
 
 .single_product_images_main{
 	display: block;
+	width: 100%;
 	margin: 0 auto;
 	margin-bottom: 1em;
 }
@@ -129,6 +130,7 @@
 
 .single_product_tags{
 	font-size: .9em;
+	text-align: center;
 	&:before{
 		vertical-align: middle;
 		font-size: 1.5em;
@@ -160,6 +162,11 @@
 .single_product_info_desc_content{
 }
 
+.single_product_info_desc_container-title{
+	border-bottom: 1px solid $black;
+	padding-top: .5em;
+}
+
 .single_product_info_option{
 	width: 100%;
 }
@@ -177,12 +184,18 @@
 
 .single_product_info_option_quantity{
 	width: 100%;
+	padding: 1.5em 0;
+	text-align: right;
 }
 
+
+
 .single_product_info_option_quantity_input{
-	width: 60px;
+	width: 80px;
 	font-size: 1em;
 	text-align: center;
+	padding: 1em;
+	margin-right: 1em;
 }
 
 .single_product_info_option_add_btn{
@@ -190,18 +203,34 @@
 	padding: 1em 0;
 }
 
-.single_product_info_option_quantity_label{}
+.single_product_info_option_quantity_label{
+	margin-right: .5em;
+}
 
 .single_product_info_option_quantity_button{
-	padding: .5em 1em;
+	padding: 1em 2em;
 	background: none;
 	border: 1px solid black;
+}
+
+.single_product_variation_form{
+	padding: 1em 0 1.5em 0;
+}
+
+.single_product_info_desc_container, .single_product_info_desc_container-dropdown{
+	padding: 1em 0;
+	border-bottom: 1px solid $black;
+}
+
+.single_product_info_desc_container:last-child{
+	border: none;
 }
 
 @include min-screen(35em){
 	.single_product{
 		//border-bottom: 1px solid $black;
 		height: 100%;
+		margin-left: 1.5em;
 	}
 
 	.single_product_hr{
@@ -231,6 +260,8 @@
 		padding-right: 2.3em;
 	}
 
+
+
 	.attachment-shop_thumbnail{
 		width: 30%;
 		height: auto;
@@ -255,6 +286,7 @@
 	}
 
 	.single_product_variation_form{
+		padding: 0;
 		margin-bottom: 1.6875em;
 	}
 
@@ -262,17 +294,22 @@
 		margin: 0.79411764705882em 0;
 	}
 
-	.single_variation_wrap{
-
+	.single_product_tags{
+		text-align: left;
 	}
+
 	.single_product_info_desc_container, .single_product_info_desc_container-dropdown{
-		//margin: 0 0 1.66666667em 2em;
 		padding: 1em 0 1em 2em;
+		border-bottom: none;
+	}
+
+	.single_product_info_desc_container-dropdown{
 		cursor: pointer;
 	}
 
 	.single_product_info_desc_container-title{
-		padding-left: 2em;
+		padding: 0 0 0 2em;
+		border-bottom: none;
 	}
 
 
@@ -298,6 +335,8 @@
 	}
 
 	.single_product_info_option_quantity{
+		padding: 0;
+		text-align: left;
 		margin: 1.6875em 0;
 	}
 
@@ -311,7 +350,12 @@
 
 	.single_product_info_option_quantity_select{}
 
+	.single_product_info_option_quantity_input{
+	width: 60px;
+	padding: .5em;
+	}
+
 	.single_product_info_option_quantity_button{
-		font-weight: 700;
+		padding: .5em 1em;
 	}
 }

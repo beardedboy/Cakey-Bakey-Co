@@ -11,64 +11,56 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 global $post, $woocommerce, $product;
 
-?>
-
-<?php 
-
-if(is_product()){
-
-	the_title(); //title of product
-
-	echo wp_get_attachment_url( get_post_thumbnail_id() ); //echos main image url
-
-echo get_post_meta( $post->ID, '_regular_price', true); //Gets regular price of static product
+	$imageUrl = wp_get_attachment_url( get_post_thumbnail_id() ); //main image url
 
 	$currentpost = get_post(); 
-	$content = $currentpost->post_content;
-
-	echo $content; // Description
-
-
-	echo get_post_meta( $post->ID, 'subtitle', true ); //subtitle of product
-
-
-	//if ( $product->is_type('variable') ) {
-
-	//echo 'variable';
-	
-	//}
-	//else{
-	//	echo get_post_meta( $post->ID, '_regular_price', true);
-	//}
-
-
-}
+	$description = get_post_meta( $post->ID, '_socialdesc', true ); // Description
+	$subtitle = get_post_meta( $post->ID, '_subtitle', true ); //subtitle of product
 
 ?>
 
 <link href="[profile_url]" rel="publisher" />  <!-- links to Google+ page -->
 
+<!-- Open Graph data -->
+<meta property="og:site_name" content="Cakey Bakey Co" />
+<meta property="og:title" content=" <?php echo the_title(); ?> " />
+<meta property="og:url" content=" <?php echo get_permalink(); ?>" />
+<meta property="og:image" content=" <?php echo $imageUrl; ?> " />
+<meta property="og:description" content=" <?php echo $description; ?> " />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:brand" content="Cakey Bakey Co" />
+
+<meta property="article:publisher" content="https://www.facebook.com/cakeybakeyco" />
+<meta property="fb:app_id" content="fb_insights_id here" />
+
+<?php if( is_product() ){ ?>
+
+<meta property="og:type" content="product" />
+<meta property="product:price:amount" content="10.00" />
+<meta property="product:price:currency" content="GBP" />
+
+<?php } ?>
+
 <!-- Twitter Card data -->
-<meta name="twitter:card" content="product">
 <meta name="twitter:site" content="@CakeyBakeyCo">
+<meta name="twitter:title" content="<?php echo the_title(); ?>">
 <meta name="twitter:creator" content="@CakeyBakeyCo">
 <meta name="twitter:domain" content="cakeybakey.co">
-<meta name="twitter:title" content="Coconut & Lime Cupcake">
-<meta name="twitter:image:src" content="http://cakeybakeyco/coconutlimecake.jpg">
-<meta name="twitter:image:width" content="800px"> <!-- optional -->
-<meta name="twitter:image:height" content="800px"><!-- optional -->
-<meta name="twitter:description" content="A yummy cake blah blah....">
+<meta name="twitter:image:src" content="<?php echo $imageUrl; ?>">
+<meta name="twitter:description" content="<?php echo $description; ?>">
+
+<?php if( is_product() ){ ?>
+
+<meta name="twitter:card" content="product">
 <meta name="twitter:label1" content="Sizes">
-<meta name="twitter:data1" content="Box of 6 (Large) | Box of 24 ( Small )">
+<meta name="twitter:data1" content="<?php echo $subtitle; ?>">
 <meta name="twitter:label2" content="Price">
 <meta name="twitter:data2" content="£10">
 
-<!-- Open Graph data -->
-<meta property="og:title" content="Coconut & Lime Cupcake" />
-<meta property="og:type" content="product" />
-<meta property="og:url" content="http://cakeybakey.co" />
-<meta property="og:image" content="http://cakeybakeyco/coconutlimecake.jpg" />
-<meta property="og:description" content="A yummy cake blah blah...." />
-<meta property="og:site_name" content="CakeyBakey Co" />
-<meta property="og:price:amount" content="10.00" />
-<meta property="og:price:currency" content="GBP" />
+
+
+<?php } ?>
+
+
+
+

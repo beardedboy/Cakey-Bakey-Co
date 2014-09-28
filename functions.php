@@ -372,7 +372,8 @@ function cakeybakeyco_setup(){
 	remove_action('wp_head', 'wlwmanifest_link');
 	remove_action('wp_head', 'rsd_link');
 	remove_action('wp_head', 'wp_generator');
-	add_action('wp_head', 'cbc_add_social_head_meta_tags');
+	remove_action('wp_head', 'index_rel_link');
+	add_action('wp_head', 'cbc_add_social_head_meta_tags', 10);
 
 	// REGISTER THEME NAVIGATIONS
 	add_action( 'init', 'register_main_nav' );
@@ -422,7 +423,7 @@ function cakeybakeyco_setup(){
 	add_action( 'woocommerce_single_product_summary', 'cbc_add_hr', 40 );
 	add_action( 'woocommerce_single_product_summary', 'cbc_single_product_allergy_advice', 50 );
 	add_action( 'woocommerce_single_product_summary', 'cbc_add_hr', 50 );
-	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 50 );
+	add_action( 'woocommerce_single_product_summary', 'cbc_single_product_ingredients', 50 );
 	add_action( 'woocommerce_single_product_summary', 'cbc_add_hr', 55 );
 	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 55 );
 
@@ -430,10 +431,82 @@ function cakeybakeyco_setup(){
     remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
     remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 
-	add_filter('woocommerce_short_description', 'cbc_filter_short_description', 10);
+	//add_filter('woocommerce_short_description', 'cbc_filter_short_description', 10);
+
+	// Display Fields
+	add_action( 'woocommerce_product_options_general_product_data', 'cbc_add_custom_general_fields' );
+ 
+	// Save Fields
+	add_action( 'woocommerce_process_product_meta', 'cbc_add_custom_general_fields_save' );
+
+	//This function adds more custom fields to the product pages in the admin section of the website.
+	function cbc_add_custom_general_fields(){
+		global $woocommerce, $post;
+  
+  			echo '<div class="cbc_options_group">';
+  			// Textarea
+			woocommerce_wp_textarea_input( 
+				array( 
+					'id'          => '_ingredients',
+					'class'		  => 'cbc_admin_textarea', 
+					'label'       => __( 'Ingredients', 'woocommerce' ), 
+					'placeholder' => '', 
+					'description' => __( '', 'woocommerce' ) 
+				)
+			);
+			woocommerce_wp_textarea_input( 
+				array( 
+					'id'          => '_allergy', 
+					'class'		  => 'cbc_admin_textarea',
+					'label'       => __( 'Allergy Advice', 'woocommerce' ), 
+					'placeholder' => '', 
+					'description' => __( '', 'woocommerce' ) 
+				)
+			);
+			woocommerce_wp_textarea_input( 
+				array( 
+					'id'          => '_subtitle', 
+					'class'		  => 'cbc_admin_textarea',
+					'label'       => __( 'Subtitle', 'woocommerce' ), 
+					'placeholder' => '', 
+					'description' => __( '', 'woocommerce' ) 
+				)
+			);
+			woocommerce_wp_textarea_input( 
+				array( 
+					'id'          => '_socialdesc', 
+					'class'		  => 'cbc_admin_textarea',
+					'label'       => __( 'SEO Description', 'woocommerce' ), 
+					'placeholder' => '', 
+					'description' => __( '', 'woocommerce' ) 
+				)
+			);
+  			echo '</div>';	
+
+	}
+
+	function cbc_add_custom_general_fields_save( $post_id ){
+
+	$woocommerce_textarea_1 = $_POST['_ingredients'];
+	if( !empty( $woocommerce_textarea_1 ) )
+		update_post_meta( $post_id, '_ingredients', esc_html( $woocommerce_textarea_1 ) );
+
+	$woocommerce_textarea_2 = $_POST['_allergy'];
+	if( !empty( $woocommerce_textarea_2 ) )
+		update_post_meta( $post_id, '_allergy', esc_html( $woocommerce_textarea_2 ) );
+
+	$woocommerce_textarea_3 = $_POST['_subtitle'];
+	if( !empty( $woocommerce_textarea_3 ) )
+		update_post_meta( $post_id, '_subtitle', esc_html( $woocommerce_textarea_3 ) );
+
+	$woocommerce_textarea_4 = $_POST['_socialdesc'];
+	if( !empty( $woocommerce_textarea_4 ) )
+		update_post_meta( $post_id, '_socialdesc', esc_html( $woocommerce_textarea_4 ) );
+	
+	}
 
 
-	//Function to add custom html tag around a products short description
+	/*Function to add custom html tag around a products short description
 	function cbc_filter_short_description( $desc ){
 	    global $product;
 	    $newDesc = '<div class = "single_product_info_desc_container-dropdown">';
@@ -441,7 +514,7 @@ function cakeybakeyco_setup(){
 	    $newDesc .= '<div class="pg single_product_info_desc_content visuallyhidden">'.wp_strip_all_tags($desc).'</div>';
 	    $newDesc .= '</div><!--end single_product_info_desc_container -->';
 	    return $newDesc;
-	}
+	}*/
 
 	function cbc_add_social_head_meta_tags(){
 		wc_get_template( 'single-product/social.php' );
@@ -459,6 +532,10 @@ function cakeybakeyco_setup(){
 
     function cbc_single_product_allergy_advice() {
         wc_get_template( 'single-product/allergy.php' );
+    }
+
+    function cbc_single_product_ingredients() {
+        wc_get_template( 'single-product/ingredients.php' );
     }
 
     function cbc_single_product_desc_wrapper_start(){
@@ -496,7 +573,7 @@ function cakeybakeyco_setup(){
 	//Function to add Site title before each individual page title.  Eg. > 'Cupcakes' becomes 'Cakey Bakey Co. - Cupcakes'
 	function cbc_main_title($title, $sep){
 		//Get site title 
-		$sep = " - ";
+		$sep = " -";
 		$bloginfo = get_bloginfo();
 		$pagetitle = $title;
 
