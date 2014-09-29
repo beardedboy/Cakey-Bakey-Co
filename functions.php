@@ -570,6 +570,20 @@ function cakeybakeyco_setup(){
 		}
 	}
 
+	function cbc_custom_single_product_image_html( $html, $post_id ) {
+    	return get_the_post_thumbnail( $post_id, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array('class'	=> "woocommerce-main-image zoom single_product_images_main", width => "") );
+	}
+	add_filter('woocommerce_single_product_image_html', 'cbc_custom_single_product_image_html', 10, 2);
+
+	add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
+	add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
+
+	function remove_width_attribute( $html ) {
+	   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+	   return $html;
+	}
+
+
 	//Function to add Site title before each individual page title.  Eg. > 'Cupcakes' becomes 'Cakey Bakey Co. - Cupcakes'
 	function cbc_main_title($title, $sep){
 		//Get site title 

@@ -19,7 +19,7 @@ global $post, $woocommerce, $product;
 
 			$image_title = esc_attr( get_the_title( get_post_thumbnail_id() ) );
 			$image_link  = wp_get_attachment_url( get_post_thumbnail_id() );
-			$image       = get_the_post_thumbnail( $post->ID, apply_filters( '','shop_single' ), array(
+			$image       = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size','shop_single' ), array(
 				'title' => $image_title
 				) );
 
@@ -31,8 +31,9 @@ global $post, $woocommerce, $product;
 				$gallery = '';
 			}
 
-			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" itemprop="image" class = "woocommerce-main-image zoom single_product_images_main" />', $image_link, $image_title, $image ), $post->ID );
-
+			//echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img href="%s" alt="%s" itemprop="image" class = "woocommerce-main-image zoom single_product_images_main" />', $image_link, $image_title, $image ), $post->ID );
+			echo apply_filters( 'woocommerce_single_product_image_html', 
+				sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom single_product_images_main" title="%s" ">%s</a>', $image_link, $image_title, $image ), $post->ID );
 		} else {
 
 			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );

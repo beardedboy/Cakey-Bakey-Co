@@ -17,13 +17,32 @@ global $post, $woocommerce, $product;
 	$description = get_post_meta( $post->ID, '_socialdesc', true ); // Description
 	$subtitle = get_post_meta( $post->ID, '_subtitle', true ); //subtitle of product
 
+	$productType = '';
+	$terms = get_the_terms( $post->ID, 'product_cat' );
+
+	if ( $terms && ! is_wp_error( $terms ) ) : 
+
+	foreach ( $terms as $term ) {
+		if ($term->slug=='cupcakes'){
+			$productType = ' Cupcakes';
+
+		}
+		elseif($term->slug=='layercakes'){
+			$productType = ' Layer Cake';
+
+		}
+	}
+	endif;
+
 ?>
+
+
 
 <link href="[profile_url]" rel="publisher" />  <!-- links to Google+ page -->
 
 <!-- Open Graph data -->
 <meta property="og:site_name" content="Cakey Bakey Co" />
-<meta property="og:title" content=" <?php echo the_title(); ?> " />
+<meta property="og:title" content=" <?php echo the_title(); echo $productType; ?> " />
 <meta property="og:url" content=" <?php echo get_permalink(); ?>" />
 <meta property="og:image" content=" <?php echo $imageUrl; ?> " />
 <meta property="og:description" content=" <?php echo $description; ?> " />
@@ -43,7 +62,7 @@ global $post, $woocommerce, $product;
 
 <!-- Twitter Card data -->
 <meta name="twitter:site" content="@CakeyBakeyCo">
-<meta name="twitter:title" content="<?php echo the_title(); ?>">
+<meta name="twitter:title" content="<?php echo the_title(); echo $productType; ?>">
 <meta name="twitter:creator" content="@CakeyBakeyCo">
 <meta name="twitter:domain" content="cakeybakey.co">
 <meta name="twitter:image:src" content="<?php echo $imageUrl; ?>">
