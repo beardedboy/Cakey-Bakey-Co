@@ -586,8 +586,26 @@ function cakeybakeyco_setup(){
 
 	//Function to add Site title before each individual page title.  Eg. > 'Cupcakes' becomes 'Cakey Bakey Co. - Cupcakes'
 	function cbc_main_title($title, $sep){
+		//Determines what type of product it is so the product category can be added onto the title tag.
+		$productType = '';
+		$terms = get_the_terms( $post->ID, 'product_cat' );
+
+		if ( $terms && ! is_wp_error( $terms ) ) : 
+
+		foreach ( $terms as $term ) {
+			if ($term->slug=='cupcakes'){
+				$productType = ' Cupcakes';
+
+			}
+			elseif($term->slug=='layercakes'){
+				$productType = ' Layer Cake';
+
+			}
+		}
+		endif;
+
 		//Get site title 
-		$sep = " -";
+		$sep = " | ";
 		$bloginfo = get_bloginfo();
 		$pagetitle = $title;
 
@@ -598,7 +616,7 @@ function cakeybakeyco_setup(){
 
 		}
 
-		$title = $bloginfo.$sep.$pagetitle;
+		$title = $pagetitle.$productType.$sep.$bloginfo;
 
 		return $title;
 	}

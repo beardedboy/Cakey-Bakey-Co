@@ -26,7 +26,7 @@ if ( ! $product->is_purchasable() ) return;
 
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
-	<form class="cart" method="post" enctype='multipart/form-data'>
+	<form class="cart single_product_variation_form" method="post" enctype='multipart/form-data'>
 	 	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
 	 	<?php
@@ -39,7 +39,7 @@ if ( ! $product->is_purchasable() ) return;
 
 	 	<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
 
-	 	<button type="submit" class="single_add_to_cart_button button alt"><?php echo $product->single_add_to_cart_text(); ?></button>
+	 	<button type="submit" class="btn_buy single_product_info_option_add_btn"><?php echo $product->single_add_to_cart_text(); ?></button>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>

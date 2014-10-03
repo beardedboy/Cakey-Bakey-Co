@@ -5,16 +5,6 @@
             <div class = "container">
                 <div class = "row main_footer_row">
                     <div class = "col-5-12 main_footer_left_col">
-                        <!--<div itemscope itemtype="http://schema.org/Organization">
-                            <meta itemprop = "brand" content = "Cakey Bakey Co">
-                            <a itemprop="url" href="http://www.cakeybakey.co">
-                                <img itemprop = "logo" class = "main_footer_logo" src="<?php echo get_template_directory_uri() ?>/img/build/Logo/logo-01.svg" />
-                            </a>
-                            <meta itemprop="description" content ="Offering awesome cupcakes and layer cakes to all the people of Bristol, delivery available 7 days a week." />
-                            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                                Made with <span class = "icon-heart"></span> in <span itemprop="addressLocality">Bristol </span><span itemprop="addressCountry">UK</span>
-                            </div>
-                        </div>-->
                         <h3 class = "h2 main_footer_contact_title">Say hello</h3>
                         <p class = "pg main_footer_contact_paragraph">Feel free to send us a message and lets talk cake!</p>
                         <a href ="" class = "btn_flat">Contact Us</a>

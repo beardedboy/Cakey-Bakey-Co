@@ -23,9 +23,5 @@ global $post, $product;
 	
 </div>
 
-<meta itemprop = "category" content = "Food, Beverages & Tobacco > Food Items > Bakery > Cupcakes" />
-
-<!--<meta itemprop = "category" content = "Food, Beverages & Tobacco > Food Items > Bakery >Cakes & Dessert Bars" />-->
-
 
 
