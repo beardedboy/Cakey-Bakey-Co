@@ -1,6 +1,6 @@
 <?php
 /**
- * Single Product Sale Flash
+ * Product loop sale flash
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates

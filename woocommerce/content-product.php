@@ -66,7 +66,11 @@ $classes[] = 'product_list_item';
 				//echo apply_filters( 'woocommerce_short_description', $post->post_excerpt );
 				do_action( 'woocommerce_after_shop_loop_item_title' );
 			?>
+			<?php if($product->is_in_stock()){ ?>
 			<div class="btn_flat product_list_item_info_btn">BUY</div>
+			<?php } else{ ?>
+			<span class="product_outofstock">Out of stock</span>
+			<?php } ?>
 		</div><!-- end product_list_item_info -->
 	<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
 	</a>

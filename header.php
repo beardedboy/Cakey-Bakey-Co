@@ -35,7 +35,7 @@
             <div class = "main_header_row">
                 <div class = "main_header_row-header">
                     <div class = "logo_container">
-                        <a class = "logo_home_link" href = "<?php get_site_url(); ?>">
+                        <a class = "logo_home_link" href = "<?php echo home_url(); ?>">
                             <h1 class = "ir logo logo_main">Cakey Bakey Co.</h1>
                         </a>
                     </div><!-- end logo_container -->

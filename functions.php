@@ -433,10 +433,13 @@ function cakeybakeyco_setup(){
 
 	//add_filter('woocommerce_short_description', 'cbc_filter_short_description', 10);
 
-	// Display Fields
+    // Changes the output of sale prices displayed on the single product page
+    add_filter( 'woocommerce_get_price_html', 'cbc_display_sale_price', 100, 2 );
+
+	// Display Fields set in product settings page in admin section
 	add_action( 'woocommerce_product_options_general_product_data', 'cbc_add_custom_general_fields' );
  
-	// Save Fields
+	// Saves Fields set in product settings page in admin section
 	add_action( 'woocommerce_process_product_meta', 'cbc_add_custom_general_fields_save' );
 
 	//This function adds more custom fields to the product pages in the admin section of the website.
@@ -505,6 +508,18 @@ function cakeybakeyco_setup(){
 	
 	}
 
+	
+	function cbc_display_sale_price( $price, $product ){
+
+		if( $product->has_child() && $product->is_on_sale() ) {
+			$price = "";
+			$price .= "From ";
+			$price .= woocommerce_price($product->get_price());
+			return $price;
+		}
+    	return str_replace( '<ins>', '', $price );
+	}
+
 
 	/*Function to add custom html tag around a products short description
 	function cbc_filter_short_description( $desc ){
@@ -571,14 +586,32 @@ function cakeybakeyco_setup(){
 	}
 
 	function cbc_custom_single_product_image_html( $html, $post_id ) {
-    	return get_the_post_thumbnail( $post_id, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array('class'	=> "woocommerce-main-image zoom single_product_images_main", width => "") );
+		global $product;
+		$content;
+
+		$content .= "<div class ='single_product_images_main_container'>";
+
+		if($product->is_on_sale()){	
+			$content .= "<span class ='onsale'>On Sale</span>";
+    		$content .= get_the_post_thumbnail( $post_id, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array('class'	=> "woocommerce-main-image zoom single_product_images_main", width => "") );
+		}
+		elseif(!$product->is_in_stock()){
+			$content .= "<span class ='onsale'>Out of stock</span>";
+    		$content .= get_the_post_thumbnail( $post_id, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array('class'	=> "woocommerce-main-image zoom single_product_images_main", width => "") );
+		}
+		else{
+    		$content .= get_the_post_thumbnail( $post_id, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array('class'	=> "woocommerce-main-image zoom single_product_images_main", width => "") );
+		}
+		$content .= "</div>";
+		return $content;
 	}
+
 	add_filter('woocommerce_single_product_image_html', 'cbc_custom_single_product_image_html', 10, 2);
 
-	add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
-	add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
+	add_filter( 'post_thumbnail_html', 'cbc_remove_width_attribute', 10 );
+	add_filter( 'image_send_to_editor', 'cbc_remove_width_attribute', 10 );
 
-	function remove_width_attribute( $html ) {
+	function cbc_remove_width_attribute( $html ) {
 	   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
 	   return $html;
 	}

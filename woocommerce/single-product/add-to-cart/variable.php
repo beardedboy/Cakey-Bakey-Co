@@ -10,9 +10,11 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 global $product, $post;
+
 ?>
 
 <?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
+
 
 <form class="variations_form single_product_variation_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo $post->ID; ?>" data-product_variations="<?php echo esc_attr( json_encode( $available_variations ) ) ?>">
 	<?php if ( ! empty( $available_variations ) ) : ?>
