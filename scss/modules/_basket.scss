@@ -68,6 +68,39 @@
     
     .basket_empty{}
 
+    .woocommerce-message{
+        text-align: center;
+    }
+
+    .link_view_basket{
+        display: block;
+        width: 100%;
+        padding: .5em 0;
+        @include min-screen(35em){
+            display: inline;
+        }
+    }
+
+    .product_in_cart_message{
+        border: 1px solid $black;
+        padding: 1em 0 .5em 0;
+        margin: 0 1em;
+        @include min-screen(35em){
+            padding: 1em 0;
+        }
+        @include min-screen(47.5em){
+            margin: 0;
+        }
+    }
+
+    .product_in_cart_message_divider{
+        display: none;
+        @include min-screen(35em){
+            display: inline;
+        }
+    }
+
+
 @include min-screen(35em){
     .basket_link-mobile{
         top: 0;

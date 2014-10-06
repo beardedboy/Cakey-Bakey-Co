@@ -208,7 +208,7 @@ class mainnav_walker extends Walker_Nav_Menu{
 	 */
 	function start_lvl( &$output )
 	{
-		$output .= '<ul class="nav_main_list_item_sublist">';
+		$output .= '<ul class="nav_main_list_item_sublist sublist-closed">';
 	}
  
 	/**
@@ -432,6 +432,31 @@ function cakeybakeyco_setup(){
     remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 
 	//add_filter('woocommerce_short_description', 'cbc_filter_short_description', 10);
+
+	/**
+ 	* Custom Add To Cart Messages
+ 	* Add this to your theme functions.php file
+ 	**/
+	add_filter( 'wc_add_to_cart_message', 'custom_add_to_cart_message' );
+
+	function custom_add_to_cart_message() {
+		global $woocommerce;
+	 
+		// Output success messages
+		if (get_option('woocommerce_cart_redirect_after_add')=='yes') :
+	 
+			$return_to 	= get_permalink(woocommerce_get_page_id('shop'));
+	 
+			$message 	= sprintf('<a href="%s" class="link">%s</a> %s', $return_to, __('Continue Shopping &rarr;', 'woocommerce'), __('Product successfully added to your cart.', 'woocommerce') );
+	 
+		else :
+	 
+			$message 	= sprintf('<div class ="product_in_cart_message">Product successfully added to your basket <span class ="product_in_cart_message_divider">|</span> <a href="%s" class="link link_view_basket">%s</a></div>', get_permalink(woocommerce_get_page_id('cart')), __('View Basket', 'woocommerce') );
+	 
+		endif;
+	 
+			return $message;
+	}
 
     // Changes the output of sale prices displayed on the single product page
     add_filter( 'woocommerce_get_price_html', 'cbc_display_sale_price', 100, 2 );

@@ -146,6 +146,12 @@
     padding: 0;
 }
 
+.sublist-closed{
+    display: none;
+}
+
+.sublist-open{}
+
 .nav_main_list_item_sublist_item{
 	position: relative;
 	a{
@@ -198,6 +204,8 @@
 
     .nav_main{
         border-top: none;
+        position: relative;
+        z-index: 99999;
     }
 
 	.nav_main_btn{
@@ -358,10 +366,6 @@
 }
 
 @media only screen and (min-width: 57.5em) {
-    .nav_main{
-        position: relative;
-        z-index: 99999;
-    }
     .nav_divider{
         display: inline;
         border-left: 1px solid black;
