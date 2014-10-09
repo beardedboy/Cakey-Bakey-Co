@@ -433,6 +433,13 @@ function cakeybakeyco_setup(){
 
 	//add_filter('woocommerce_short_description', 'cbc_filter_short_description', 10);
 
+    add_action('cbc_header', 'mobileBasket');
+
+    function mark(){
+    	do_action('cbc_header');
+    }
+
+
 	/**
  	* Custom Add To Cart Messages
  	* Add this to your theme functions.php file
@@ -713,7 +720,7 @@ function cakeybakeyco_setup(){
 
 		$basket .= '</a></div>';
 
-		return $basket;
+		echo $basket;
 
 	}
 
@@ -732,7 +739,7 @@ function cakeybakeyco_setup(){
 		    'after'           => '',
 		    'link_before'     => '',
 		    'link_after'      => '',
-		    'items_wrap'      => '<div class = "nav_main_container"> <ul class="%2$s"> <a href = "#" class = "nav_main_btn nav_main_btn-close"> <span class = "icon-close"></span> Close</a>%3$s</ul> </div>'.mobileBasket(),
+		    'items_wrap'      => '<div class = "nav_main_container"> <ul class="%2$s"> <a href = "#" class = "nav_main_btn nav_main_btn-close"> <span class = "icon-close"></span> Close</a>%3$s</ul> </div>',
 		    'depth'           => 0,
 		    'walker'          => new mainnav_walker()
 		);

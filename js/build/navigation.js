@@ -1,10 +1,10 @@
-var Navigation = ( function() {
+var Navigation = ( function($) {
 
   var settings = {
     nav_open: document.querySelector('.nav_main_btn-menu'),
     nav_close: document.querySelector('.nav_main_btn-close'),
     nav_list: document.querySelector('.nav_main_container'),
-    //dropdown_links: document.querySelectorAll('.nav_main_list_item-dropdown'),
+    dropdown_links: $('.nav_main_list_item-dropdown'),
     openClass: "nav_main-open"
   }
 
@@ -14,11 +14,13 @@ var Navigation = ( function() {
 
     //console.log(dropdown_links);
 
-    //for(var i = 0; i < dropdown_links.length; i++){
-    //  settings.dropdown_links[i].addEventListener("click", function(event){
-     //   event.preventDefault();
-    //  })
-   // };
+    //for(var i = 0; i < settings.dropdown_links.length; i++){
+    // settings.dropdown_links[i].addEventListener("click", function(event){
+        //event.preventDefault();
+    //    var sublist = $(this).find( ".nav_main_list_item_sublist" );
+     //   sublist.toggleClass("sublist-closed");
+     // })
+    //};
 
     settings.nav_open.addEventListener("click", function(event){
       event.preventDefault();
@@ -126,8 +128,6 @@ var Navigation = ( function() {
         return;
       }
 
-      console.log("blah");
-
 
       /*Add the move and end listeners
       if (window.PointerEventsSupport) {
@@ -191,7 +191,7 @@ var Navigation = ( function() {
     runTouch: runTouch
   };
 
-}());
+})(jQuery);
 
 
 
@@ -200,5 +200,5 @@ Navigation.init();
 
 //if(Modernizr.touch){
   //Navigation.enableTouch();
-  Navigation.runTouch();
+  //Navigation.runTouch();
 //}

@@ -144,10 +144,14 @@
 .nav_main_list_item_sublist{
 	margin: 0 0 .5em 2em;
     padding: 0;
+    display: none;
+}
+
+.nav_main_list_item-dropdown:hover .nav_main_list_item_sublist{
+    display: block;
 }
 
 .sublist-closed{
-    display: none;
 }
 
 .sublist-open{}

@@ -54,24 +54,26 @@ $classes[] = 'product_list_item';
 				do_action( 'woocommerce_before_shop_loop_item_title' );
 			?>
 
-		<div class = "product_list_item_info">
-			<h3 class = "h3 product_list_item_info_title"><?php the_title(); ?></h3>
-			<?php
-				/**
-				 * woocommerce_after_shop_loop_item_title hook
-				 *
-				 * @hooked woocommerce_template_loop_rating - 5
-				 * @hooked woocommerce_template_loop_price - 10
-				 */
-				//echo apply_filters( 'woocommerce_short_description', $post->post_excerpt );
-				do_action( 'woocommerce_after_shop_loop_item_title' );
-			?>
+		<span class = "product_list_item_content">
+			<span class = "product_list_item_content_desc">
+				<h3 class = "h3 product_list_item_content_desc_title"><?php the_title(); ?></h3>
+				<?php
+					/**
+					 * woocommerce_after_shop_loop_item_title hook
+					 *
+					 * @hooked woocommerce_template_loop_rating - 5
+					 * @hooked woocommerce_template_loop_price - 10
+					 */
+					//echo apply_filters( 'woocommerce_short_description', $post->post_excerpt );
+					do_action( 'woocommerce_after_shop_loop_item_title' );
+				?>
+			</span>
 			<?php if($product->is_in_stock()){ ?>
-			<div class="btn_flat product_list_item_info_btn">BUY</div>
+			<span class="btn_flat product_list_item_content_btn">BUY</span>
 			<?php } else{ ?>
 			<span class="product_outofstock">Out of stock</span>
 			<?php } ?>
-		</div><!-- end product_list_item_info -->
+		</span><!-- end product_list_item_content -->
 	<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
 	</a>
 </li>

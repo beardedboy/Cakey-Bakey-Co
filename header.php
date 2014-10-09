@@ -34,17 +34,18 @@
         <header class = "main_header">
             <div class = "main_header_row">
                 <div class = "main_header_row-header">
+                    <a href = "#" data-icon="f" class = "nav_main_btn nav_main_btn-menu">MENU</a>
                     <div class = "logo_container">
                         <a class = "logo_home_link" href = "<?php echo home_url(); ?>">
                             <h1 class = "ir logo logo_main">Cakey Bakey Co.</h1>
                         </a>
                     </div><!-- end logo_container -->
+                    <?php mark(); ?>
                 </div>
                 <div class = "main_header_row-nav">
                     <hr class = "hr hr_double hr_nav" />
                     
                     <nav class = "nav nav_main" role = "navigation">
-                        <a href = "#" data-icon="f" class = "nav_main_btn nav_main_btn-menu">MENU</a>
                         <?php if ( has_nav_menu( 'main-nav' ) ) {
                             wp_nav_menu( mainNav() );
                         } ?>   

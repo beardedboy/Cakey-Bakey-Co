@@ -253,6 +253,7 @@ var Helper = (function(){
             };
   })();
 
+  //Function to toggle a class on an element
   function toggleClass(element, cls){
     if( document.documentElement.classList ){
       element.classList.toggle(cls);
@@ -267,7 +268,7 @@ var Helper = (function(){
       }
     }
   }
-
+  //Function to add a class to an element
   function addClass(element,cls){
     if( document.documentElement.classList ){
       if( !element.classList.contains(cls) ){
@@ -282,6 +283,7 @@ var Helper = (function(){
     }
   }
 
+  //Function to remove a class from an element
   function removeClass(element,cls){
     if( document.documentElement.classList ){
       if( element.classList.contains(cls) ){
@@ -296,6 +298,7 @@ var Helper = (function(){
     }
   }
 
+  //Function checks if browser supports SVG and if it doesn't replaces all svg images on the page with png extension
   function modSVG(){
     if (!Modernizr.svg) {
         var imgs = document.getElementsByTagName('img');
@@ -336,94 +339,13 @@ var Touch = (function(){
 
 })();
 
-
-$( document ).on( 'click', '.plus, .minus', function() {
-
-    // Get values
-    var $qty    = $( this ).closest( '.single_product_info_option_quantity' ).find( '.qty' ),
-      currentVal  = parseFloat( $qty.val() ),
-      max     = parseFloat( $qty.attr( 'max' ) ),
-      min     = parseFloat( $qty.attr( 'min' ) ),
-      step    = $qty.attr( 'step' );
-
-    // Format values
-    if ( ! currentVal || currentVal === '' || currentVal === 'NaN' ) currentVal = 0;
-    if ( max === '' || max === 'NaN' ) max = '';
-    if ( min === '' || min === 'NaN' ) min = 0;
-    if ( step === 'any' || step === '' || step === undefined || parseFloat( step ) === 'NaN' ) step = 1;
-
-    // Change the value
-    if ( $( this ).is( '.plus' ) ) {
-
-      if ( max && ( max == currentVal || currentVal > max ) ) {
-        $qty.val( max );
-      } else {
-        $qty.val( currentVal + parseFloat( step ) );
-      }
-
-    } else {
-
-      if ( min && ( min == currentVal || currentVal < min ) ) {
-        $qty.val( min );
-      } else if ( currentVal > 0 ) {
-        $qty.val( currentVal - parseFloat( step ) );
-      }
-
-    }
-
-    // Trigger change event
-    $qty.trigger( 'change' );
-});
-
-
-var dropdowns = document.querySelectorAll('.single_product_info_desc_container-dropdown');
-
-
-for(var i = 0; i < dropdowns.length; i++){
-  dropdowns[i].addEventListener("click", containerChange, true);
-}
-  
-
-function containerChange(){
-  var title = this.querySelector('.single_product_info_desc_title');
-  var content = this.querySelector('.single_product_info_desc_content');
-  
-  Helper.toggleClass(content, 'visuallyhidden');
-  if(Modernizr.data){
-    if(title.dataset.iconafter == 'g'){
-      title.dataset.iconafter = 'B';
-    }
-    else{
-      title.dataset.iconafter = 'g';
-    }
-  }
-  else{
-    var attr = title.getAttribute('data-iconafter');
-
-    if(attr == 'g'){
-      title.setAttribute('data-iconafter', 'B');
-    } 
-    else{
-      title.setAttribute('data-iconafter', 'g');
-    }
-  }
-
-};
-
-
-$('.attachment-shop_thumbnail').on('click', function(){
-        var photo_fullsize =  $(this).attr('src').replace('-90x90','');
-        jQuery('.woocommerce-main-image').attr('src', photo_fullsize);
-        return false;
-    });
-
-var Navigation = ( function() {
+var Navigation = ( function($) {
 
   var settings = {
     nav_open: document.querySelector('.nav_main_btn-menu'),
     nav_close: document.querySelector('.nav_main_btn-close'),
     nav_list: document.querySelector('.nav_main_container'),
-    //dropdown_links: document.querySelectorAll('.nav_main_list_item-dropdown'),
+    dropdown_links: $('.nav_main_list_item-dropdown'),
     openClass: "nav_main-open"
   }
 
@@ -433,11 +355,13 @@ var Navigation = ( function() {
 
     //console.log(dropdown_links);
 
-    //for(var i = 0; i < dropdown_links.length; i++){
-    //  settings.dropdown_links[i].addEventListener("click", function(event){
-     //   event.preventDefault();
-    //  })
-   // };
+    //for(var i = 0; i < settings.dropdown_links.length; i++){
+    // settings.dropdown_links[i].addEventListener("click", function(event){
+        //event.preventDefault();
+    //    var sublist = $(this).find( ".nav_main_list_item_sublist" );
+     //   sublist.toggleClass("sublist-closed");
+     // })
+    //};
 
     settings.nav_open.addEventListener("click", function(event){
       event.preventDefault();
@@ -545,8 +469,6 @@ var Navigation = ( function() {
         return;
       }
 
-      console.log("blah");
-
 
       /*Add the move and end listeners
       if (window.PointerEventsSupport) {
@@ -610,7 +532,7 @@ var Navigation = ( function() {
     runTouch: runTouch
   };
 
-}());
+})(jQuery);
 
 
 
@@ -619,7 +541,7 @@ Navigation.init();
 
 //if(Modernizr.touch){
   //Navigation.enableTouch();
-  Navigation.runTouch();
+  //Navigation.runTouch();
 //}
 // Avoid `console` errors in browsers that lack a console.
 (function() {
@@ -648,6 +570,106 @@ Navigation.init();
 
 
 
+var Products = (function($) {
+
+  var settings = {
+        dropdowns: $('.single_product_info_desc_container-dropdown')
+      },
+      publicSettings = {}
+
+  //****** PUBLIC METHODS *********************************************** //
+  
+  publicSettings.init = function(){
+
+    for(var i = 0; i < settings.dropdowns.length; i++){
+      settings.dropdowns[i].addEventListener("click", containerChange, true);
+    }
+
+    $('.attachment-shop_thumbnail').on('click', function(){
+        var photo_fullsize =  $(this).attr('src').replace('-90x90','');
+        jQuery('.woocommerce-main-image').attr('src', photo_fullsize);
+        return false;
+    });
+
+
+    /* Copy of a function from woocommerce/assets/js/frontend/woocommerce.js
+       altered to find element through a custom css class.
+    */
+    $( document ).on( 'click', '.plus, .minus', function() {
+      // Get values
+      var $qty    = $( this ).closest( '.single_product_info_option_quantity' ).find( '.qty' ),
+        currentVal  = parseFloat( $qty.val() ),
+        max     = parseFloat( $qty.attr( 'max' ) ),
+        min     = parseFloat( $qty.attr( 'min' ) ),
+        step    = $qty.attr( 'step' );
+
+      // Format values
+      if ( ! currentVal || currentVal === '' || currentVal === 'NaN' ) currentVal = 0;
+      if ( max === '' || max === 'NaN' ) max = '';
+      if ( min === '' || min === 'NaN' ) min = 0;
+      if ( step === 'any' || step === '' || step === undefined || parseFloat( step ) === 'NaN' ) step = 1;
+
+      // Change the value
+      if ( $( this ).is( '.plus' ) ) {
+
+        if ( max && ( max == currentVal || currentVal > max ) ) {
+          $qty.val( max );
+        } else {
+          $qty.val( currentVal + parseFloat( step ) );
+        }
+
+      } else {
+
+        if ( min && ( min == currentVal || currentVal < min ) ) {
+          $qty.val( min );
+        } else if ( currentVal > 0 ) {
+          $qty.val( currentVal - parseFloat( step ) );
+        }
+
+      }
+
+      // Trigger change event
+      $qty.trigger( 'change' );
+    });
+
+  };
+
+  //****** PRIVATE METHODS ********************************************** //
+
+  /* Function to reveal/hidden a content box on single product page whilst
+     also changing alternating the +/- icons next to the titles */
+
+  function containerChange(){
+    var title = this.querySelector('.single_product_info_desc_title');
+    var content = this.querySelector('.single_product_info_desc_content');
+  
+    Helper.toggleClass(content, 'visuallyhidden');
+    if(Modernizr.data) {
+      if(title.dataset.iconafter == 'g') {
+        title.dataset.iconafter = 'B';
+      }
+      else {
+        title.dataset.iconafter = 'g';
+      }
+    }
+    else {
+      var attr = title.getAttribute('data-iconafter');
+      if(attr == 'g') {
+        title.setAttribute('data-iconafter', 'B');
+      } 
+      else{
+        title.setAttribute('data-iconafter', 'g');
+      }
+    }
+  };
+
+
+  return publicSettings;
+
+
+})(jQuery);
+
+Products.init();
 var Touch = ( function() {
 
   var pointerDownName = 'MSPointerDown';
