@@ -435,7 +435,7 @@ function cakeybakeyco_setup(){
 
     add_action('cbc_header', 'mobileBasket');
 
-    function mark(){
+    function cbc_basket(){
     	do_action('cbc_header');
     }
 

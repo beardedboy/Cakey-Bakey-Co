@@ -1,18 +1,22 @@
  .logo_container{
-	position: absolute;
-	line-height: 5em;
-	width: 100%;
-	margin: 0 auto;
+	//line-height: 5em;
+	width: 60%;
+	//margin: 0 17%;
+	float: left;
 
-	@include min-screen(35em){	
-		position: static;
-		line-height: auto;
-		background-color: transparent;
-		height: 5em;
-		border-right: none;
+	@include min-screen(35em){
+		width: 76%;
 	}
-	@include min-screen(47.5em){
-		height: 100%;
+
+	@include min-screen(47.5em){	
+		//line-height: auto;
+		width: 80%;
+		margin-left: 10%;
+	}
+	@include min-screen(57.5em){
+		float: none;
+		width: 40%;
+		margin: 0 auto;
 	}	
 }
 
@@ -21,20 +25,19 @@
 }
 
 .logo_main{
-	background: url('img/build/logo/logo-01.svg') no-repeat center;
-	background-size: 3.99625em;
+	display: block;
+	margin: 0 auto;
+	width: 7.9925em;
 
 	@include min-screen(35em){
-		background-size: 5.650625em;
+		width: 11.30125em;
 	}
-
 
 	@include min-screen(47.5em){
-		background-size: 8em;
-		height: 3.55222222222222em;
+		width: 15.98em;
 	}
 
-	@include min-screen(60em){
+	@include min-screen(57.5em){
 	}
 	//@include retina-display(){
 	//	background: url('img/build/logo/logo-01.svg') no-repeat center;

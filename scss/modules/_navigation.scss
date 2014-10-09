@@ -47,14 +47,20 @@
  }
 
  .nav_main_btn-menu{
-    display: table;
-    position: absolute;
-    left: 0;
-    width: 5em;
+    float: left;
+    width: 20%;
     color: $black;
     text-align: center;
-    line-height: 6.45em;
-    padding: 0 .9em;
+    font-size: .8em;
+    font-weight: 700;
+    &:active, &:hover{
+        background-color: $pink;
+        color: $white;
+        text-decoration: none;
+    }
+    @include min-screen(35em){
+        width: 12%;
+    }
 }
 
  .nav_main_btn-close{
@@ -180,14 +186,6 @@
         padding-left: 80px;
     }
 
-}
-
-@media only screen and (min-width: 35em) {
-
-    .nav_main_btn-menu{
-        width: 7em;
-        line-height: 8.25em;
-    }
 }
 
 

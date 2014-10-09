@@ -13,6 +13,7 @@
 }
 
 .main_header_row-header, .main_header_row-nav{
+	@extend %clearfix;
 	margin-bottom: 0;
 	float: left;
 	@include min-screen($sm-bp){
@@ -21,7 +22,7 @@
 }
 
 .main_header_row-header{
-	width: 50%;
+	width: 100%;
 	@include min-screen(35em){
 		padding: 0.707em 0;
 	}

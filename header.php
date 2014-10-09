@@ -37,10 +37,11 @@
                     <a href = "#" data-icon="f" class = "nav_main_btn nav_main_btn-menu">MENU</a>
                     <div class = "logo_container">
                         <a class = "logo_home_link" href = "<?php echo home_url(); ?>">
-                            <h1 class = "ir logo logo_main">Cakey Bakey Co.</h1>
+                            <!--<h1 class = "ir logo logo_main">Cakey Bakey Co.</h1>-->
+                            <img class = "logo logo_main" src = "<?php echo get_template_directory_uri(); ?>/img/build/Logo/logo-01.svg"/>
                         </a>
                     </div><!-- end logo_container -->
-                    <?php mark(); ?>
+                    <?php cbc_basket(); ?>
                 </div>
                 <div class = "main_header_row-nav">
                     <hr class = "hr hr_double hr_nav" />
