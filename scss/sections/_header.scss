@@ -1,10 +1,8 @@
 .main_header{
 	@extend %clearfix;
-	height: 5em;
 	@include min-screen(35em){
 		position: relative;
 		border: none;
-		height: auto;
 	}
 }
 
@@ -23,8 +21,8 @@
 
 .main_header_row-header{
 	width: 100%;
+	position: relative;
 	@include min-screen(35em){
-		padding: 0.707em 0;
 	}
 	@include min-screen(47.5em){
 		padding: 1.414em 0 1.8em 0;

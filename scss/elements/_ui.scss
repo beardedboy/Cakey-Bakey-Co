@@ -1,11 +1,7 @@
  .logo_container{
-	//line-height: 5em;
-	width: 60%;
-	//margin: 0 17%;
-	float: left;
-
+	margin: 0 4.922875em;
 	@include min-screen(35em){
-		width: 76%;
+		margin: 0 5.599625em;
 	}
 
 	@include min-screen(47.5em){	
@@ -28,9 +24,11 @@
 	display: block;
 	margin: 0 auto;
 	width: 7.9925em;
+	height: 5.5em;
 
 	@include min-screen(35em){
 		width: 11.30125em;
+		height: 7.2em;
 	}
 
 	@include min-screen(47.5em){

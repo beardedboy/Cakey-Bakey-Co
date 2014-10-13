@@ -47,19 +47,24 @@
  }
 
  .nav_main_btn-menu{
-    float: left;
-    width: 20%;
+    position: absolute;
+    display: table;
+    top: 0;
+    left: 0;
+    width: 6.15384615384615em;
     color: $black;
     text-align: center;
     font-size: .8em;
     font-weight: 700;
+    line-height: 6.95692307692308em;
     &:active, &:hover{
         background-color: $pink;
         color: $white;
         text-decoration: none;
     }
     @include min-screen(35em){
-        width: 12%;
+        width: 7em;
+        line-height: 9em;
     }
 }
 

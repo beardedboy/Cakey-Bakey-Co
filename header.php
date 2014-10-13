@@ -34,11 +34,11 @@
         <header class = "main_header">
             <div class = "main_header_row">
                 <div class = "main_header_row-header">
-                    <a href = "#" data-icon="f" class = "nav_main_btn nav_main_btn-menu">MENU</a>
+                    <a href = "#" class = "nav_main_btn nav_main_btn-menu">MENU</a>
                     <div class = "logo_container">
                         <a class = "logo_home_link" href = "<?php echo home_url(); ?>">
                             <!--<h1 class = "ir logo logo_main">Cakey Bakey Co.</h1>-->
-                            <img class = "logo logo_main" src = "<?php echo get_template_directory_uri(); ?>/img/build/Logo/logo-01.svg"/>
+                            <img class = "logo logo_main" src = "<?php echo get_template_directory_uri(); ?>/img/deploy/svg/main-logo.svg"/>
                         </a>
                     </div><!-- end logo_container -->
                     <?php cbc_basket(); ?>

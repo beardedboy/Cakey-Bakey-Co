@@ -70,6 +70,14 @@ module.exports = function(grunt) {
             }
         },
 
+        svg2png: {
+            all: {
+                files: [
+                    { cwd: 'img/build/', src: ['*.svg'], dest: 'img/build/png/' }
+                ]
+            }
+        },
+
         watch: {
             scripts: {
                 files: ['js/build/*.js'],
@@ -106,7 +114,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-svg2png');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer', 'cssmin', 'imagemin']);
+    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer', 'cssmin', 'svg2png', 'imagemin']);
+    grunt.registerTask('images', ['svg2png', 'imagemin']);
 };
