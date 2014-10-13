@@ -97,14 +97,15 @@
     .link_view_basket{
         display: block;
         width: 100%;
-        padding: .5em 0;
+        padding: .5em;
+        border-radius: .25em;
         @include min-screen(35em){
             display: inline;
         }
     }
 
     .product_in_cart_message{
-        border: 1px solid $black;
+        background-color: $ultralightgrey;
         padding: 1em 0 .5em 0;
         margin: 0 1em;
         @include min-screen(35em){
@@ -117,6 +118,7 @@
 
     .product_in_cart_message_divider{
         display: none;
+        padding-left: .5em;
         @include min-screen(35em){
             display: inline;
         }
