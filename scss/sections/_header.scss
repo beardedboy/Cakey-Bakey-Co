@@ -1,9 +1,12 @@
 .main_header{
 	@extend %clearfix;
+<<<<<<< HEAD
 	max-width: $container-width;
 	margin: 0 auto;
 	background-color: $white;
 
+=======
+>>>>>>> 2b25b4b383692fec2451f008414c3f996c4ffe6c
 	@include min-screen(35em){
 		position: relative;
 		border: none;
@@ -26,8 +29,11 @@
 .main_header_row-header{
 	width: 100%;
 	position: relative;
+<<<<<<< HEAD
 	z-index: 99999;
 	background-color: white;
+=======
+>>>>>>> 2b25b4b383692fec2451f008414c3f996c4ffe6c
 	@include min-screen(35em){
 	}
 	@include min-screen(47.5em){

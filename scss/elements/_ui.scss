@@ -23,12 +23,17 @@
 .logo_main{
 	display: block;
 	margin: 0 auto;
+<<<<<<< HEAD
 	width: 6.5em;
 	height: 5.5em;
 
 	@include min-screen(25em){
 		width: 7.999999992em;
 	}
+=======
+	width: 7.9925em;
+	height: 5.5em;
+>>>>>>> 2b25b4b383692fec2451f008414c3f996c4ffe6c
 
 	@include min-screen(35em){
 		width: 11.30125em;
