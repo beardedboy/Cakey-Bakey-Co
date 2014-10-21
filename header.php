@@ -30,15 +30,14 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-    <div class = "container">
         <header class = "main_header">
-            <div class = "main_header_row">
+            <!-- <div class = "main_header_row"> -->
                 <div class = "main_header_row-header">
-                    <a href = "#" data-icon="f" class = "nav_main_btn nav_main_btn-menu">MENU</a>
+                    <a href = "#" class = "nav_main_btn nav_main_btn-menu">MENU</a>
                     <div class = "logo_container">
                         <a class = "logo_home_link" href = "<?php echo home_url(); ?>">
                             <!--<h1 class = "ir logo logo_main">Cakey Bakey Co.</h1>-->
-                            <img class = "logo logo_main" src = "<?php echo get_template_directory_uri(); ?>/img/build/Logo/logo-01.svg"/>
+                            <img class = "logo logo_main" src = "<?php echo get_template_directory_uri(); ?>/img/deploy/svg/main-logo.svg"/>
                         </a>
                     </div><!-- end logo_container -->
                     <?php cbc_basket(); ?>
@@ -51,10 +50,10 @@
                             wp_nav_menu( mainNav() );
                         } ?>   
                     </nav><!-- end nav nav_main -->
-                </div><!-- end col-12-12 -->
-            </div><!-- end row -->
+                </div><!-- end main_header_row-nav -->
+            <!--</div> end row -->
+            <hr class = "hr hr_double-reversed" />
         </header><!-- end header -->
-        <hr class = "hr hr_double-reversed" />
 
         
 

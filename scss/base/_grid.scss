@@ -8,7 +8,11 @@
 	@extend %clearfix;
 	max-width: $container-width;
 	margin: 0 auto;
-	height: 100%;
+	background-color: white;
+}
+
+.slide-left{
+	right: 23em;
 }
 
 .row{
@@ -23,15 +27,11 @@
 }
 
 .main_content{
-	//padding: 1em 1em;
-	max-width: $sm-content-width;
-	//max-width: 53.33333333333333rem;
-	padding: 1.414em 1em;
+	background-color: white;
+	width: 100%;
+	padding: 2.828em .707em 1.414em .707em;
 	margin: 0 auto;
-}
-
-.main_content-shop{
-	max-width: $md-content-width;
+	min-height: 100%;
 }
 
 [class*='col-']{
@@ -47,29 +47,18 @@
 	}
 }
 
-.main_header_row_col{
-	width: 50%;
-}
-
 
 @include min-screen($extsm-bp){}// end extra small media query
 
 @include min-screen($sm-bp){
 
-	.main_header_row_col{
-	width: 100%;
-}
 
 }// end small media query
 
-@include min-screen($med-bp){
+@include min-screen(47.5em){
 	
 	.container{
 		padding: 0 1em;
-	}
-
-	.main_content{
-		//padding: 3em 0;
 	}
 
 	@for $i from 1 through $cols {
@@ -80,8 +69,19 @@
 	  	}
 	}
 
+	.main_content{
+		padding-left: 1em;
+		padding-right: 0;
+		max-width: $sm-content-width;
+	}
+	
+	.main_content-shop{
+		max-width: $md-content-width;
+	}
+
 }// end medium media query
 
-@include min-screen($lrg-bp){} // end large media query
+@include min-screen($lrg-bp){
+} // end large media query
 
 @include min-screen($extlrg-bp){} //end extra large media query

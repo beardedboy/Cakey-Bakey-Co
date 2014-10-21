@@ -22,11 +22,14 @@
     }
 
     .basket_link-mobile{
-        float: right;
-        width: 20%;
+        position: absolute;
+        width: 6.15384615384615em;
+        top: 0;
+        right: 0;
         font-size: .8em; //18px;
         color: $black;
         text-align: center;
+        line-height: 6.95692307692308em;
         &:hover, &:active{
             color: white;
             background-color: $pink;
@@ -35,13 +38,13 @@
             }
         }
         @include min-screen(35em){
-            top: 0;
-            width: 12%;
+            width: 7em;
+            line-height: 9em;
         }
         @include min-screen(47.5em){
             line-height: 3;
             width: 10%;
-            margin-top: 2.5em;
+            margin-top: 5.5em;
             &:hover{
                 border-radius: 0.3125em;
                 border: 1px solid $darkpink;
@@ -94,14 +97,15 @@
     .link_view_basket{
         display: block;
         width: 100%;
-        padding: .5em 0;
+        padding: .5em;
+        border-radius: .25em;
         @include min-screen(35em){
             display: inline;
         }
     }
 
     .product_in_cart_message{
-        border: 1px solid $black;
+        background-color: $ultralightgrey;
         padding: 1em 0 .5em 0;
         margin: 0 1em;
         @include min-screen(35em){
@@ -114,6 +118,7 @@
 
     .product_in_cart_message_divider{
         display: none;
+        padding-left: .5em;
         @include min-screen(35em){
             display: inline;
         }

@@ -16,7 +16,7 @@
   -webkit-box-sizing: border-box; 
   box-sizing: border-box;
   font-family: $font-family, sans-serif;
- }
+}
 
 html,
 body,
@@ -31,7 +31,7 @@ textarea {
 }
 
 html {
-    font-size: 16px;
+    font-size: 100%;
     line-height: 1.5;
 }
 
@@ -40,12 +40,18 @@ html {
       html{
         font-size: 16px;
     }
+}
 
+html, body{
+  height: 100%;
 }
 
 body{
-  //height: 100%;
   overflow-x: hidden;
+  position: relative;
+  right: 0;
+  -webkit-transition: right 1s;
+  transition: right 1s;
 }
 
 /*

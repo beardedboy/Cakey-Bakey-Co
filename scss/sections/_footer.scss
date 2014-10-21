@@ -2,6 +2,7 @@
 	width: 100%;
 	border-top: 3px solid $black;
 	padding: 0;
+	background-color: $white;
 	@include min-screen($sm-bp){
 		padding: 2em 0 0 0;
 	}

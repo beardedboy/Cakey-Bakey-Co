@@ -151,10 +151,9 @@
     font-size: 1.4em;
     display: table-cell;
     vertical-align: middle;
-    padding-top: 0.2em;
   }
   @include retina-display(){
-    padding-top: 0.0625em;
+    padding-top: 0.223em;
   }
 }
 
